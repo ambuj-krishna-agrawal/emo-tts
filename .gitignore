@@ -1,0 +1,12 @@
+# Dependencies
+ParallelWaveGAN/
+espnet/
+versa/
+versa_demo_egs/
+
+# Generated files
+generated_wavs/
+
+# Environment
+*.pyc
+__pycache__/

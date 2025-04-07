@@ -1,0 +1,7 @@
+name: emo-tts-new
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - cmake
+prefix: /home/ambuja/miniconda3/envs/emo-tts-new

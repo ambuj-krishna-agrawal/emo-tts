@@ -79,17 +79,22 @@ def synthesise_dataset(cfg: Config):
     logging.info("Loaded %d examples from IEMOCAP %s split.",
                  len(ds), cfg.split)
 
-    # 3) Output folder
+    # 3) Output folders
     out_split_dir = cfg.out_dir / cfg.split
     out_split_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Create reference audio directory
+    ref_split_dir = cfg.out_dir / "reference" / cfg.split
+    ref_split_dir.mkdir(parents=True, exist_ok=True)
 
     # To store metadata for later evaluation
     metadata = []
 
     # 4) Synthesis loop - use appropriate field names based on inspection
     for i, ex in enumerate(tqdm(ds, desc="Synthesising")):
-        # Generate an ID if 'utterance_id' doesn't exist
-        utt_id = ex.get("utterance_id") or f"utterance_{i:05d}"
+        # Extract the filename from the audio path to use as utterance_id
+        file_path = ex.get("file")
+        utt_id = Path(file_path).stem if file_path else f"utterance_{i:05d}"
 
         # Get text from appropriate field
         text = ex.get("transcription") or ex.get("text") or ex.get("sentence")
@@ -110,12 +115,48 @@ def synthesise_dataset(cfg: Config):
         out_path = out_split_dir / f"{utt_id}.wav"
         sf.write(out_path, wav_np, cfg.sample_rate)
 
-        # Store the metadata (you can add more fields if needed)
-        metadata.append({
+        # Save reference audio
+        audio_data = ex.get("audio", {})
+        ref_audio_array = audio_data.get("array", None)
+        ref_audio_sr = audio_data.get("sampling_rate", cfg.sample_rate)
+        
+        ref_path = ref_split_dir / f"{utt_id}.wav"
+        if ref_audio_array is not None:
+            sf.write(ref_path, ref_audio_array, ref_audio_sr)
+            logging.debug(f"Saved reference audio to {ref_path}")
+        
+        # Store comprehensive metadata including all emotion and acoustic values
+        metadata_entry = {
             "utterance_id": utt_id,
             "transcript": text,
-            "generated_wav_path": str(out_path)
-        })
+            "generated_wav_path": str(out_path),
+            "reference_wav_path": str(ref_path),
+            # Emotional labels
+            "frustrated": ex.get("frustrated", 0),
+            "angry": ex.get("angry", 0),
+            "sad": ex.get("sad", 0),
+            "disgust": ex.get("disgust", 0),
+            "excited": ex.get("excited", 0),
+            "fear": ex.get("fear", 0),
+            "neutral": ex.get("neutral", 0),
+            "surprise": ex.get("surprise", 0),
+            "happy": ex.get("happy", 0),
+            # Emotion dimensions
+            "EmoAct": ex.get("EmoAct", 0),
+            "EmoVal": ex.get("EmoVal", 0),
+            "EmoDom": ex.get("EmoDom", 0),
+            # Speaker info
+            "gender": ex.get("gender", ""),
+            "major_emotion": ex.get("major_emotion", ""),
+            # Acoustic features
+            "speaking_rate": ex.get("speaking_rate", 0),
+            "pitch_mean": ex.get("pitch_mean", 0),
+            "pitch_std": ex.get("pitch_std", 0),
+            "rms": ex.get("rms", 0),
+            "relative_db": ex.get("relative_db", 0)
+        }
+        
+        metadata.append(metadata_entry)
 
     # Save metadata to a JSON file for later evaluation/comparison
     metadata_path = out_split_dir / "metadata.json"
