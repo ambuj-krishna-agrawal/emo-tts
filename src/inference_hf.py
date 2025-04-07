@@ -193,3 +193,6 @@ if __name__ == "__main__":
     )
     cfg = parse_args()
     synthesise_dataset(cfg)
+
+# conda env export -n emo-tts-new --json > environment.json
+# conda env export -n emo-tts-new --from-history > environment.yml
