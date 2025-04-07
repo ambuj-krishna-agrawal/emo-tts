@@ -115,7 +115,6 @@ pip install . &&
 cd .. && 
 git clone --depth 5 https://github.com/ftshijt/ParallelWaveGAN.git && 
 cd ParallelWaveGAN &&
-# Fix the CMakeLists.txt file
 sed -i 's/cmake_minimum_required(VERSION [0-9]\.[0-9])/cmake_minimum_required(VERSION 3.5)/' */CMakeLists.txt &&
 pip install . && 
 cd .. && 
