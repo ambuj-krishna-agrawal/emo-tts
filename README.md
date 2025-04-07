@@ -106,6 +106,31 @@ python inference_hf.py --max_samples 100
 4. **Output**:  
    The generated WAV files are saved in the `out_dir/<split>/` folder. A `metadata.json` file is also generated, containing details about each processed sample.
 
+## Installation
+conda create -n emo-tts-new python=3.8 -y && 
+conda activate emo-tts-new && 
+git clone --depth 5 https://github.com/espnet/espnet.git && 
+cd espnet && 
+pip install . && 
+cd .. && 
+git clone --depth 5 https://github.com/ftshijt/ParallelWaveGAN.git && 
+cd ParallelWaveGAN &&
+# Fix the CMakeLists.txt file
+sed -i 's/cmake_minimum_required(VERSION [0-9]\.[0-9])/cmake_minimum_required(VERSION 3.5)/' */CMakeLists.txt &&
+pip install . && 
+cd .. && 
+pip install espnet_model_zoo && 
+pip install pyopenjtalk==0.4 && 
+pip install pypinyin==0.44.0 && 
+pip install gdown==4.4.0 && 
+pip install ipywebrtc && 
+git clone --depth 5 https://github.com/shinjiwlab/versa.git && 
+cd versa && 
+pip install . && 
+cd .. && 
+git clone https://github.com/ftshijt/versa_demo_egs.git && 
+python -c "import nltk; nltk.download('averaged_perceptron_tagger')"
+
 ## Troubleshooting
 
 - **Environment Issues**:  
@@ -117,3 +142,6 @@ python inference_hf.py --max_samples 100
 ## License
 
 [Add your license information here]
+
+
+
