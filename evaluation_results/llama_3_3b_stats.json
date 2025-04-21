@@ -1,0 +1,29 @@
+{
+  "part_A": {
+    "accuracy": 0.19230769230769232,
+    "matched": 600,
+    "total": 3120
+  },
+  "part_B": {
+    "gold": {
+      "accuracy": 0.5230769230769231,
+      "correct": 1632,
+      "total": 3120
+    },
+    "neutral": {
+      "accuracy": 0.38461538461538464,
+      "correct": 1200,
+      "total": 3120
+    },
+    "steered_ref": {
+      "accuracy": 0.3003205128205128,
+      "correct": 937,
+      "total": 3120
+    },
+    "steered_model": {
+      "accuracy": 0.4282051282051282,
+      "correct": 1336,
+      "total": 3120
+    }
+  }
+}

@@ -11,7 +11,31 @@
             "type": "debugpy",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "module": "src.evaluate_with_versa",
+            "module": "src.gradio_app",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "experiment",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "module": "src_new.prepare_new_sds",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "emotion_planning_and_reply",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "module": "src_new.emotion_planning_and_reply",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "emotion_planning_and_reply",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "module": "src_new.emotion_planning_and_reply_emo2vec",
             "console": "integratedTerminal"
         }
     ]

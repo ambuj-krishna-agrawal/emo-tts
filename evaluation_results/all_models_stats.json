@@ -1,0 +1,108 @@
+{
+  "part_A_summary": {
+    "llama_3_70b": {
+      "accuracy": 0.41057692307692306,
+      "matched": 1281,
+      "total": 3120
+    },
+    "llama_3_3b": {
+      "accuracy": 0.19230769230769232,
+      "matched": 600,
+      "total": 3120
+    },
+    "mistral_7b": {
+      "accuracy": 0.3631410256410256,
+      "matched": 1133,
+      "total": 3120
+    }
+  },
+  "all_model_stats": {
+    "llama_3_70b": {
+      "part_A": {
+        "accuracy": 0.41057692307692306,
+        "matched": 1281,
+        "total": 3120
+      },
+      "part_B": {
+        "gold": {
+          "accuracy": 0.5230769230769231,
+          "correct": 1632,
+          "total": 3120
+        },
+        "neutral": {
+          "accuracy": 0.39871794871794874,
+          "correct": 1244,
+          "total": 3120
+        },
+        "steered_ref": {
+          "accuracy": 0.36346153846153845,
+          "correct": 1134,
+          "total": 3120
+        },
+        "steered_model": {
+          "accuracy": 0.6426282051282052,
+          "correct": 2005,
+          "total": 3120
+        }
+      }
+    },
+    "llama_3_3b": {
+      "part_A": {
+        "accuracy": 0.19230769230769232,
+        "matched": 600,
+        "total": 3120
+      },
+      "part_B": {
+        "gold": {
+          "accuracy": 0.5230769230769231,
+          "correct": 1632,
+          "total": 3120
+        },
+        "neutral": {
+          "accuracy": 0.38461538461538464,
+          "correct": 1200,
+          "total": 3120
+        },
+        "steered_ref": {
+          "accuracy": 0.3003205128205128,
+          "correct": 937,
+          "total": 3120
+        },
+        "steered_model": {
+          "accuracy": 0.4282051282051282,
+          "correct": 1336,
+          "total": 3120
+        }
+      }
+    },
+    "mistral_7b": {
+      "part_A": {
+        "accuracy": 0.3631410256410256,
+        "matched": 1133,
+        "total": 3120
+      },
+      "part_B": {
+        "gold": {
+          "accuracy": 0.5230769230769231,
+          "correct": 1632,
+          "total": 3120
+        },
+        "neutral": {
+          "accuracy": 0.3782051282051282,
+          "correct": 1180,
+          "total": 3120
+        },
+        "steered_ref": {
+          "accuracy": 0.3371794871794872,
+          "correct": 1052,
+          "total": 3120
+        },
+        "steered_model": {
+          "accuracy": 0.555448717948718,
+          "correct": 1733,
+          "total": 3120
+        }
+      }
+    }
+  }
+}

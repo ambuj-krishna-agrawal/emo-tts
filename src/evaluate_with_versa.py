@@ -8,7 +8,7 @@ this environment.
 Two passes are launched:
 1. Independent metrics (no reference): UTMOS + DNSMOS (pseudo_mos), NISQA, SRMR.
 2. Reference metrics: PESQ, STOI, signal_metric (SI‑SNR & LSD bundle), VISQOL,
-   and MCD + F0‑RMSE (mcd_f0).
+   and MCD + F0‑RMSE (mcd_f0).
 
 VERSA expects the YAML to be a top‑level list of metric configs, so that’s what
 this script writes.
@@ -24,6 +24,7 @@ import math
 import subprocess
 import sys
 import tempfile
+import re
 from pathlib import Path
 from typing import Dict, Any, List
 
@@ -45,16 +46,46 @@ def run_versa(args: List[str]):
 
 def read_metrics(path: Path) -> List[Dict[str, Any]]:
     """
-    Read a metrics file that can be either a JSON list or JSONL (one JSON per line)
-    and return a list of dictionaries.
+    Read a metrics file that may be:
+      - a JSON list    (e.g. [ {...}, {...}, ... ])
+      - JSONL          (one JSON object per line)
+      - Python reprs   (single‑quoted dicts, one per line, possibly containing inf/nan)
+    Returns a list of dicts.
     """
-    with path.open("r") as f:
-        first_char = f.read(1)
-        f.seek(0)
-        if first_char == "[":
-            return json.load(f)
-        else:
-            return [json.loads(line) for line in f if line.strip()]
+    text = path.read_text()
+    if text.lstrip().startswith("["):
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+
+    metrics: List[Dict[str, Any]] = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+
+        # try strict JSON
+        try:
+            metrics.append(json.loads(line))
+            continue
+        except json.JSONDecodeError:
+            pass
+
+        # convert to JSON-friendly (single→double quotes, inf→null)
+        jl = line.replace("'", '"')
+        jl = re.sub(r':\s*([+-]?inf)(?=[,}])', r': null', jl)
+        try:
+            metrics.append(json.loads(jl))
+            continue
+        except json.JSONDecodeError:
+            pass
+
+        # fallback: safe eval for inf/nan
+        safe_locals = {"inf": float("inf"), "nan": float("nan")}
+        metrics.append(eval(line, {"__builtins__": None}, safe_locals))
+
+    return metrics
 
 def write_jsonl(path: Path, data: List[Dict[str, Any]]):
     """
@@ -82,7 +113,7 @@ def main(cfg):
     build_scp(gen_paths, pred_scp)
     build_scp(ref_paths, ref_scp)
 
-    # Write YAML configs (top‑level list) ---------------------------------------
+    # Write YAML configs (top‑level list)
     independent_yaml = cfg.outdir / "independent.yaml"
     dependent_yaml   = cfg.outdir / "dependent.yaml"
 
@@ -90,7 +121,6 @@ def main(cfg):
 - name: pseudo_mos
   predictor_types: [utmos]
 """)
-
     dependent_yaml.write_text("""
 - name: pesq
 - name: stoi
@@ -109,6 +139,17 @@ def main(cfg):
         "--use_gpu", gpu_flag,
         "--io", "kaldi"
     ])
+    # ── Postprocess independent.json into valid JSON list ──
+    buf = ind_out.read_text().splitlines()
+    objs: List[Dict[str, Any]] = []
+    for line in buf:
+        line = line.strip()
+        if not line:
+            continue
+        objs.append(eval(line,
+                         {"__builtins__": None},
+                         {"inf": float("inf"), "nan": float("nan")}))
+    ind_out.write_text(json.dumps(objs, indent=2))
 
     logging.info("Running reference metrics …")
     run_versa([
@@ -119,13 +160,24 @@ def main(cfg):
         "--use_gpu", gpu_flag,
         "--io", "kaldi"
     ])
+    # ── Postprocess dependent.json into valid JSON list ──
+    buf = dep_out.read_text().splitlines()
+    objs = []
+    for line in buf:
+        line = line.strip()
+        if not line:
+            continue
+        objs.append(eval(line,
+                         {"__builtins__": None},
+                         {"inf": float("inf"), "nan": float("nan")}))
+    dep_out.write_text(json.dumps(objs, indent=2))
 
     # Read metrics from the independent and dependent outputs.
     independent_metrics = read_metrics(ind_out)
-    dependent_metrics = read_metrics(dep_out)
+    dependent_metrics   = read_metrics(dep_out)
 
     # Merge metrics based on "key".
-    merged = {}
+    merged: Dict[str, Dict[str, Any]] = {}
     for entry in independent_metrics:
         key = entry.get("key")
         if key:
@@ -133,32 +185,24 @@ def main(cfg):
     for entry in dependent_metrics:
         key = entry.get("key")
         if key:
-            if key in merged:
-                merged[key].update(entry)
-            else:
-                merged[key] = entry.copy()
+            merged.setdefault(key, {}).update(entry)
 
-    # Compute overall average for each numeric metric (ignoring non-finite values).
-    overall = {}
-    counts = {}
+    # Compute overall average for each numeric metric.
+    overall: Dict[str, float] = {}
+    counts: Dict[str, int] = {}
     for entry in merged.values():
         for metric, value in entry.items():
             if metric == "key":
                 continue
             if isinstance(value, (int, float)) and math.isfinite(value):
                 overall[metric] = overall.get(metric, 0.0) + value
-                counts[metric] = counts.get(metric, 0) + 1
-
+                counts[metric]  = counts.get(metric, 0) + 1
     for metric in overall:
         overall[metric] /= counts[metric]
 
-    # Prepare final output: each utterance's metrics (one JSON per line)
-    # and an overall summary as the last line.
-    output_lines = []
-    for key, metrics in merged.items():
-        output_lines.append(metrics)
-    overall_entry = {"key": "overall"}
-    overall_entry.update(overall)
+    # Prepare final output: individual utterance metrics + overall summary.
+    output_lines: List[Dict[str, Any]] = list(merged.values())
+    overall_entry = {"key": "overall", **overall}
     output_lines.append(overall_entry)
 
     # Write the final JSONL summary.
@@ -171,18 +215,34 @@ def main(cfg):
 
 def parse_args():
     p = argparse.ArgumentParser(description="TTS evaluation with VERSA")
-    p.add_argument("--metadata", type=Path, default="generated_wavs/train/metadata.json", required=False,
-                   help="Path to metadata.json produced after synthesis")
+    p.add_argument(
+        "--metadata",
+        type=Path,
+        default="generated_wavs/train/metadata.json",
+        required=False,
+        help="Path to metadata.json produced after synthesis",
+    )
     p.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
-    p.add_argument("--outdir", type=Path, default=Path("evaluation_results"))
-    p.add_argument("--verbose", action="count", default=0,
-                   help="‑v (INFO) or ‑vv (DEBUG)")
+    p.add_argument(
+        "--outdir",
+        type=Path,
+        default=Path("evaluation_results"),
+    )
+    p.add_argument(
+        "--verbose",
+        action="count",
+        default=0,
+        help="-v (INFO) or -vv (DEBUG)",
+    )
     return p.parse_args()
 
 if __name__ == "__main__":
     cfg = parse_args()
-    logging.basicConfig(level=logging.DEBUG if cfg.verbose > 1 else
-                        logging.INFO if cfg.verbose == 1 else logging.WARN,
-                        format="%(asctime)s %(levelname)s %(message)s",
-                        datefmt="%H:%M:%S")
+    logging.basicConfig(
+        level=logging.DEBUG if cfg.verbose > 1 else
+              logging.INFO  if cfg.verbose == 1 else
+              logging.WARN,
+        format="%(asctime)s %(levelname)s %(message)s",
+        datefmt="%H:%M:%S"
+    )
     main(cfg)

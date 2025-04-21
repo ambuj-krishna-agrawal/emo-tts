@@ -1,0 +1,18 @@
+{
+  "total_processed": 3120,
+  "emotion_distribution": {
+    "Neutral": 1576,
+    "Surprise": 267,
+    "Angry": 80,
+    "Disgust": 128,
+    "Excited": 579,
+    "Sad": 239,
+    "Happy": 215,
+    "Fear": 36
+  },
+  "agreement_with_reference": 1133,
+  "agreement_percentage": 36.31410256410256,
+  "successes": 3120,
+  "errors": 0,
+  "timestamp": "2025-04-19 08:18:35"
+}
