@@ -37,6 +37,14 @@
             "cwd": "${workspaceFolder}",
             "module": "src_new.emotion_planning_and_reply_emo2vec",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "gradio",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "module": "src_new.gradio_interface",
+            "console": "integratedTerminal"
         }
     ]
 }

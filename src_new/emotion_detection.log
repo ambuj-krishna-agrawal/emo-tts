@@ -1,0 +1,19 @@
+2025-04-22 01:50:36,323 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection
+2025-04-22 01:50:36,566 INFO [emotion_asr] - Using device: cuda
+2025-04-22 01:50:36,566 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 01:50:48,837 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 01:50:50,145 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 01:50:51,515 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 01:50:51,600 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 01:50:51,606 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 01:50:51,622 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 01:50:51,791 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 01:50:51,917 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 01:51:20,869 ERROR [emotion_detection] - Failed to import vllm_router - inference client not available
+2025-04-22 01:51:20,869 WARNING [emotion_detection] - Inference client not available, returning default emotion 'Neutral'
+2025-04-22 01:51:20,869 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 01:51:20,869 ERROR [emotion_detection] - Failed to import vllm_router - inference client not available
+2025-04-22 01:51:20,869 WARNING [emotion_detection] - Inference client not available, returning default response
+2025-04-22 01:51:20,870 ERROR [emotion_detection] - Failed to import vllm_router - inference client not available
+2025-04-22 01:51:20,870 WARNING [emotion_detection] - Inference client not available, returning default response
+2025-04-22 01:51:20,870 INFO [emotion_asr] - Generating speech using EmotiVoice

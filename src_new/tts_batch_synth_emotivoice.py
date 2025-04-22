@@ -22,7 +22,7 @@ from typing import List, Tuple, Dict
 # Path to the EmotiVoice installation
 EMOTIVOICE_PATH = Path("/home/ambuja/emo-tts/EmotiVoice")
 # Path to the EmotiVoice models
-EMOTIVOICE_MODELS_PATH = Path("/home/ambuja/EmotiVoice_models")
+EMOTIVOICE_MODELS_PATH = Path("/data/group_data/starlight/gpa/tts/EmotiVoice_models")
 # Add EmotiVoice to the path
 sys.path.insert(0, str(EMOTIVOICE_PATH))
 

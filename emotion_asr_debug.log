@@ -1,0 +1,117 @@
+2025-04-22 00:08:53,805 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:08:53,953 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:08:53,954 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:09:12,113 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:09:12,325 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:10:55,738 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:10:55,913 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:10:55,913 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:11:08,227 - emotion_asr - INFO - Launching Gradio app...
+2025-04-22 00:11:08,492 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:11:08,530 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:11:08,542 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:11:09,046 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:11:09,550 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:11:10,055 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:11:10,242 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:11:10,559 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:11:13,756 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:11:14,935 - httpx - INFO - HTTP Request: GET https://cdn-media.huggingface.co/frpc-gradio-0.2/frpc_linux_amd64 "HTTP/1.1 200 OK"
+2025-04-22 00:15:35,524 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:15:35,711 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:15:35,712 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:15:48,332 - emotion_asr - INFO - Launching Gradio app...
+2025-04-22 00:15:48,642 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:15:48,652 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:15:49,156 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:15:49,660 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:15:49,914 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:15:50,164 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:15:50,669 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:15:51,491 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:15:53,104 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:15:53,460 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:20:56,061 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:20:56,238 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:20:56,238 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:21:09,273 - emotion_asr - INFO - Launching Gradio app...
+2025-04-22 00:21:09,552 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:21:09,583 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:21:09,593 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:21:09,751 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:21:10,097 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:21:10,602 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:21:11,106 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:21:11,610 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:21:12,446 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:22:44,263 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:22:44,425 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:22:44,425 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:22:56,120 - emotion_asr - INFO - Attempting to start application...
+2025-04-22 00:22:57,230 - httpx - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 00:22:58,453 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:22:58,503 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:22:58,512 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:22:58,690 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:22:59,016 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:22:59,519 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:23:00,025 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:23:00,530 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 500 Internal Server Error"
+2025-04-22 00:23:01,359 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:25:27,531 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:25:27,686 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:25:27,686 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:25:39,146 - emotion_asr - INFO - Attempting to start application...
+2025-04-22 00:25:40,342 - httpx - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 00:25:41,499 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:25:41,550 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:25:41,563 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 00:25:41,728 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:25:41,891 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:26:12,657 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:26:12,811 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:26:12,812 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:26:24,275 - emotion_asr - INFO - Attempting to start application...
+2025-04-22 00:26:25,574 - httpx - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 00:26:26,685 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:26:26,739 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:26:26,753 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 00:26:26,892 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:26:27,091 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:33:31,473 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:33:31,687 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:33:31,687 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:33:43,160 - emotion_asr - INFO - Attempting to start application...
+2025-04-22 00:33:44,382 - httpx - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 00:33:45,737 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:33:45,778 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:33:45,792 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 00:33:45,989 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:33:46,125 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:38:24,711 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:38:24,916 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:38:24,916 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:38:36,992 - emotion_asr - INFO - Starting application with Gradio interface...
+2025-04-22 00:38:38,277 - httpx - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 00:38:39,745 - emotion_asr - INFO - Launching Gradio interface...
+2025-04-22 00:38:39,796 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:38:39,848 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:38:39,865 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 00:38:39,997 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:38:40,165 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:38:59,495 - emotion_asr - WARNING - wav is not an array, using random emotion
+2025-04-22 00:44:02,552 - emotion_asr - INFO - Starting emotion-aware ASR/TTS demo
+2025-04-22 00:44:02,752 - emotion_asr - INFO - Using device: cuda
+2025-04-22 00:44:02,753 - emotion_asr - INFO - Loading Whisper model for ASR...
+2025-04-22 00:44:14,307 - emotion_asr - INFO - Starting application with Gradio interface...
+2025-04-22 00:44:15,593 - httpx - INFO - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 00:44:16,748 - emotion_asr - INFO - Launching Gradio interface...
+2025-04-22 00:44:16,820 - httpx - INFO - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 00:44:16,836 - httpx - INFO - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 00:44:16,851 - httpx - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 00:44:17,056 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 00:44:17,186 - httpx - INFO - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 00:44:48,969 - emotion_asr - WARNING - wav is not an array, using random emotion
+2025-04-22 00:44:48,969 - emotion_asr - INFO - Generating speech using EmotiVoice
+2025-04-22 00:45:29,818 - emotion_asr - WARNING - wav is not an array, using random emotion
+2025-04-22 00:45:29,819 - emotion_asr - INFO - Generating speech using EmotiVoice

@@ -6,6 +6,9 @@ Prepare two-turn speaker pairs (A→B) from the IVLLab/MultiDialog dataset acros
 Generates up to `max_pairs` adjacent-utterance pairs with speaker, emotion, transcript, and audio saved,
 plus a metadata JSON for downstream ASR/TTS in ESPnet. Only pairs with different speakers and both
 audio segments at least `min_duration` seconds are kept.
+
+Pairs are filtered based on semantic relevance and emotion strength to identify high-quality pairs
+where speaker B shows strong emotional responses to speaker A's utterances.
 """
 import os
 import argparse
@@ -14,15 +17,31 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional, List, Dict, Any, Tuple
+import numpy as np
 
 from datasets import load_dataset, Dataset, DatasetDict
 import soundfile as sf
 import librosa
 from tqdm import tqdm
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import nltk
+from nltk.sentiment import SentimentIntensityAnalyzer
+import string
 
-# Configure more verbose logging
+# Download NLTK resources
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+try:
+    nltk.data.find('vader_lexicon')
+except LookupError:
+    nltk.download('vader_lexicon')
+
+# Configure logging
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%H:%M:%S",
 )
@@ -33,11 +52,19 @@ DEFAULT_SPLITS = ["valid_freq", "valid_rare", "test_freq", "test_rare"]
 DEFAULT_OUT_DIR = Path("/data/group_data/starlight/gpa/tts/multidialog_sds_pairs")
 DEFAULT_HF_TOKEN = os.getenv("HF_TOKEN")
 DEFAULT_SAMPLE_RATE = 16000
-DEFAULT_MAX_PAIRS = 1000000000
 DEFAULT_MIN_DURATION = 1.0
 DEFAULT_FILTER_DIFF_SPEAKER = True
 DEFAULT_GOLD_EMOTION_ONLY = False
 DEFAULT_GOLD_EMOTION_ACTORS = ["a", "b", "c", "e", "f", "g", "i", "j", "k"]
+DEFAULT_TOP_N_PAIRS = 20
+DEFAULT_MIN_WORD_COUNT = 15
+DEFAULT_SEMANTIC_SIMILARITY_THRESHOLD = 0.2  # Minimum semantic similarity between A and B
+DEFAULT_EMOTION_STRENGTH_THRESHOLD = 0.5      # Increased minimum emotion strength score
+DEFAULT_TARGET_EMOTIONS = [
+    "Anger", "Fear", "Surprise", "Disgust", "Sadness", "Joy"
+]  # Emotions to prioritize
+DEFAULT_NEUTRAL_RATIO = 0.1  # Reduced neutral ratio
+DEFAULT_MIN_A_EMOTION_STRENGTH = 0.3  # Minimum emotion strength for speaker A
 
 # ───────────────────────────── Config dataclass ─────────────────────────────
 @dataclass
@@ -47,27 +74,28 @@ class Config:
     out_dir: Path = DEFAULT_OUT_DIR
     hf_token: Optional[str] = DEFAULT_HF_TOKEN
     sample_rate: int = DEFAULT_SAMPLE_RATE
-    max_pairs: int = DEFAULT_MAX_PAIRS
     min_duration: float = DEFAULT_MIN_DURATION
     require_different_speakers: bool = DEFAULT_FILTER_DIFF_SPEAKER
     gold_emotion_only: bool = DEFAULT_GOLD_EMOTION_ONLY
     gold_emotion_actors: List[str] = field(default_factory=lambda: DEFAULT_GOLD_EMOTION_ACTORS.copy())
+    top_n_pairs: int = DEFAULT_TOP_N_PAIRS
+    min_word_count: int = DEFAULT_MIN_WORD_COUNT
+    semantic_similarity_threshold: float = DEFAULT_SEMANTIC_SIMILARITY_THRESHOLD
+    emotion_strength_threshold: float = DEFAULT_EMOTION_STRENGTH_THRESHOLD
+    min_a_emotion_strength: float = DEFAULT_MIN_A_EMOTION_STRENGTH
+    target_emotions: List[str] = field(default_factory=lambda: DEFAULT_TARGET_EMOTIONS.copy())
+    neutral_ratio: float = DEFAULT_NEUTRAL_RATIO
 
 # ─────────────────── Helper functions ────────────────────
 def get_speaker_id(file_name: str) -> str:
     """Extract speaker ID from file name (last character before .wav)"""
     try:
-        # Debug
-        logging.debug(f"Extracting speaker ID from filename: {file_name}")
-        
         if not isinstance(file_name, str):
-            # logging.warning(f"WARNING: file_name is not a string but {type(file_name)}")
             return "unknown"
             
         if file_name.endswith('.wav'):
             # Common pattern: last character before .wav
             speaker_id = file_name.split("_")[-1].split(".")[0][-1]
-            # logging.debug(f"Extracted speaker ID: {speaker_id}")
             return speaker_id
         else:
             logging.warning(f"WARNING: file_name doesn't end with .wav: {file_name}")
@@ -90,6 +118,122 @@ def group_by_conversation(examples: List[Dict[str, Any]]) -> Dict[str, List[Dict
         conversations[conv_id].sort(key=lambda x: x["utterance_id"])
     
     return conversations
+
+def count_words(text: str) -> int:
+    """Count the number of words in a string"""
+    return len(text.split())
+
+def calculate_semantic_similarity(text_a: str, text_b: str) -> float:
+    """Calculate semantic similarity between two texts using TF-IDF and cosine similarity"""
+    if not text_a or not text_b:
+        return 0.0
+        
+    # Clean and normalize texts
+    def clean_text(text):
+        # Convert to lowercase and remove punctuation
+        text = text.lower()
+        text = text.translate(str.maketrans('', '', string.punctuation))
+        return text
+        
+    text_a_clean = clean_text(text_a)
+    text_b_clean = clean_text(text_b)
+    
+    # If after cleaning texts are too short, similarity is low
+    if len(text_a_clean.split()) < 3 or len(text_b_clean.split()) < 3:
+        return 0.1
+    
+    # Create TF-IDF vectorizer and calculate similarity
+    vectorizer = TfidfVectorizer()
+    try:
+        tfidf_matrix = vectorizer.fit_transform([text_a_clean, text_b_clean])
+        similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
+        return similarity
+    except:
+        # If vectorization fails, return 0
+        return 0.0
+
+def score_emotion_strength(text: str, emotion: str) -> float:
+    """
+    Score the emotional strength of a text based on sentiment analysis
+    and the stated emotion label - improved to better detect strong emotions
+    """
+    # Initialize sentiment analyzer
+    sia = SentimentIntensityAnalyzer()
+    
+    # Get sentiment scores
+    sentiment_scores = sia.polarity_scores(text)
+    
+    # Map emotions to expected sentiment patterns
+    emotional_intensity = 0.0
+    
+    # Use compound score for overall intensity - higher initial weight
+    base_intensity = abs(sentiment_scores['compound']) * 1.2
+    
+    # Boost intensity based on matching emotion label with sentiment
+    if emotion in ["Anger", "Disgust"] and sentiment_scores['neg'] > 0.2:
+        emotional_intensity = base_intensity * 2.0
+    elif emotion == "Joy" and sentiment_scores['pos'] > 0.2:
+        emotional_intensity = base_intensity * 2.0
+    elif emotion == "Sadness" and sentiment_scores['neg'] > 0.2:
+        emotional_intensity = base_intensity * 1.8
+    elif emotion == "Surprise" and (sentiment_scores['pos'] > 0.2 or sentiment_scores['neg'] > 0.2):
+        emotional_intensity = base_intensity * 1.8
+    elif emotion == "Fear" and sentiment_scores['neg'] > 0.2:
+        emotional_intensity = base_intensity * 2.0
+    elif emotion == "Neutral":
+        # Significantly lower score for neutral emotions
+        emotional_intensity = base_intensity * 0.3
+    else:
+        # Default case - still boosted slightly
+        emotional_intensity = base_intensity * 1.2
+    
+    # Add stronger bonus for emotional words and punctuation
+    emotional_markers = {
+        '!': 0.15,                   # Exclamation
+        '?!': 0.2,                   # Surprised question
+        '!!!': 0.25,                 # Multiple exclamations
+        'very': 0.15,                # Intensity words
+        'really': 0.15,
+        'extremely': 0.2,
+        'absolutely': 0.2,
+        'definitely': 0.15,
+        'furious': 0.25,             # Strong emotion words
+        'terrified': 0.25,
+        'ecstatic': 0.25,
+        'devastated': 0.25,
+        'thrilled': 0.2,
+        'hate': 0.2,
+        'love': 0.2,
+        'horrible': 0.2,
+        'amazing': 0.2,
+        'terrible': 0.2,
+        'awful': 0.2,
+        'incredible': 0.2,
+        'worst': 0.2,
+        'best': 0.2,
+    }
+    
+    for marker, bonus in emotional_markers.items():
+        if marker in text.lower():
+            emotional_intensity += bonus
+    
+    # Check for ALL CAPS words (indicating emphasis/shouting)
+    words = text.split()
+    for word in words:
+        if len(word) > 2 and word.isupper():
+            emotional_intensity += 0.25
+            break
+    
+    # Check for repeated punctuation
+    if '!!' in text or '??' in text:
+        emotional_intensity += 0.2
+    
+    # Longer texts get a slight bonus if they're already somewhat emotional
+    if len(text) > 50 and emotional_intensity > 0.4:
+        emotional_intensity += 0.1
+    
+    # Cap at 1.0
+    return min(emotional_intensity, 1.0)
 
 def debug_print_example(ex, prefix="Example"):
     """Print the structure of an example for debugging"""
@@ -142,6 +286,7 @@ def load_dataset_split(cfg: Config, split: str) -> Dataset:
         ds = raw
 
     return ds
+
 # ────────────────────────────────── Main logic ─────────────────────────────────
 def prepare_pairs(cfg: Config):
     # 1) Load dataset for all splits
@@ -234,14 +379,10 @@ def prepare_pairs(cfg: Config):
     for conv_id, utts in conversations.items():
         for i in range(len(utts) - 1):
             raw_pairs.append((utts[i], utts[i + 1]))
-            if len(raw_pairs) >= cfg.max_pairs:
-                break
-        if len(raw_pairs) >= cfg.max_pairs:
-            break
     logging.info(f"Generated {len(raw_pairs)} raw pairs")
     
-    # 5) Filter pairs by speaker and duration
-    filtered = []
+    # 5) Filter pairs by speaker, duration, and minimum word count
+    basic_filtered_pairs = []
     for a, b in raw_pairs:
         # Filter by different speakers if required
         if cfg.require_different_speakers and a["speaker"] == b["speaker"]:
@@ -252,19 +393,163 @@ def prepare_pairs(cfg: Config):
         dur_b = len(b["audio_array"]) / b["audio_sr"]
         if dur_a < cfg.min_duration or dur_b < cfg.min_duration:
             continue
+        
+        # Filter by minimum word count
+        word_count_a = count_words(a["text"])
+        word_count_b = count_words(b["text"])
+        if word_count_a < cfg.min_word_count or word_count_b < cfg.min_word_count:
+            continue
             
-        filtered.append((a, b))
-        if len(filtered) >= cfg.max_pairs:
-            break
+        basic_filtered_pairs.append((a, b))
     
-    logging.info(f"Filtered down to {len(filtered)} pairs")
+    logging.info(f"Filtered down to {len(basic_filtered_pairs)} pairs by speaker, duration, and minimum word count requirements")
     
-    # 6) Save audio and metadata
+    # 6) Calculate semantic similarity and emotion strength scores for each pair
+    scored_pairs = []
+    for a, b in basic_filtered_pairs:
+        # Calculate semantic similarity between A and B
+        semantic_similarity = calculate_semantic_similarity(a["text"], b["text"])
+        
+        # Calculate emotion strength score for speaker B
+        emotion_strength = score_emotion_strength(b["text"], b["emotion"])
+        
+        # Create score dictionary
+        score_dict = {
+            "semantic_similarity": semantic_similarity,
+            "emotion_strength": emotion_strength,
+            "is_target_emotion": b["emotion"] in cfg.target_emotions,
+            "is_neutral": b["emotion"] == "Neutral"
+        }
+        
+        # Add to scored pairs
+        scored_pairs.append((a, b, score_dict))
+    
+    logging.info(f"Calculated semantic similarity and emotion strength for {len(scored_pairs)} pairs")
+    
+    # 7) Filter by semantic similarity threshold
+    similarity_filtered = [
+        (a, b, scores) for a, b, scores in scored_pairs 
+        if scores["semantic_similarity"] >= cfg.semantic_similarity_threshold
+    ]
+    logging.info(f"Filtered to {len(similarity_filtered)} pairs with semantic similarity >= {cfg.semantic_similarity_threshold}")
+    
+    # 8) Filter for emotion strength in speaker A and ensure non-neutral for speaker B
+    strong_emotion_pairs = []
+    
+    for a, b, scores in similarity_filtered:
+        # Calculate emotion strength for speaker A
+        a_emotion_strength = score_emotion_strength(a["text"], a["emotion"])
+        
+        # Skip pairs where speaker B has neutral emotion (critical change)
+        if b["emotion"] == "Neutral":
+            continue
+            
+        # Skip pairs where speaker A's emotion is too weak
+        if a_emotion_strength < cfg.min_a_emotion_strength:
+            continue
+        
+        # Keep only pairs with strong enough speaker B emotion
+        if scores["is_target_emotion"] and scores["emotion_strength"] >= cfg.emotion_strength_threshold:
+            # Add speaker A emotion strength to the scores
+            scores["a_emotion_strength"] = a_emotion_strength
+            strong_emotion_pairs.append((a, b, scores))
+    
+    # Keep a very small number of neutral pairs if needed for comparison
+    neutral_emotion_pairs = []
+    if cfg.neutral_ratio > 0:
+        for a, b, scores in similarity_filtered:
+            if b["emotion"] == "Neutral" and scores["semantic_similarity"] > cfg.semantic_similarity_threshold * 1.5:
+                neutral_emotion_pairs.append((a, b, scores))
+    
+    logging.info(f"Selected {len(strong_emotion_pairs)} strong emotion pairs and {len(neutral_emotion_pairs)} neutral emotion pairs for comparison")
+    
+    # 9) Sort by combined emotion strength (speaker A + speaker B) for better overall emotional content
+    sorted_emotion_pairs = sorted(
+        strong_emotion_pairs, 
+        key=lambda x: x[2]["emotion_strength"] + x[2]["a_emotion_strength"], 
+        reverse=True
+    )
+    
+    # Further group by emotion type to ensure diversity
+    emotion_grouped_pairs = {}
+    for pair in sorted_emotion_pairs:
+        emotion = pair[1]["emotion"]
+        if emotion not in emotion_grouped_pairs:
+            emotion_grouped_pairs[emotion] = []
+        emotion_grouped_pairs[emotion].append(pair)
+    
+    # Sort neutrals by semantic similarity (descending) if we're keeping any
+    sorted_neutral_pairs = sorted(
+        neutral_emotion_pairs,
+        key=lambda x: x[2]["semantic_similarity"],
+        reverse=True
+    )
+    
+    # 10) Select top pairs from each emotion to ensure diversity
+    diverse_selection = []
+    
+    # Calculate how many pairs to select per emotion
+    emotions_present = len(emotion_grouped_pairs)
+    if emotions_present > 0:
+        pairs_per_emotion = max(2, cfg.top_n_pairs // emotions_present)  # At least 2 per emotion
+        
+        # Take top pairs from each emotion
+        for emotion, pairs in emotion_grouped_pairs.items():
+            diverse_selection.extend(pairs[:pairs_per_emotion])
+            
+        # If we haven't selected enough, add more from the overall sorted list
+        if len(diverse_selection) < cfg.top_n_pairs:
+            # Create a set of already selected pairs
+            selected_indices = set((p[0]["conv_id"], p[0]["utterance_id"], p[1]["utterance_id"]) 
+                                for p in diverse_selection)
+            
+            # Add more pairs that aren't already selected
+            for pair in sorted_emotion_pairs:
+                pair_key = (pair[0]["conv_id"], pair[0]["utterance_id"], pair[1]["utterance_id"])
+                if pair_key not in selected_indices and len(diverse_selection) < cfg.top_n_pairs:
+                    diverse_selection.append(pair)
+                    selected_indices.add(pair_key)
+    
+    # Calculate how many pairs of each type to include
+    strong_count = min(len(diverse_selection), int(cfg.top_n_pairs * (1 - cfg.neutral_ratio)))
+    neutral_count = min(len(sorted_neutral_pairs), cfg.top_n_pairs - strong_count)
+    
+    logging.info(f"Selecting top {strong_count} strong emotion pairs with diversity and top {neutral_count} neutral comparison pairs")
+    
+    # 11) Combine the selected pairs
+    final_pairs = [(a, b) for a, b, _ in diverse_selection[:strong_count]]
+    
+    # Only add neutral pairs if we want them for comparison
+    if neutral_count > 0:
+        final_pairs.extend([(a, b) for a, b, _ in sorted_neutral_pairs[:neutral_count]])
+    
+    # 12) Shuffle the final pairs to mix emotions
+    np.random.shuffle(final_pairs)
+    
+    # 13) Add debug info about the final pairs
+    if final_pairs:
+        logging.info("Example selected pairs:")
+        for i, (a, b) in enumerate(final_pairs[:3]):  # Show first 3 examples
+            logging.info(f"Example {i+1}:")
+            logging.info(f"  Speaker A ({a['emotion']}): {a['text'][:100]}...")
+            logging.info(f"  Speaker B ({b['emotion']}): {b['text'][:100]}...")
+    
+    # 13) Log emotion distribution in final pairs
+    emotion_counts = {}
+    for a, b in final_pairs:
+        emotion = b["emotion"]
+        emotion_counts[emotion] = emotion_counts.get(emotion, 0) + 1
+    
+    logging.info("Final emotion distribution:")
+    for emotion, count in emotion_counts.items():
+        logging.info(f"  {emotion}: {count} ({count/len(final_pairs)*100:.1f}%)")
+    
+    # 14) Save audio and metadata
     audio_dir = cfg.out_dir / "audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
     metadata = []
     
-    for idx, (a, b) in enumerate(tqdm(filtered, desc="Saving pairs")):
+    for idx, (a, b) in enumerate(tqdm(final_pairs, desc="Saving pairs")):
         pid = f"{idx:05d}"
         
         # Process and save first utterance audio
@@ -300,6 +585,8 @@ def prepare_pairs(cfg: Config):
             "emotion_B": b["emotion"],
             "text_A": a["text"],
             "text_B": b["text"],
+            "word_count_A": count_words(a["text"]),
+            "word_count_B": count_words(b["text"]),
             "duration_A": round(len(wav_a) / cfg.sample_rate, 3),
             "duration_B": round(len(wav_b) / cfg.sample_rate, 3),
             "audio_path_A": str(pa),
@@ -315,41 +602,11 @@ def prepare_pairs(cfg: Config):
     with open(meta_path, "w") as f:
         json.dump(metadata, f, indent=2)
     logging.info(f"Saved metadata to {meta_path}")
-    
-    # Generate a summary
-    logging.info(f"Summary:")
-    logging.info(f"  Total pairs: {len(metadata)}")
-    logging.info(f"  Unique conversations: {len(set(m['conv_id'] for m in metadata))}")
-    
-    # Count pairs by split
-    split_counts = {}
-    for m in metadata:
-        split = m["split"]
-        split_counts[split] = split_counts.get(split, 0) + 1
-    for split, count in split_counts.items():
-        logging.info(f"  Pairs from {split}: {count}")
-    
-    # Count emotion distribution
-    emotion_counts_a = {}
-    emotion_counts_b = {}
-    for m in metadata:
-        emotion_a = m["emotion_A"]
-        emotion_b = m["emotion_B"]
-        emotion_counts_a[emotion_a] = emotion_counts_a.get(emotion_a, 0) + 1
-        emotion_counts_b[emotion_b] = emotion_counts_b.get(emotion_b, 0) + 1
-    
-    logging.info(f"  Emotion distribution for first utterance:")
-    for emotion, count in sorted(emotion_counts_a.items(), key=lambda x: x[1], reverse=True):
-        logging.info(f"    {emotion}: {count} ({count/len(metadata)*100:.1f}%)")
-    
-    logging.info(f"  Emotion distribution for second utterance:")
-    for emotion, count in sorted(emotion_counts_b.items(), key=lambda x: x[1], reverse=True):
-        logging.info(f"    {emotion}: {count} ({count/len(metadata)*100:.1f}%)")
 
 # ────────────────────────────────── Argument parsing ────────────────────────────
 def parse_args() -> Config:
     parser = argparse.ArgumentParser(
-        description="Prepare SDS pairs from IVLLab/MultiDialog across all splits"
+        description="Prepare SDS pairs from IVLLab/MultiDialog with semantic relevance and emotion filtering"
     )
     parser.add_argument(
         "--dataset_name",
@@ -384,13 +641,6 @@ def parse_args() -> Config:
         help="Target WAV sample rate",
     )
     parser.add_argument(
-        "--max_pairs",
-        type=int,
-        default=DEFAULT_MAX_PAIRS,
-        required=False,
-        help="Max number of pairs to generate",
-    )
-    parser.add_argument(
         "--min_duration",
         type=float,
         default=DEFAULT_MIN_DURATION,
@@ -415,19 +665,74 @@ def parse_args() -> Config:
         required=False,
         help="Comma-separated list of gold emotion actor IDs",
     )
+    parser.add_argument(
+        "--top_n_pairs",
+        type=int,
+        default=DEFAULT_TOP_N_PAIRS,
+        required=False,
+        help="Keep only the top N pairs with the strongest emotions",
+    )
+    parser.add_argument(
+        "--min_word_count",
+        type=int,
+        default=DEFAULT_MIN_WORD_COUNT,
+        required=False,
+        help="Minimum number of words per utterance",
+    )
+    parser.add_argument(
+        "--semantic_similarity_threshold",
+        type=float,
+        default=DEFAULT_SEMANTIC_SIMILARITY_THRESHOLD,
+        required=False,
+        help="Minimum semantic similarity between speaker A and B utterances",
+    )
+    parser.add_argument(
+        "--emotion_strength_threshold",
+        type=float,
+        default=DEFAULT_EMOTION_STRENGTH_THRESHOLD,
+        required=False,
+        help="Minimum emotion strength score for target emotions in speaker B",
+    )
+    parser.add_argument(
+        "--min_a_emotion_strength",
+        type=float,
+        default=DEFAULT_MIN_A_EMOTION_STRENGTH,
+        required=False,
+        help="Minimum emotion strength score for speaker A",
+    )
+    parser.add_argument(
+        "--target_emotions",
+        default=','.join(DEFAULT_TARGET_EMOTIONS),
+        required=False,
+        help="Comma-separated list of target emotions to prioritize",
+    )
+    parser.add_argument(
+        "--neutral_ratio",
+        type=float,
+        default=DEFAULT_NEUTRAL_RATIO,
+        required=False,
+        help="Maximum ratio of neutral emotion pairs to include",
+    )
     
     args = parser.parse_args()
+    
     return Config(
         dataset_name=args.dataset_name,
         splits=[s.strip() for s in args.splits.split(',')],
         out_dir=args.out_dir,
         hf_token=args.hf_token,
         sample_rate=args.sample_rate,
-        max_pairs=args.max_pairs,
         min_duration=args.min_duration,
         require_different_speakers=args.require_different_speakers,
         gold_emotion_only=args.gold_emotion_only,
         gold_emotion_actors=[s.strip() for s in args.gold_emotion_actors.split(',')],
+        top_n_pairs=args.top_n_pairs,
+        min_word_count=args.min_word_count,
+        semantic_similarity_threshold=args.semantic_similarity_threshold,
+        emotion_strength_threshold=args.emotion_strength_threshold,
+        min_a_emotion_strength=args.min_a_emotion_strength,
+        target_emotions=[s.strip() for s in args.target_emotions.split(',')],
+        neutral_ratio=args.neutral_ratio,
     )
 
 if __name__ == "__main__":

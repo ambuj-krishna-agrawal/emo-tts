@@ -1,0 +1,2 @@
+2025-04-22 09:59:48,462 INFO: Configuration: {'input': 'meld_audio_sds_pairs_custom_balanced/pairs_metadata.json', 'output_dir': 'emotion_planning_results_custom_balanced', 'model': 'llama_3_70b_q4', 'workers': 4, 'filter_top': 0}
+2025-04-22 09:59:48,463 INFO: Loading pairs from meld_audio_sds_pairs_custom_balanced/pairs_metadata.json

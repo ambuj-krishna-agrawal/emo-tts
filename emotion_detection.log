@@ -1,0 +1,1446 @@
+2025-04-22 02:02:00,441 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection
+2025-04-22 02:02:00,652 INFO [emotion_asr] - Using device: cuda
+2025-04-22 02:02:00,653 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 02:02:12,192 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 02:02:13,371 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 02:02:14,728 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 02:02:14,817 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 02:02:14,832 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 02:02:14,942 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 02:02:14,947 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 02:02:15,160 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 02:02:32,096 ERROR [emotion_detection] - Failed to import vllm_router - inference client not available
+2025-04-22 02:02:32,096 WARNING [emotion_detection] - Inference client not available, returning default emotion 'Neutral'
+2025-04-22 02:02:32,096 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:02:32,096 ERROR [emotion_detection] - Failed to import vllm_router - inference client not available
+2025-04-22 02:02:32,096 WARNING [emotion_detection] - Inference client not available, returning default response
+2025-04-22 02:02:32,097 ERROR [emotion_detection] - Failed to import vllm_router - inference client not available
+2025-04-22 02:02:32,097 WARNING [emotion_detection] - Inference client not available, returning default response
+2025-04-22 02:02:32,097 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 02:05:30,531 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection
+2025-04-22 02:05:30,589 INFO [emotion_asr] - Using device: cuda
+2025-04-22 02:05:30,590 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 02:05:42,566 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 02:06:27,962 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection
+2025-04-22 02:06:28,169 INFO [emotion_asr] - Using device: cuda
+2025-04-22 02:06:28,171 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 02:06:47,331 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 02:06:49,147 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 02:06:51,333 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 02:06:51,422 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 02:06:51,510 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 02:06:51,613 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7861/startup-events "HTTP/1.1 200 OK"
+2025-04-22 02:06:51,651 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+2025-04-22 02:06:51,988 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 02:07:12,633 INFO [openai._base_client] - Retrying request to /completions in 0.398644 seconds
+2025-04-22 02:07:13,034 INFO [openai._base_client] - Retrying request to /completions in 0.772055 seconds
+2025-04-22 02:07:13,810 ERROR [emotion_detection] - Error predicting emotion: Connection error.
+2025-04-22 02:07:13,810 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:07:13,876 INFO [openai._base_client] - Retrying request to /completions in 0.423092 seconds
+2025-04-22 02:07:14,301 INFO [openai._base_client] - Retrying request to /completions in 0.840538 seconds
+2025-04-22 02:07:15,144 ERROR [emotion_detection] - Error generating emotional response: Connection error.
+2025-04-22 02:07:15,211 INFO [openai._base_client] - Retrying request to /completions in 0.420828 seconds
+2025-04-22 02:07:15,634 INFO [openai._base_client] - Retrying request to /completions in 0.964330 seconds
+2025-04-22 02:07:16,601 ERROR [emotion_detection] - Error generating neutral response: Connection error.
+2025-04-22 02:07:16,601 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 02:07:33,668 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:07:33,678 WARNING [emotion_detection] - Predicted emotion 'Neutral 
+(Note' not in allowed emotions, using 'Neutral'
+2025-04-22 02:07:33,678 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:08:53,421 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:09:16,069 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:09:16,071 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 02:09:32,893 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:09:32,894 WARNING [emotion_detection] - Predicted emotion 'Neutral.' not in allowed emotions, using 'Neutral'
+2025-04-22 02:09:32,895 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:12:57,132 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:14:46,849 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:16:24,446 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:16:27,741 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 02:16:33,165 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:16:33,167 WARNING [emotion_detection] - Predicted emotion 'Neutral.' not in allowed emotions, using 'Neutral'
+2025-04-22 02:16:33,167 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:16:44,519 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:17:36,813 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection
+2025-04-22 02:17:36,867 INFO [emotion_asr] - Using device: cuda
+2025-04-22 02:17:36,868 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 02:17:48,732 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 02:17:50,572 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 02:17:52,922 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 02:17:52,923 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 02:17:53,064 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 02:17:53,119 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7861/startup-events "HTTP/1.1 200 OK"
+2025-04-22 02:17:53,157 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+2025-04-22 02:17:53,494 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 02:18:25,306 INFO [openai._base_client] - Retrying request to /completions in 0.433317 seconds
+2025-04-22 02:18:25,742 INFO [openai._base_client] - Retrying request to /completions in 0.789917 seconds
+2025-04-22 02:18:26,535 ERROR [emotion_detection] - Error predicting emotion: Connection error.
+2025-04-22 02:18:26,535 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:18:26,601 INFO [openai._base_client] - Retrying request to /completions in 0.395575 seconds
+2025-04-22 02:18:26,999 INFO [openai._base_client] - Retrying request to /completions in 0.820548 seconds
+2025-04-22 02:18:27,822 ERROR [emotion_detection] - Error generating emotional response: Connection error.
+2025-04-22 02:18:27,886 INFO [openai._base_client] - Retrying request to /completions in 0.481343 seconds
+2025-04-22 02:18:28,370 INFO [openai._base_client] - Retrying request to /completions in 0.757407 seconds
+2025-04-22 02:18:29,129 ERROR [emotion_detection] - Error generating neutral response: Connection error.
+2025-04-22 02:18:29,130 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 02:18:36,246 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 02:18:36,259 WARNING [emotion_detection] - Predicted emotion 'Neutral.' not in allowed emotions, using 'Neutral'
+2025-04-22 02:18:36,259 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 02:19:55,741 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:44:28,168 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 08:44:28,170 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 08:44:28,310 INFO [emotion_asr] - Using device: cuda
+2025-04-22 08:44:28,311 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 08:44:45,599 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 08:44:47,396 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 08:44:49,294 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 08:44:49,361 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 08:44:49,526 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 08:44:49,563 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 08:44:49,604 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 08:44:49,944 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 08:45:33,396 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:45:33,406 WARNING [emotion_detection] - Predicted emotion 'I Cannot' not in allowed emotions, using 'Neutral'
+2025-04-22 08:45:33,407 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 08:45:33,466 ERROR [emotion_asr] - Error in emotion detection or response generation: local variable 'FEWSHOT_LONG' referenced before assignment
+2025-04-22 08:45:33,467 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 08:45:36,117 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 08:45:39,702 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 08:45:39,703 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 08:45:39,703 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 08:45:41,896 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 08:45:43,295 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 08:45:43,295 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 08:45:43,296 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 08:50:09,642 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 08:50:09,644 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 08:50:09,800 INFO [emotion_asr] - Using device: cuda
+2025-04-22 08:50:09,800 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 08:50:20,973 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 08:50:22,590 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 08:50:24,135 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 08:50:24,173 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 08:50:24,497 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 08:50:24,608 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 08:50:24,644 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 08:50:24,982 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 08:50:50,138 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:50:50,148 WARNING [emotion_detection] - Predicted emotion 'I'' not in allowed emotions, using 'Neutral'
+2025-04-22 08:50:50,148 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 08:51:13,303 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:51:39,988 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:51:39,990 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 08:51:42,575 DEBUG [jieba] - Building prefix dict from the default dictionary ...
+2025-04-22 08:51:43,236 DEBUG [jieba] - Dumping model to file cache /tmp/jieba.cache
+2025-04-22 08:51:43,280 DEBUG [jieba] - Loading model cost 0.705 seconds.
+2025-04-22 08:51:43,280 DEBUG [jieba] - Prefix dict has been built successfully.
+2025-04-22 08:51:43,428 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 08:51:45,451 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 08:51:45,452 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 08:51:45,452 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 08:51:47,807 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 08:51:48,952 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 08:51:48,952 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 08:51:48,952 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 08:54:54,584 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 08:54:54,586 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 08:54:54,738 INFO [emotion_asr] - Using device: cuda
+2025-04-22 08:54:54,738 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 08:55:05,928 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 08:55:07,510 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 08:55:09,308 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 08:55:09,379 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 08:55:09,456 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 08:55:09,565 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 08:55:09,601 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 08:55:09,929 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 08:55:39,133 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:55:39,143 WARNING [emotion_detection] - Predicted emotion 'I Cannot' not in allowed emotions, using 'Neutral'
+2025-04-22 08:55:39,143 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 08:56:05,728 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:56:32,363 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 08:56:32,364 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 08:56:35,013 DEBUG [jieba] - Building prefix dict from the default dictionary ...
+2025-04-22 08:56:35,013 DEBUG [jieba] - Loading model from cache /tmp/jieba.cache
+2025-04-22 08:56:35,503 DEBUG [jieba] - Loading model cost 0.490 seconds.
+2025-04-22 08:56:35,504 DEBUG [jieba] - Prefix dict has been built successfully.
+2025-04-22 08:56:35,580 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 08:56:37,661 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 08:56:37,661 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 08:56:37,661 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 08:56:40,032 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 08:56:41,161 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 08:56:41,161 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 08:56:41,162 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:00:52,899 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 09:00:52,900 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 09:00:53,053 INFO [emotion_asr] - Using device: cuda
+2025-04-22 09:00:53,054 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 09:01:04,158 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 09:01:05,769 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 09:01:07,552 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 09:01:07,599 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 09:01:07,702 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 09:01:07,784 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 09:01:07,820 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 09:01:08,124 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 09:01:34,771 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:01:34,783 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 303.25ms
+2025-04-22 09:01:34,783 WARNING [emotion_detection] - Predicted emotion 'Exc' not in allowed emotions, using 'Neutral'
+2025-04-22 09:01:34,783 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 09:02:01,225 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:02:01,229 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 26383.24ms
+2025-04-22 09:02:01,230 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 09:02:03,794 DEBUG [jieba] - Building prefix dict from the default dictionary ...
+2025-04-22 09:02:03,794 DEBUG [jieba] - Loading model from cache /tmp/jieba.cache
+2025-04-22 09:02:04,284 DEBUG [jieba] - Loading model cost 0.489 seconds.
+2025-04-22 09:02:04,284 DEBUG [jieba] - Prefix dict has been built successfully.
+2025-04-22 09:02:04,411 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:02:06,353 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:02:06,353 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:02:06,353 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:02:08,580 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:02:09,879 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:02:09,879 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:02:09,880 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:12:41,245 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 09:12:41,246 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 09:12:41,402 INFO [emotion_asr] - Using device: cuda
+2025-04-22 09:12:41,402 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 09:12:52,555 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 09:12:54,114 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 09:12:55,892 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 09:12:55,947 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 09:12:56,060 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 09:12:56,128 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 09:12:56,164 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 09:12:56,505 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 09:14:20,248 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:14:20,260 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 495.92ms
+2025-04-22 09:14:20,261 WARNING [emotion_detection] - Predicted emotion 'Excited.' not in allowed emotions, using 'Neutral'
+2025-04-22 09:14:20,261 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 09:14:23,355 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:14:23,359 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 3037.05ms
+2025-04-22 09:14:23,359 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 09:14:25,793 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:14:27,855 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:14:27,856 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:14:27,858 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:14:29,945 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:14:31,072 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:14:31,072 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:14:31,073 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:30:56,192 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 09:30:56,194 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 09:30:56,346 INFO [emotion_asr] - Using device: cuda
+2025-04-22 09:30:56,346 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 09:31:07,420 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 09:31:09,011 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 09:31:10,613 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 09:31:10,632 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 09:31:10,944 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 09:31:11,044 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 09:31:11,082 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 09:31:11,419 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 09:31:52,308 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:31:52,321 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 496.75ms
+2025-04-22 09:31:52,321 INFO [emotion_asr] - Detected emotion: Excited
+2025-04-22 09:31:54,211 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:31:54,215 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 1833.74ms
+2025-04-22 09:31:54,216 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 09:31:56,661 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:31:58,784 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:31:58,784 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:31:58,784 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:32:00,848 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:32:01,980 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:32:01,980 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:32:01,981 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:41:08,563 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 09:41:08,564 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 09:41:08,719 INFO [emotion_asr] - Using device: cuda
+2025-04-22 09:41:08,719 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 09:41:19,795 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 09:41:21,383 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 09:41:23,227 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 09:41:23,269 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 09:41:23,384 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 09:41:23,455 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 09:41:23,491 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 09:41:23,786 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 09:41:47,160 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:41:47,173 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 498.02ms
+2025-04-22 09:41:47,173 ERROR [emotion_detection] - Error predicting emotion: level must be an integer
+2025-04-22 09:41:47,173 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 09:41:50,986 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:41:50,990 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 3755.82ms
+2025-04-22 09:41:50,991 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 09:41:53,466 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:41:55,684 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:41:55,684 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:41:55,684 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:41:57,774 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:41:59,140 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:41:59,140 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:41:59,140 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:43:49,345 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:43:49,350 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 484.86ms
+2025-04-22 09:44:42,946 ERROR [emotion_detection] - Error predicting emotion: level must be an integer
+2025-04-22 09:44:42,946 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 09:47:18,691 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:47:18,697 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2977.88ms
+2025-04-22 09:47:18,697 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 09:47:20,745 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:47:22,234 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:47:22,234 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:47:22,235 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:47:24,670 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:47:26,429 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:47:26,429 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:47:26,429 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:47:31,017 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:47:31,022 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 464.99ms
+2025-04-22 09:48:15,983 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 09:48:15,984 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 09:48:16,138 INFO [emotion_asr] - Using device: cuda
+2025-04-22 09:48:16,138 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 09:48:27,263 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 09:48:28,911 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 09:48:30,693 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 09:48:30,767 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 09:48:30,841 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 09:48:30,947 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 09:48:30,983 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 09:48:31,281 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 09:48:51,683 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:48:51,697 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 501.64ms
+2025-04-22 09:49:44,170 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 09:49:44,171 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 09:49:44,323 INFO [emotion_asr] - Using device: cuda
+2025-04-22 09:49:44,323 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 09:49:55,492 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 09:49:57,088 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 09:49:58,997 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 09:49:59,101 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 09:49:59,204 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 09:49:59,285 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 09:49:59,321 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 09:49:59,623 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 09:50:17,749 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:50:17,763 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 498.60ms
+2025-04-22 09:50:17,764 INFO [emotion_asr] - Detected emotion: Excited
+2025-04-22 09:50:30,633 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 09:50:30,639 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 9776.49ms
+2025-04-22 09:50:30,640 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 09:50:33,719 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:50:35,843 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:50:35,843 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:50:35,844 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 09:50:38,030 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 09:50:39,385 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 09:50:39,386 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 09:50:39,386 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:00:09,449 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 10:00:09,450 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 10:00:09,602 INFO [emotion_asr] - Using device: cuda
+2025-04-22 10:00:09,602 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 10:00:20,729 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 10:00:22,317 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 10:00:23,841 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 10:00:23,892 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 10:00:24,217 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 10:00:24,320 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 10:00:24,357 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 10:00:24,653 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 10:01:17,085 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:01:17,100 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 499.28ms
+2025-04-22 10:01:17,100 INFO [emotion_asr] - Detected emotion: Excited
+2025-04-22 10:01:19,664 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:01:19,672 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2507.29ms
+2025-04-22 10:01:19,672 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:01:22,154 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:01:24,258 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:01:24,258 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:01:24,258 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:01:26,321 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:01:27,572 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:01:27,572 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:01:27,572 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:11:04,487 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:11:04,494 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 682.33ms
+2025-04-22 10:11:04,495 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 10:11:06,789 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:11:06,796 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2238.93ms
+2025-04-22 10:11:06,797 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:11:08,807 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:11:10,800 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:11:10,800 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:11:10,800 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:11:12,838 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:11:13,980 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:11:13,980 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:11:13,980 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:12:03,474 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:12:03,482 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 421.53ms
+2025-04-22 10:12:03,482 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 10:12:06,119 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:12:06,127 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2582.25ms
+2025-04-22 10:12:06,128 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:12:08,372 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:12:09,550 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:12:09,550 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:12:09,550 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:12:12,011 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:12:13,800 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:12:13,801 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:12:13,801 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:20:02,439 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 10:20:02,440 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 10:20:02,597 INFO [emotion_asr] - Using device: cuda
+2025-04-22 10:20:02,597 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 10:20:14,499 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 10:20:16,290 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 10:20:18,326 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 10:20:18,406 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 10:20:18,508 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 10:20:18,611 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 10:20:18,651 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 10:20:18,982 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 10:20:39,118 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:20:39,137 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 435.96ms
+2025-04-22 10:20:39,138 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 10:20:43,688 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:20:43,697 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 4488.31ms
+2025-04-22 10:20:54,625 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:20:54,636 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 10867.77ms
+2025-04-22 10:20:54,636 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:20:57,365 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:20:59,695 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:20:59,696 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:20:59,696 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:21:01,997 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:21:03,333 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:21:03,334 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:21:03,334 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:21:27,615 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:21:27,625 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 418.54ms
+2025-04-22 10:21:27,626 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 10:21:30,066 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:21:30,078 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2375.99ms
+2025-04-22 10:21:36,952 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:21:36,963 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 6815.32ms
+2025-04-22 10:21:36,964 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:21:39,169 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:21:40,554 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:21:40,554 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:21:40,555 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:21:43,195 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:21:44,618 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:21:44,618 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:21:44,619 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:22:38,255 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:22:38,267 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 458.52ms
+2025-04-22 10:22:38,267 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 10:22:46,136 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:22:46,148 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 7811.47ms
+2025-04-22 10:22:52,709 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:22:52,721 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 6498.50ms
+2025-04-22 10:22:52,722 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:22:54,939 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:22:57,016 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:22:57,016 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:22:57,016 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:22:59,310 INFO [emotivoice] - Starting EmotiVoice inference process...
+2025-04-22 10:23:00,688 ERROR [emotivoice] - Inference process failed: Traceback (most recent call last):
+  File "/home/ambuja/emo-tts/EmotiVoice/inference_am_vocoder_joint.py", line 15, in <module>
+    from models.prompt_tts_modified.jets import JETSGenerator
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/jets.py", line 20, in <module>
+    from models.prompt_tts_modified.model_open_source import PromptTTS
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/model_open_source.py", line 11, in <module>
+    from models.prompt_tts_modified.modules.alignment import AlignmentModule, GaussianUpsampling, viterbi_decode, average_by_duration
+  File "/home/ambuja/emo-tts/EmotiVoice/models/prompt_tts_modified/modules/alignment.py", line 9, in <module>
+    from numba import jit
+ModuleNotFoundError: No module named 'numba'
+
+2025-04-22 10:23:00,688 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed
+2025-04-22 10:23:00,688 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:36:43,021 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 10:36:43,037 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 10:36:43,220 INFO [emotion_asr] - Using device: cuda
+2025-04-22 10:36:43,220 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 10:37:08,847 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 10:37:08,848 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 10:37:08,988 INFO [emotion_asr] - Using device: cuda
+2025-04-22 10:37:08,989 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 10:37:20,144 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 10:37:21,852 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 10:37:23,604 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 10:37:23,659 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 10:37:23,772 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 10:37:23,843 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 10:37:23,879 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 10:37:24,214 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 10:37:45,454 INFO [emotion_asr] - Detected emotion: happy
+2025-04-22 10:37:45,455 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:37:48,013 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:38:45,532 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_bo9r9jb7/generated_happy.wav
+2025-04-22 10:38:47,747 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:38:54,169 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_bo9r9jb7/generated_neutral.wav
+2025-04-22 10:39:53,997 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 10:39:53,998 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 10:39:54,153 INFO [emotion_asr] - Using device: cuda
+2025-04-22 10:39:54,154 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 10:40:05,304 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 10:40:06,877 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 10:40:08,678 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 10:40:08,743 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 10:40:08,840 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 10:40:08,925 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 10:40:08,960 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 10:40:09,295 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 10:40:44,169 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:40:44,190 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 433.36ms
+2025-04-22 10:40:44,190 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 10:40:48,130 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:40:48,142 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 3882.79ms
+2025-04-22 10:40:51,294 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:40:51,306 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 3094.25ms
+2025-04-22 10:40:51,307 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:40:53,732 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:41:00,203 ERROR [emotivoice] - Inference failed! Full log ↓
+run!
+
+Traceback (most recent call last):
+  File "inference_am_vocoder_joint.py", line 156, in <module>
+    main(args, config)
+  File "inference_am_vocoder_joint.py", line 100, in main
+    prompts.append(line[1])
+IndexError: list index out of range
+
+ERROR conda.cli.main_run:execute(125): `conda run python inference_am_vocoder_joint.py --logdir prompt_tts_open_source_joint --config_folder config/joint --checkpoint g_00140000 --test_file /tmp/emotion_tts_kecdumil/demo_input.txt` failed. (See above for error)
+
+2025-04-22 10:41:00,204 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed (return‑code 1)
+2025-04-22 10:41:00,204 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:41:02,260 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:41:06,716 ERROR [emotivoice] - Inference failed! Full log ↓
+run!
+
+Traceback (most recent call last):
+  File "inference_am_vocoder_joint.py", line 156, in <module>
+    main(args, config)
+  File "inference_am_vocoder_joint.py", line 100, in main
+    prompts.append(line[1])
+IndexError: list index out of range
+
+ERROR conda.cli.main_run:execute(125): `conda run python inference_am_vocoder_joint.py --logdir prompt_tts_open_source_joint --config_folder config/joint --checkpoint g_00140000 --test_file /tmp/emotion_tts_kecdumil/demo_input.txt` failed. (See above for error)
+
+2025-04-22 10:41:06,716 ERROR [emotion_asr] - Error generating EmotiVoice audio: EmotiVoice inference failed (return‑code 1)
+2025-04-22 10:41:06,716 INFO [emotion_asr] - Falling back to dummy speech generation
+2025-04-22 10:48:53,842 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 10:48:53,844 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection and EmotiVoice TTS
+2025-04-22 10:48:53,998 INFO [emotion_asr] - Using device: cuda
+2025-04-22 10:48:53,998 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 10:49:05,931 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 10:49:07,482 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 10:49:09,010 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 10:49:09,073 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 10:49:09,400 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 10:49:09,512 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 10:49:09,548 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 10:49:09,884 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 10:49:33,343 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:49:33,365 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 438.22ms
+2025-04-22 10:49:33,366 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 10:49:36,112 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:49:36,126 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2689.81ms
+2025-04-22 10:49:47,317 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:49:47,331 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 11134.22ms
+2025-04-22 10:49:47,332 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:49:49,865 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:49:58,552 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_jibhz4r_/generated_sad.wav
+2025-04-22 10:50:00,702 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:50:06,998 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_jibhz4r_/generated_neutral.wav
+2025-04-22 10:51:50,953 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:51:50,968 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 686.71ms
+2025-04-22 10:51:50,970 WARNING [emotion_detection] - Could not map emotion from text: 'I'm an assistant and I don', defaulting to Neutral
+2025-04-22 10:51:50,971 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 10:51:54,917 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:51:54,932 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 3890.94ms
+2025-04-22 10:51:59,738 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:51:59,753 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 4751.40ms
+2025-04-22 10:51:59,753 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:52:01,771 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:52:08,765 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_uqv_zmbp/generated_neutral.wav
+2025-04-22 10:52:10,785 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:52:17,610 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_uqv_zmbp/generated_neutral.wav
+2025-04-22 10:53:05,053 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:53:05,068 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 421.70ms
+2025-04-22 10:53:05,068 INFO [emotion_asr] - Detected emotion: Happy
+2025-04-22 10:53:07,909 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:53:07,925 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2786.25ms
+2025-04-22 10:53:13,327 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 10:53:13,343 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 5347.17ms
+2025-04-22 10:53:13,344 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 10:53:15,600 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:53:22,853 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_rptjl_cr/generated_happy.wav
+2025-04-22 10:53:24,857 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 10:53:30,807 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_rptjl_cr/generated_neutral.wav
+2025-04-22 11:22:04,751 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 11:22:04,752 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 11:22:04,907 INFO [emotion_asr] - Using device: cuda
+2025-04-22 11:22:04,907 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 11:22:16,106 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 11:22:17,786 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 11:22:19,516 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 11:22:19,619 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 11:22:19,732 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 11:22:19,803 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 11:22:19,839 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 11:22:20,173 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 11:23:05,975 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:23:06,000 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 435.03ms
+2025-04-22 11:23:06,000 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 11:23:08,548 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:23:08,565 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 2490.31ms
+2025-04-22 11:23:19,142 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:23:19,159 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 10519.34ms
+2025-04-22 11:23:19,160 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 11:23:21,786 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:24:15,774 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_4go30zic/generated_sad.wav
+2025-04-22 11:24:17,975 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:24:23,608 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_4go30zic/generated_neutral.wav
+2025-04-22 11:24:27,985 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 11:24:29,772 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 11:24:31,531 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 11:24:31,770 INFO [root] - download models from model hub: ms
+2025-04-22 11:24:37,922 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:24:43,492 INFO [root] - download models from model hub: ms
+2025-04-22 11:24:48,321 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:26:31,052 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:26:31,073 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 680.29ms
+2025-04-22 11:26:31,073 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 11:26:32,576 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:26:32,593 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 1447.40ms
+2025-04-22 11:26:37,253 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:26:37,271 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 4605.06ms
+2025-04-22 11:26:37,271 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 11:26:39,476 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:26:46,703 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_dzwjexm3/generated_neutral.wav
+2025-04-22 11:26:49,243 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:26:55,444 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_dzwjexm3/generated_neutral.wav
+2025-04-22 11:26:55,507 INFO [root] - download models from model hub: ms
+2025-04-22 11:27:00,637 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:27:01,059 INFO [root] - download models from model hub: ms
+2025-04-22 11:27:06,044 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:28:07,215 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 11:28:07,217 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 11:28:07,371 INFO [emotion_asr] - Using device: cuda
+2025-04-22 11:28:07,371 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 11:28:18,480 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 11:28:20,095 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 11:28:21,835 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 11:28:21,907 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 11:28:22,025 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 11:28:22,090 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 11:28:22,126 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 11:28:22,437 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 11:28:54,109 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:28:54,136 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 693.32ms
+2025-04-22 11:28:54,137 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 11:28:56,102 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:28:56,120 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 1906.92ms
+2025-04-22 11:29:01,450 INFO [httpx] - HTTP Request: POST http://babel-7-17:8082/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:29:01,470 INFO [emotion_detection] - Logged inference call to mistral_7b_q4, duration: 5267.44ms
+2025-04-22 11:29:01,470 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 11:29:03,980 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:29:11,254 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_0o59bml7/generated_neutral.wav
+2025-04-22 11:29:13,428 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:29:19,487 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_0o59bml7/generated_neutral.wav
+2025-04-22 11:29:22,866 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 11:29:24,537 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 11:29:26,177 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 11:29:26,401 INFO [root] - download models from model hub: ms
+2025-04-22 11:29:33,213 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:29:33,731 INFO [root] - download models from model hub: ms
+2025-04-22 11:29:39,104 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:31:15,361 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:31:15,383 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1744.34ms
+2025-04-22 11:31:15,384 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 11:31:22,587 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:31:22,607 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 7149.04ms
+2025-04-22 11:32:30,516 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 11:32:30,537 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 67854.35ms
+2025-04-22 11:32:30,537 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 11:32:32,654 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:32:40,348 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_aaym_6_q/generated_sad.wav
+2025-04-22 11:32:42,844 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 11:32:48,998 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_aaym_6_q/generated_neutral.wav
+2025-04-22 11:32:49,058 INFO [root] - download models from model hub: ms
+2025-04-22 11:32:54,406 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:32:54,882 INFO [root] - download models from model hub: ms
+2025-04-22 11:32:59,541 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 11:47:40,459 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 11:47:40,460 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 11:47:40,614 INFO [emotion_asr] - Using device: cuda
+2025-04-22 11:47:40,614 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 11:47:51,755 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 11:47:53,367 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 11:47:55,156 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 11:47:55,259 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 11:47:55,275 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 11:47:55,441 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 11:47:55,477 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 11:47:55,807 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 11:51:04,442 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 11:51:04,444 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 11:51:04,599 INFO [emotion_asr] - Using device: cuda
+2025-04-22 11:51:04,599 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 11:51:15,810 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 11:51:17,428 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 11:51:19,246 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 11:51:19,300 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 11:51:19,453 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 11:51:19,478 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 11:51:19,514 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 11:51:19,809 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 11:53:24,330 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 11:53:24,332 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 11:53:24,474 INFO [emotion_asr] - Using device: cuda
+2025-04-22 11:53:24,474 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 11:53:35,654 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 11:53:37,262 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 11:53:39,088 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 11:53:39,227 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 11:56:00,517 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 11:56:00,519 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 11:56:00,674 INFO [emotion_asr] - Using device: cuda
+2025-04-22 11:56:00,674 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 11:56:11,782 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 11:56:13,399 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 11:56:15,218 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 11:56:15,375 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 12:01:06,328 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 12:01:06,329 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 12:01:06,484 INFO [emotion_asr] - Using device: cuda
+2025-04-22 12:01:06,484 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 12:01:17,598 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 12:01:19,219 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 12:01:21,045 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 12:01:21,086 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 12:01:21,185 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 12:01:21,271 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 12:01:21,307 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 12:01:21,645 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 12:01:42,796 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:01:42,825 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1777.61ms
+2025-04-22 12:01:42,826 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 12:01:50,571 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:01:50,592 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 7687.43ms
+2025-04-22 12:02:57,904 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:02:57,926 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 67255.05ms
+2025-04-22 12:02:57,927 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 12:03:00,594 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 12:03:08,253 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_m6gnkk_9/generated_sad.wav
+2025-04-22 12:03:10,357 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 12:03:16,641 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_m6gnkk_9/generated_neutral.wav
+2025-04-22 12:03:20,220 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 12:03:21,904 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 12:03:23,563 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 12:03:23,836 INFO [root] - download models from model hub: ms
+2025-04-22 12:03:29,579 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 12:03:30,077 INFO [root] - download models from model hub: ms
+2025-04-22 12:03:34,906 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 12:06:10,059 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:06:10,084 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1772.81ms
+2025-04-22 12:06:10,084 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 12:06:15,174 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:06:15,197 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5034.52ms
+2025-04-22 12:07:22,433 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:07:22,456 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 67174.76ms
+2025-04-22 12:07:22,456 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 12:07:24,606 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 12:07:31,979 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_n3t9c9fk/generated_sad.wav
+2025-04-22 12:07:34,079 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 12:07:40,693 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_n3t9c9fk/generated_neutral.wav
+2025-04-22 12:07:40,766 INFO [root] - download models from model hub: ms
+2025-04-22 12:07:45,723 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 12:07:46,135 INFO [root] - download models from model hub: ms
+2025-04-22 12:07:50,527 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 12:09:12,443 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:09:12,466 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 802.32ms
+2025-04-22 12:09:12,466 INFO [emotion_asr] - Detected emotion: Neutral
+2025-04-22 12:10:19,924 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:10:19,950 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 67403.29ms
+2025-04-22 12:11:28,305 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:11:28,329 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 68300.41ms
+2025-04-22 12:11:28,330 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 12:11:30,880 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 12:11:38,181 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_5pvw5j0p/generated_neutral.wav
+2025-04-22 12:11:40,351 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 12:11:46,588 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_5pvw5j0p/generated_neutral.wav
+2025-04-22 12:11:46,648 INFO [root] - download models from model hub: ms
+2025-04-22 12:11:52,720 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 12:11:53,196 INFO [root] - download models from model hub: ms
+2025-04-22 12:11:58,105 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 12:47:51,565 INFO [emotion_detection] - Args: {'input': '/data/group_data/starlight/gpa/tts/multidialog_sds_pairs/pairs_metadata.json', 'output_dir': '/data/group_data/starlight/gpa/tts/multidialog_emotion_planning', 'model': 'llama_3_70b_q4', 'workers': 4, 'batch_size': 8, 'filter_top': 0, 'gen_temperature': 0.7, 'length_ratio': 0.9}
+2025-04-22 12:47:51,648 INFO [emotion_detection] - Dataset after preprocessing: 20 pairs
+2025-04-22 12:47:51,773 INFO [emotion_detection] - Batch 1/3
+2025-04-22 12:47:51,773 INFO [emotion_detection] - Processing batch of 8 entries
+2025-04-22 12:47:51,773 INFO [emotion_detection] - Detecting emotions for 8 pairs
+2025-04-22 12:47:53,282 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:53,282 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:53,293 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1160.42ms
+2025-04-22 12:47:53,297 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1141.69ms
+2025-04-22 12:47:53,450 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:53,455 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1274.61ms
+2025-04-22 12:47:54,436 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:54,440 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 995.79ms
+2025-04-22 12:47:54,618 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:54,623 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1089.75ms
+2025-04-22 12:47:54,949 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:54,953 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 2777.62ms
+2025-04-22 12:47:55,462 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:55,467 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 942.71ms
+2025-04-22 12:47:55,629 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:47:55,634 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 2190.50ms
+2025-04-22 12:47:55,634 INFO [emotion_detection] - Generating 8 steered replies
+2025-04-22 12:48:01,635 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:01,643 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5687.79ms
+2025-04-22 12:48:02,698 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:02,704 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 6712.36ms
+2025-04-22 12:48:02,877 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:02,882 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 6889.87ms
+2025-04-22 12:48:07,838 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:07,843 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5059.40ms
+2025-04-22 12:48:09,353 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:09,359 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 7584.87ms
+2025-04-22 12:48:11,858 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:11,864 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 8899.76ms
+2025-04-22 12:48:16,358 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:48:16,364 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 8441.16ms
+2025-04-22 12:49:05,087 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:49:05,093 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 69141.90ms
+2025-04-22 12:49:05,093 INFO [emotion_detection] - Generating 8 baseline replies
+2025-04-22 12:49:25,056 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:49:25,062 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 19611.58ms
+2025-04-22 12:50:20,309 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:50:20,318 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 74871.39ms
+2025-04-22 12:50:20,496 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:50:20,496 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:50:20,502 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75048.69ms
+2025-04-22 12:50:20,506 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75058.23ms
+2025-04-22 12:50:40,259 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:50:40,266 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75123.08ms
+2025-04-22 12:51:35,630 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:35,636 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75239.73ms
+2025-04-22 12:51:35,809 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:35,810 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:35,816 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75099.04ms
+2025-04-22 12:51:35,820 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75112.80ms
+2025-04-22 12:51:35,821 INFO [emotion_detection] - Batch 2/3
+2025-04-22 12:51:35,822 INFO [emotion_detection] - Processing batch of 8 entries
+2025-04-22 12:51:35,822 INFO [emotion_detection] - Detecting emotions for 8 pairs
+2025-04-22 12:51:37,242 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:37,248 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1137.62ms
+2025-04-22 12:51:37,432 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:37,432 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:37,434 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:37,444 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1323.89ms
+2025-04-22 12:51:37,445 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1265.31ms
+2025-04-22 12:51:37,449 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1265.73ms
+2025-04-22 12:51:38,673 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:38,678 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1351.53ms
+2025-04-22 12:51:38,860 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:38,866 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1142.52ms
+2025-04-22 12:51:39,936 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:39,937 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:39,943 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 2283.09ms
+2025-04-22 12:51:39,947 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 2222.78ms
+2025-04-22 12:51:39,948 INFO [emotion_detection] - Generating 8 steered replies
+2025-04-22 12:51:46,924 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:46,931 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 6613.37ms
+2025-04-22 12:51:47,407 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:47,413 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 7144.02ms
+2025-04-22 12:51:49,867 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:49,982 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 9555.28ms
+2025-04-22 12:51:56,399 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:56,406 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 9391.58ms
+2025-04-22 12:51:58,348 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:58,355 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 18089.86ms
+2025-04-22 12:51:58,725 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:51:58,731 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 11238.99ms
+2025-04-22 12:52:28,716 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:52:28,722 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 32232.61ms
+2025-04-22 12:53:00,954 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:53:00,961 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 70893.58ms
+2025-04-22 12:53:00,961 INFO [emotion_detection] - Generating 8 baseline replies
+2025-04-22 12:54:16,747 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:54:16,854 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75463.27ms
+2025-04-22 12:54:16,935 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:54:16,935 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:54:16,937 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:54:16,948 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75611.19ms
+2025-04-22 12:54:16,949 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75650.75ms
+2025-04-22 12:54:16,957 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75615.53ms
+2025-04-22 12:55:32,295 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:32,302 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75367.43ms
+2025-04-22 12:55:32,483 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:32,489 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75303.13ms
+2025-04-22 12:55:32,663 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:32,663 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:32,670 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75435.87ms
+2025-04-22 12:55:32,675 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75439.42ms
+2025-04-22 12:55:32,676 INFO [emotion_detection] - Batch 3/3
+2025-04-22 12:55:32,676 INFO [emotion_detection] - Processing batch of 4 entries
+2025-04-22 12:55:32,676 INFO [emotion_detection] - Detecting emotions for 4 pairs
+2025-04-22 12:55:34,257 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:34,264 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1282.17ms
+2025-04-22 12:55:34,444 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:34,444 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:34,452 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1417.88ms
+2025-04-22 12:55:34,456 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1416.02ms
+2025-04-22 12:55:35,470 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:35,477 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 2492.85ms
+2025-04-22 12:55:35,477 INFO [emotion_detection] - Generating 4 steered replies
+2025-04-22 12:55:41,256 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:41,263 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5428.04ms
+2025-04-22 12:55:41,445 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:41,451 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5618.27ms
+2025-04-22 12:55:44,319 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:44,326 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 8540.84ms
+2025-04-22 12:55:51,311 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:55:51,318 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 15536.09ms
+2025-04-22 12:55:51,319 INFO [emotion_detection] - Generating 4 baseline replies
+2025-04-22 12:56:18,536 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:56:18,543 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 26762.96ms
+2025-04-22 12:57:07,146 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:57:07,153 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75515.92ms
+2025-04-22 12:57:07,309 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:57:07,310 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 12:57:07,317 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75553.20ms
+2025-04-22 12:57:07,322 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 75519.69ms
+2025-04-22 12:57:07,349 INFO [emotion_detection] - Done – processed 20 pairs
+2025-04-22 13:41:49,839 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 13:41:49,841 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 13:41:49,999 INFO [emotion_asr] - Using device: cuda
+2025-04-22 13:41:49,999 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 13:42:09,592 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 13:42:11,640 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 13:42:15,045 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 13:42:15,151 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 13:42:15,231 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 13:42:15,546 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 13:42:15,612 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 13:42:15,953 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 13:42:53,327 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 13:42:53,410 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1759.45ms
+2025-04-22 13:42:53,412 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 13:42:59,770 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 13:42:59,843 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 6260.94ms
+2025-04-22 13:44:14,577 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 13:44:14,978 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 74666.54ms
+2025-04-22 13:44:14,994 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 13:44:41,092 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 13:45:36,032 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_mw4tr3ui/generated_sad.wav
+2025-04-22 13:45:38,895 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 13:45:46,348 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_mw4tr3ui/generated_neutral.wav
+2025-04-22 13:45:50,561 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 13:45:52,309 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 13:45:53,801 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 13:45:54,401 INFO [root] - download models from model hub: ms
+2025-04-22 13:46:00,490 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 13:46:06,593 INFO [root] - download models from model hub: ms
+2025-04-22 13:46:11,521 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 13:56:57,902 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 13:56:57,904 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 13:56:58,050 INFO [emotion_asr] - Using device: cuda
+2025-04-22 13:56:58,050 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 13:57:16,580 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 13:57:18,421 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 13:57:20,241 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 13:57:20,366 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 13:57:20,389 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 13:57:20,574 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 13:57:20,612 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 13:57:20,914 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 13:57:55,857 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 13:57:55,914 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1759.33ms
+2025-04-22 13:57:55,915 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 13:58:32,351 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 13:58:32,397 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 36377.36ms
+2025-04-22 13:59:04,027 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 13:59:04,072 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 31571.82ms
+2025-04-22 13:59:04,073 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 13:59:06,611 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 13:59:17,024 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_cyofgwgg/generated_sad.wav
+2025-04-22 13:59:19,180 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 13:59:25,132 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_cyofgwgg/generated_neutral.wav
+2025-04-22 13:59:28,997 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 13:59:30,707 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 13:59:32,110 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 13:59:32,604 INFO [root] - download models from model hub: ms
+2025-04-22 14:00:03,062 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:00:05,047 INFO [root] - download models from model hub: ms
+2025-04-22 14:00:09,161 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:07:30,560 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:07:30,562 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:07:30,715 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:07:30,715 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:07:42,579 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 14:07:44,222 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 14:07:45,992 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:07:46,102 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:07:46,118 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 14:07:46,287 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:07:46,322 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:07:46,625 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 14:09:47,455 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:09:47,457 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:09:47,607 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:09:47,607 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:09:59,589 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 14:10:01,263 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 14:10:04,373 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:10:04,500 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:10:04,789 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 14:10:04,961 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:10:04,996 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:10:05,299 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 14:18:36,168 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:18:36,170 INFO [emotion_asr] - Starting emotion-aware ASR/TTS demo with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:18:36,321 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:18:36,321 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:18:48,298 INFO [emotion_asr] - Starting application with Gradio interface...
+2025-04-22 14:18:49,927 INFO [httpx] - HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-04-22 14:18:51,364 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:18:51,763 INFO [emotion_asr] - Launching Gradio interface...
+2025-04-22 14:18:51,764 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:18:51,933 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:18:51,968 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:18:52,297 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 14:19:26,392 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:19:26,446 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1761.56ms
+2025-04-22 14:19:26,447 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 14:19:31,982 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:19:32,027 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5477.52ms
+2025-04-22 14:20:38,913 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:20:38,959 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 66828.03ms
+2025-04-22 14:20:38,959 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 14:20:41,490 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:20:51,431 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_zbqvdk0q/generated_sad.wav
+2025-04-22 14:20:53,610 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:20:59,564 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_zbqvdk0q/generated_neutral.wav
+2025-04-22 14:21:02,865 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 14:21:04,640 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 14:21:06,253 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 14:21:06,479 INFO [root] - download models from model hub: ms
+2025-04-22 14:21:11,849 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:21:12,350 INFO [root] - download models from model hub: ms
+2025-04-22 14:21:16,594 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:25:55,465 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:25:55,467 INFO [emotion_asr] - Starting emotion-aware ASR/TTS core module with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:25:55,618 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:25:55,619 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:26:07,607 INFO [emotion_asr] - Starting application with Gradio interface…
+2025-04-22 14:26:07,752 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:26:07,901 INFO [emotion_asr] - Launching Gradio interface…
+2025-04-22 14:26:07,939 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:26:08,075 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:26:08,111 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:26:08,412 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 14:27:24,966 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:27:25,019 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1728.33ms
+2025-04-22 14:27:25,020 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 14:27:31,033 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:27:31,079 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5956.03ms
+2025-04-22 14:28:37,845 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:28:37,897 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 66709.35ms
+2025-04-22 14:28:37,897 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 14:28:39,973 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:28:47,011 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_b0rzxqwh/generated_sad.wav
+2025-04-22 14:28:49,441 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:28:54,857 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_b0rzxqwh/generated_neutral.wav
+2025-04-22 14:28:56,881 DEBUG [jieba] - Building prefix dict from the default dictionary ...
+2025-04-22 14:28:56,882 DEBUG [jieba] - Loading model from cache /tmp/jieba.cache
+2025-04-22 14:28:57,366 DEBUG [jieba] - Loading model cost 0.484 seconds.
+2025-04-22 14:28:57,366 DEBUG [jieba] - Prefix dict has been built successfully.
+2025-04-22 14:28:57,369 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:29:02,866 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_b0rzxqwh/generated_neutral.wav
+2025-04-22 14:29:05,923 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 14:29:07,554 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 14:29:09,209 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 14:29:09,479 INFO [root] - download models from model hub: ms
+2025-04-22 14:29:14,902 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:29:15,401 INFO [root] - download models from model hub: ms
+2025-04-22 14:29:19,743 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:29:20,139 INFO [root] - download models from model hub: ms
+2025-04-22 14:29:23,977 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:37:16,984 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:37:16,985 INFO [emotion_asr] - Starting emotion-aware ASR/TTS core module with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:37:17,135 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:37:17,136 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:37:29,268 INFO [emotion_asr] - Starting application with Gradio interface…
+2025-04-22 14:37:29,411 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:37:29,562 INFO [emotion_asr] - Launching Gradio interface…
+2025-04-22 14:37:29,613 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:37:29,737 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:37:29,775 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:37:30,105 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 14:37:56,917 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:37:56,972 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1758.57ms
+2025-04-22 14:37:56,973 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 14:38:03,185 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:38:03,232 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 6154.32ms
+2025-04-22 14:39:10,213 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:39:10,260 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 66918.62ms
+2025-04-22 14:39:10,260 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 14:39:12,436 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:39:19,617 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_lg0xw8_o/generated_sad.wav
+2025-04-22 14:39:22,073 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:39:27,465 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_lg0xw8_o/generated_neutral.wav
+2025-04-22 14:39:29,499 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:39:35,063 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_lg0xw8_o/generated_neutral.wav
+2025-04-22 14:39:38,087 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 14:39:39,712 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 14:39:41,359 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 14:39:41,570 INFO [root] - download models from model hub: ms
+2025-04-22 14:39:46,770 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:39:47,257 INFO [root] - download models from model hub: ms
+2025-04-22 14:39:51,554 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:39:51,984 INFO [root] - download models from model hub: ms
+2025-04-22 14:39:55,932 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:46:54,509 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:46:54,511 INFO [emotion_asr] - Starting emotion-aware ASR/TTS core module with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:46:54,667 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:46:54,668 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:47:06,631 INFO [emotion_asr] - Starting application with Gradio interface…
+2025-04-22 14:47:06,778 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:47:06,929 INFO [emotion_asr] - Launching Gradio interface…
+2025-04-22 14:47:06,953 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:47:07,103 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:47:07,140 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:47:07,471 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"
+2025-04-22 14:48:01,897 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:48:01,953 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 1787.49ms
+2025-04-22 14:48:01,954 INFO [emotion_asr] - Detected emotion: Sad
+2025-04-22 14:48:07,695 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:48:07,745 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 5680.77ms
+2025-04-22 14:49:14,526 INFO [httpx] - HTTP Request: POST http://babel-0-23:8081/v1/completions "HTTP/1.1 200 OK"
+2025-04-22 14:49:14,579 INFO [emotion_detection] - Logged inference call to llama_3_70b_q4, duration: 66720.33ms
+2025-04-22 14:49:14,580 INFO [emotion_asr] - Generating speech using EmotiVoice
+2025-04-22 14:49:16,774 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:49:24,490 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_0zyeaxnp/generated_sad_ec94eb0f.wav
+2025-04-22 14:49:26,934 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:49:33,449 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_0zyeaxnp/generated_neutral_dbd1e44c.wav
+2025-04-22 14:49:35,491 INFO [emotivoice] - Starting EmotiVoice inference under 'EmotiVoice' …
+2025-04-22 14:49:42,194 INFO [emotivoice] - Generated audio saved → /tmp/emotion_tts_0zyeaxnp/generated_neutral_aeab2bbf.wav
+2025-04-22 14:49:45,052 INFO [root] - new registry table has been added: preprocessor_classes
+2025-04-22 14:49:46,712 INFO [root] - new registry table has been added: adaptor_classes
+2025-04-22 14:49:48,403 INFO [root] - new registry table has been added: lid_predictor_classes
+2025-04-22 14:49:48,607 INFO [root] - download models from model hub: ms
+2025-04-22 14:49:54,026 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:49:54,597 INFO [root] - download models from model hub: ms
+2025-04-22 14:49:58,833 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:49:59,221 INFO [root] - download models from model hub: ms
+2025-04-22 14:50:03,106 INFO [root] - Loading pretrained params from /home/ambuja/.cache/modelscope/hub/models/iic/emotion2vec_plus_large/model.pt
+2025-04-22 14:52:21,590 INFO [src_new.multidialogue_tts_batch_synth_emotivoice_2] - Successfully imported EmotiVoice frontend modules
+2025-04-22 14:52:21,590 INFO [emotion_asr] - Starting emotion-aware ASR/TTS core module with advanced emotion detection, EmotiVoice TTS, and emotion2vec metrics
+2025-04-22 14:52:21,799 INFO [emotion_asr] - Using device: cuda
+2025-04-22 14:52:21,799 INFO [emotion_asr] - Loading Whisper model for ASR...
+2025-04-22 14:52:40,993 INFO [emotion_asr] - Starting application with Gradio interface…
+2025-04-22 14:52:41,131 INFO [emotion_asr] - Launching Gradio interface…
+2025-04-22 14:52:41,181 INFO [httpx] - HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-04-22 14:52:41,252 INFO [httpx] - HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-04-22 14:52:41,273 INFO [httpx] - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-04-22 14:52:41,396 INFO [httpx] - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-04-22 14:52:41,606 INFO [httpx] - HTTP Request: GET https://api.gradio.app/v2/tunnel-request "HTTP/1.1 200 OK"

@@ -1,0 +1,28 @@
+2025-04-22 12:59:11,494 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 12:59:11,494 - INFO - Starting EmotiVoice batch processing at 2025-04-22 12:59:11
+2025-04-22 12:59:11,495 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 12:59:11,495 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 12:59:11,495 - INFO - Found 1 JSONL files to process
+2025-04-22 12:59:11,497 - INFO - Loaded 20 records from results.jsonl
+2025-04-22 12:59:11,497 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 12:59:11,497 - INFO - Total records loaded: 20
+2025-04-22 12:59:11,498 - INFO - Loading lexicon and g2p models...
+2025-04-22 12:59:12,615 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 12:59:12,615 - INFO - Converting text to phonemes...
+2025-04-22 12:59:12,779 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 12:59:12,779 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 12:59:13,266 - DEBUG - Loading model cost 0.487 seconds.
+2025-04-22 12:59:13,266 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 12:59:13,296 - INFO - Completed Converting text to phonemes in 0:00:00
+2025-04-22 12:59:13,297 - INFO - Wrote 40 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 12:59:13,297 - INFO - Preparing for inference...
+2025-04-22 12:59:13,299 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 12:59:13,299 - INFO - Starting inference process...
+2025-04-22 13:00:22,508 - INFO - Inference completed in 0:01:09
+2025-04-22 13:00:22,509 - INFO - Collecting and renaming WAV files...
+2025-04-22 13:00:22,511 - INFO - Found 40 WAV files to process
+2025-04-22 13:00:22,612 - INFO - Completed Processing WAV files in 0:00:00
+2025-04-22 13:00:22,612 - INFO - Writing metadata files...
+2025-04-22 13:00:22,613 - INFO - [results] Wrote 40 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/results/metadata.jsonl
+2025-04-22 13:00:22,614 - INFO - Total processing time: 0:01:11
+2025-04-22 13:00:22,614 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out

@@ -1,0 +1,26 @@
+{
+  "total_processed": 2000,
+  "emotion_distribution": {
+    "Angry": 19,
+    "Disgust": 115,
+    "Neutral": 1403,
+    "Surprise": 343,
+    "Sad": 28,
+    "Happy": 72,
+    "Fear": 7,
+    "Excited": 13
+  },
+  "reference_distribution": {
+    "Surprised": 387,
+    "Curious To Dive Deeper": 712,
+    "Neutral": 506,
+    "Happy": 320,
+    "Sad": 27,
+    "Fearful": 10,
+    "Angry": 15,
+    "Disgusted": 23
+  },
+  "agreement_count": 392,
+  "timestamp": "2025-04-21 16:07:51",
+  "agreement_percentage": 19.6
+}

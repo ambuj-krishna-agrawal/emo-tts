@@ -1,0 +1,9 @@
+{
+  "stage": "complete",
+  "total_time": 71.11918663978577,
+  "total_time_formatted": "0:01:11",
+  "completion_time": "2025-04-22T13:00:22.614875",
+  "records_processed": 20,
+  "wavs_generated": 40,
+  "output_directory": "/data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out"
+}
