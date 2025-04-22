@@ -51,11 +51,11 @@ from src_new.emotion_detection_and_response import (
 )
 
 # ------------------- Constants --------------------
-DEFUALT_MODEL = "llama_3_70b_q4"
+DEFAULT_MODEL = "llama_3_70b_q4"
 PAIRS_METADATA = Path(
     "/data/group_data/starlight/gpa/tts/multidialog_sds_pairs/pairs_metadata.json"
 )
-OUTPUT_DIR = Path(f"/data/group_data/starlight/gpa/tts/multidialog_emotion_planning/{DEFUALT_MODEL}")
+OUTPUT_DIR = Path(f"/data/group_data/starlight/gpa/tts/multidialog_emotion_planning/{DEFAULT_MODEL}")
 MAX_WORKERS = 4
 BATCH_SIZE = 8
 RANDOM_SEED = 42

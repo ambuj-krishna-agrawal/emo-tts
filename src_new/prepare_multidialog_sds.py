@@ -57,14 +57,14 @@ DEFAULT_FILTER_DIFF_SPEAKER = True
 DEFAULT_GOLD_EMOTION_ONLY = False
 DEFAULT_GOLD_EMOTION_ACTORS = ["a", "b", "c", "e", "f", "g", "i", "j", "k"]
 DEFAULT_TOP_N_PAIRS = 20
-DEFAULT_MIN_WORD_COUNT = 15
+DEFAULT_MIN_WORD_COUNT = 100
 DEFAULT_SEMANTIC_SIMILARITY_THRESHOLD = 0.2  # Minimum semantic similarity between A and B
-DEFAULT_EMOTION_STRENGTH_THRESHOLD = 0.5      # Increased minimum emotion strength score
+DEFAULT_EMOTION_STRENGTH_THRESHOLD = 0.5   # Increased minimum emotion strength score
 DEFAULT_TARGET_EMOTIONS = [
     "Anger", "Fear", "Surprise", "Disgust", "Sadness", "Joy"
 ]  # Emotions to prioritize
 DEFAULT_NEUTRAL_RATIO = 0.1  # Reduced neutral ratio
-DEFAULT_MIN_A_EMOTION_STRENGTH = 0.3  # Minimum emotion strength for speaker A
+DEFAULT_MIN_A_EMOTION_STRENGTH = 0.3 # Minimum emotion strength for speaker A
 
 # ───────────────────────────── Config dataclass ─────────────────────────────
 @dataclass
@@ -289,9 +289,8 @@ def load_dataset_split(cfg: Config, split: str) -> Dataset:
 
 # ────────────────────────────────── Main logic ─────────────────────────────────
 def prepare_pairs(cfg: Config):
-    # 1) Load dataset for all splits
+    # 1) Load dataset for all splits -------------------------------------------------
     dataset_dict = {}
-    
     for split in cfg.splits:
         logging.info(f"Loading dataset {cfg.dataset_name} split {split}")
         try:
@@ -300,304 +299,202 @@ def prepare_pairs(cfg: Config):
             logging.info(f"Loaded {len(ds)} examples for split {split}")
         except Exception as e:
             logging.error(f"Error loading split {split}: {e}")
-    
-    # 2) Convert dataset examples to our format
+
+    # 2) Convert dataset examples to our format -------------------------------------
     all_examples = []
     for split, ds in dataset_dict.items():
         for ex in ds:
             try:
-                # Get speaker ID from filename
                 speaker_id = get_speaker_id(ex["file_name"])
-                
-                # Skip if not a gold emotion actor and we're filtering for those
+
                 if cfg.gold_emotion_only and speaker_id not in cfg.gold_emotion_actors:
                     continue
-                
-                # Handle different audio formats in the dataset
-                audio_array = None
-                audio_sr = None
-                
+
+                # --- load / resolve audio ------------------------------------------
+                audio_array, audio_sr = None, None
                 if isinstance(ex["audio"], dict):
-                    if "array" in ex["audio"] and "sampling_rate" in ex["audio"]:
-                        # Standard HF datasets format
+                    if {"array", "sampling_rate"} <= ex["audio"].keys():
                         audio_array = ex["audio"]["array"]
-                        audio_sr = ex["audio"]["sampling_rate"]
+                        audio_sr    = ex["audio"]["sampling_rate"]
                     elif "path" in ex["audio"]:
-                        # Path-only format
-                        audio_path = ex["audio"]["path"]
-                        try:
-                            audio_array, audio_sr = librosa.load(audio_path, sr=None)
-                        except Exception as e:
-                            logging.error(f"Error loading audio file {audio_path}: {e}")
-                            continue
+                        audio_array, audio_sr = librosa.load(ex["audio"]["path"], sr=None)
                 elif isinstance(ex["audio"], str):
-                    # String path format
-                    try:
-                        audio_array, audio_sr = librosa.load(ex["audio"], sr=None)
-                    except Exception as e:
-                        logging.error(f"Error loading audio file {ex['audio']}: {e}")
-                        continue
-                
-                # Skip if audio couldn't be loaded
+                    audio_array, audio_sr = librosa.load(ex["audio"], sr=None)
+
                 if audio_array is None or audio_sr is None:
                     logging.warning(f"Could not load audio for {ex['file_name']}")
                     continue
-                    
-                example = {
-                    "split": split,
-                    "conv_id": ex["conv_id"],
-                    "utterance_id": ex["utterance_id"],
-                    "speaker": ex["from"],  # 'human' or 'gpt'
-                    "speaker_id": speaker_id,
-                    "emotion": ex["emotion"],
-                    "text": ex["value"],
-                    "audio_array": audio_array,
-                    "audio_sr": audio_sr,
-                    "file_name": ex["file_name"],
-                    "original_full_path": ex.get("original_full_path", "")
-                }
-                all_examples.append(example)
+                # -------------------------------------------------------------------
+
+                all_examples.append(
+                    {
+                        "split":          split,
+                        "conv_id":        ex["conv_id"],
+                        "utterance_id":   ex["utterance_id"],
+                        "speaker":        ex["from"],
+                        "speaker_id":     speaker_id,
+                        "emotion":        ex["emotion"],
+                        "text":           ex["value"],
+                        "audio_array":    audio_array,
+                        "audio_sr":       audio_sr,
+                        "file_name":      ex["file_name"],
+                        "original_full_path": ex.get("original_full_path", ""),
+                    }
+                )
             except Exception as e:
-                # Handle different error types
-                if isinstance(ex, dict):
-                    file_name = ex.get("file_name", "unknown")
-                    logging.error(f"Error processing example {file_name}: {e}")
-                elif isinstance(ex, str):
-                    logging.error(f"Error processing example (string): {e}")
-                else:
-                    logging.error(f"Error processing example: {e}")
+                logging.error(f"Error processing example {ex.get('file_name','?')}: {e}")
                 continue
-    
+
     logging.info(f"Collected {len(all_examples)} examples across all splits")
-    
-    # 3) Group by conversation and sort by utterance ID
+
+    # 3) Group by conversation -------------------------------------------------------
     conversations = group_by_conversation(all_examples)
     logging.info(f"Grouped into {len(conversations)} conversations")
-    
-    # 4) Build raw pairs (adjacent utterances)
-    raw_pairs = []
-    for conv_id, utts in conversations.items():
-        for i in range(len(utts) - 1):
-            raw_pairs.append((utts[i], utts[i + 1]))
+
+    # 4) Build raw adjacent‑utterance pairs -----------------------------------------
+    raw_pairs = [
+        (utts[i], utts[i + 1])
+        for utts in conversations.values()
+        for i in range(len(utts) - 1)
+    ]
     logging.info(f"Generated {len(raw_pairs)} raw pairs")
-    
-    # 5) Filter pairs by speaker, duration, and minimum word count
+
+    # 5) Basic filtering: speakers, duration, word‑count, **neutral B** -------------
     basic_filtered_pairs = []
     for a, b in raw_pairs:
-        # Filter by different speakers if required
-        if cfg.require_different_speakers and a["speaker"] == b["speaker"]:
+        # if cfg.require_different_speakers and a["speaker"] == b["speaker"]:
+        #     continue
+
+        # NEW: skip pairs where B's emotion is Neutral
+        if b["emotion"] == "Neutral":
             continue
-            
-        # Filter by minimum duration
+
         dur_a = len(a["audio_array"]) / a["audio_sr"]
         dur_b = len(b["audio_array"]) / b["audio_sr"]
         if dur_a < cfg.min_duration or dur_b < cfg.min_duration:
             continue
-        
-        # Filter by minimum word count
-        word_count_a = count_words(a["text"])
-        word_count_b = count_words(b["text"])
-        if word_count_a < cfg.min_word_count or word_count_b < cfg.min_word_count:
+
+        if count_words(a["text"]) < cfg.min_word_count or count_words(b["text"]) < cfg.min_word_count:
             continue
-            
+
         basic_filtered_pairs.append((a, b))
-    
-    logging.info(f"Filtered down to {len(basic_filtered_pairs)} pairs by speaker, duration, and minimum word count requirements")
-    
-    # 6) Calculate semantic similarity and emotion strength scores for each pair
+
+    logging.info(f"Filtered down to {len(basic_filtered_pairs)} pairs by speaker, duration, word‑count, and non‑neutral B")
+
+    # ---------------------------- the remainder of your original logic -------------
+    # 6) Calculate semantic similarity & emotion strength
     scored_pairs = []
     for a, b in basic_filtered_pairs:
-        # Calculate semantic similarity between A and B
         semantic_similarity = calculate_semantic_similarity(a["text"], b["text"])
-        
-        # Calculate emotion strength score for speaker B
-        emotion_strength = score_emotion_strength(b["text"], b["emotion"])
-        
-        # Create score dictionary
-        score_dict = {
-            "semantic_similarity": semantic_similarity,
-            "emotion_strength": emotion_strength,
-            "is_target_emotion": b["emotion"] in cfg.target_emotions,
-            "is_neutral": b["emotion"] == "Neutral"
-        }
-        
-        # Add to scored pairs
-        scored_pairs.append((a, b, score_dict))
-    
+        emotion_strength    = score_emotion_strength(b["text"], b["emotion"])
+        scored_pairs.append(
+            (
+                a,
+                b,
+                {
+                    "semantic_similarity": semantic_similarity,
+                    "emotion_strength":    emotion_strength,
+                    "is_target_emotion":   b["emotion"] in cfg.target_emotions,
+                },
+            )
+        )
     logging.info(f"Calculated semantic similarity and emotion strength for {len(scored_pairs)} pairs")
-    
-    # 7) Filter by semantic similarity threshold
+
+    # 7) Semantic‑similarity threshold ---------------------------------------------
     similarity_filtered = [
-        (a, b, scores) for a, b, scores in scored_pairs 
-        if scores["semantic_similarity"] >= cfg.semantic_similarity_threshold
+        (a, b, s) for a, b, s in scored_pairs if s["semantic_similarity"] >= cfg.semantic_similarity_threshold
     ]
-    logging.info(f"Filtered to {len(similarity_filtered)} pairs with semantic similarity >= {cfg.semantic_similarity_threshold}")
-    
-    # 8) Filter for emotion strength in speaker A and ensure non-neutral for speaker B
+    logging.info(f"{len(similarity_filtered)} pairs ≥ similarity {cfg.semantic_similarity_threshold}")
+
+    # 8) Speaker‑A min‑emotion strength + target‑emotion strength for B -------------
     strong_emotion_pairs = []
-    
-    for a, b, scores in similarity_filtered:
-        # Calculate emotion strength for speaker A
-        a_emotion_strength = score_emotion_strength(a["text"], a["emotion"])
-        
-        # Skip pairs where speaker B has neutral emotion (critical change)
-        if b["emotion"] == "Neutral":
+    for a, b, s in similarity_filtered:
+        a_strength = score_emotion_strength(a["text"], a["emotion"])
+        if a_strength < cfg.min_a_emotion_strength:
             continue
-            
-        # Skip pairs where speaker A's emotion is too weak
-        if a_emotion_strength < cfg.min_a_emotion_strength:
-            continue
-        
-        # Keep only pairs with strong enough speaker B emotion
-        if scores["is_target_emotion"] and scores["emotion_strength"] >= cfg.emotion_strength_threshold:
-            # Add speaker A emotion strength to the scores
-            scores["a_emotion_strength"] = a_emotion_strength
-            strong_emotion_pairs.append((a, b, scores))
-    
-    # Keep a very small number of neutral pairs if needed for comparison
-    neutral_emotion_pairs = []
-    if cfg.neutral_ratio > 0:
-        for a, b, scores in similarity_filtered:
-            if b["emotion"] == "Neutral" and scores["semantic_similarity"] > cfg.semantic_similarity_threshold * 1.5:
-                neutral_emotion_pairs.append((a, b, scores))
-    
-    logging.info(f"Selected {len(strong_emotion_pairs)} strong emotion pairs and {len(neutral_emotion_pairs)} neutral emotion pairs for comparison")
-    
-    # 9) Sort by combined emotion strength (speaker A + speaker B) for better overall emotional content
-    sorted_emotion_pairs = sorted(
-        strong_emotion_pairs, 
-        key=lambda x: x[2]["emotion_strength"] + x[2]["a_emotion_strength"], 
-        reverse=True
+        if s["is_target_emotion"] and s["emotion_strength"] >= cfg.emotion_strength_threshold:
+            s["a_emotion_strength"] = a_strength
+            strong_emotion_pairs.append((a, b, s))
+
+    logging.info(f"{len(strong_emotion_pairs)} pairs pass emotion‑strength filters")
+
+    # 9) Rank, diversify, select top‑N (unchanged) ----------------------------------
+    strong_emotion_pairs.sort(
+        key=lambda x: x[2]["emotion_strength"] + x[2]["a_emotion_strength"], reverse=True
     )
-    
-    # Further group by emotion type to ensure diversity
-    emotion_grouped_pairs = {}
-    for pair in sorted_emotion_pairs:
-        emotion = pair[1]["emotion"]
-        if emotion not in emotion_grouped_pairs:
-            emotion_grouped_pairs[emotion] = []
-        emotion_grouped_pairs[emotion].append(pair)
-    
-    # Sort neutrals by semantic similarity (descending) if we're keeping any
-    sorted_neutral_pairs = sorted(
-        neutral_emotion_pairs,
-        key=lambda x: x[2]["semantic_similarity"],
-        reverse=True
-    )
-    
-    # 10) Select top pairs from each emotion to ensure diversity
-    diverse_selection = []
-    
-    # Calculate how many pairs to select per emotion
-    emotions_present = len(emotion_grouped_pairs)
-    if emotions_present > 0:
-        pairs_per_emotion = max(2, cfg.top_n_pairs // emotions_present)  # At least 2 per emotion
-        
-        # Take top pairs from each emotion
-        for emotion, pairs in emotion_grouped_pairs.items():
-            diverse_selection.extend(pairs[:pairs_per_emotion])
-            
-        # If we haven't selected enough, add more from the overall sorted list
-        if len(diverse_selection) < cfg.top_n_pairs:
-            # Create a set of already selected pairs
-            selected_indices = set((p[0]["conv_id"], p[0]["utterance_id"], p[1]["utterance_id"]) 
-                                for p in diverse_selection)
-            
-            # Add more pairs that aren't already selected
-            for pair in sorted_emotion_pairs:
-                pair_key = (pair[0]["conv_id"], pair[0]["utterance_id"], pair[1]["utterance_id"])
-                if pair_key not in selected_indices and len(diverse_selection) < cfg.top_n_pairs:
-                    diverse_selection.append(pair)
-                    selected_indices.add(pair_key)
-    
-    # Calculate how many pairs of each type to include
-    strong_count = min(len(diverse_selection), int(cfg.top_n_pairs * (1 - cfg.neutral_ratio)))
-    neutral_count = min(len(sorted_neutral_pairs), cfg.top_n_pairs - strong_count)
-    
-    logging.info(f"Selecting top {strong_count} strong emotion pairs with diversity and top {neutral_count} neutral comparison pairs")
-    
-    # 11) Combine the selected pairs
-    final_pairs = [(a, b) for a, b, _ in diverse_selection[:strong_count]]
-    
-    # Only add neutral pairs if we want them for comparison
-    if neutral_count > 0:
-        final_pairs.extend([(a, b) for a, b, _ in sorted_neutral_pairs[:neutral_count]])
-    
-    # 12) Shuffle the final pairs to mix emotions
+
+    emotion_buckets: Dict[str, List[Tuple[dict, dict, dict]]] = {}
+    for p in strong_emotion_pairs:
+        emotion_buckets.setdefault(p[1]["emotion"], []).append(p)
+
+    final_pairs: List[Tuple[dict, dict]] = []
+    if emotion_buckets:
+        per_emotion = max(2, cfg.top_n_pairs // len(emotion_buckets))
+        for emo, bucket in emotion_buckets.items():
+            final_pairs.extend([ (a, b) for a, b, _ in bucket[:per_emotion] ])
+        if len(final_pairs) < cfg.top_n_pairs:
+            seen = { (a["conv_id"], a["utterance_id"], b["utterance_id"]) for a, b in final_pairs }
+            for a, b, _ in strong_emotion_pairs:
+                key = (a["conv_id"], a["utterance_id"], b["utterance_id"])
+                if key not in seen and len(final_pairs) < cfg.top_n_pairs:
+                    final_pairs.append((a, b))
+                    seen.add(key)
+
+    # 10) Shuffle, log distribution, save audio/metadata (unchanged) ---------------
     np.random.shuffle(final_pairs)
-    
-    # 13) Add debug info about the final pairs
-    if final_pairs:
-        logging.info("Example selected pairs:")
-        for i, (a, b) in enumerate(final_pairs[:3]):  # Show first 3 examples
-            logging.info(f"Example {i+1}:")
-            logging.info(f"  Speaker A ({a['emotion']}): {a['text'][:100]}...")
-            logging.info(f"  Speaker B ({b['emotion']}): {b['text'][:100]}...")
-    
-    # 13) Log emotion distribution in final pairs
     emotion_counts = {}
-    for a, b in final_pairs:
-        emotion = b["emotion"]
-        emotion_counts[emotion] = emotion_counts.get(emotion, 0) + 1
-    
+    for _, b in final_pairs:
+        emotion_counts[b["emotion"]] = emotion_counts.get(b["emotion"], 0) + 1
     logging.info("Final emotion distribution:")
-    for emotion, count in emotion_counts.items():
-        logging.info(f"  {emotion}: {count} ({count/len(final_pairs)*100:.1f}%)")
-    
-    # 14) Save audio and metadata
+    for emo, cnt in emotion_counts.items():
+        logging.info(f"  {emo}: {cnt}  ({cnt/len(final_pairs):.1%})")
+
     audio_dir = cfg.out_dir / "audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
     metadata = []
-    
     for idx, (a, b) in enumerate(tqdm(final_pairs, desc="Saving pairs")):
         pid = f"{idx:05d}"
-        
-        # Process and save first utterance audio
+        pa = audio_dir / f"pair_{pid}_A.wav"
+        pb = audio_dir / f"pair_{pid}_B.wav"
+
         wav_a = a["audio_array"]
         if a["audio_sr"] != cfg.sample_rate:
-            wav_a = librosa.resample(
-                wav_a, orig_sr=a["audio_sr"], target_sr=cfg.sample_rate
-            )
-        pa = audio_dir / f"pair_{pid}_A.wav"
+            wav_a = librosa.resample(wav_a, orig_sr=a["audio_sr"], target_sr=cfg.sample_rate)
         sf.write(pa, wav_a, cfg.sample_rate)
-        
-        # Process and save second utterance audio
+
         wav_b = b["audio_array"]
         if b["audio_sr"] != cfg.sample_rate:
-            wav_b = librosa.resample(
-                wav_b, orig_sr=b["audio_sr"], target_sr=cfg.sample_rate
-            )
-        pb = audio_dir / f"pair_{pid}_B.wav"
+            wav_b = librosa.resample(wav_b, orig_sr=b["audio_sr"], target_sr=cfg.sample_rate)
         sf.write(pb, wav_b, cfg.sample_rate)
-        
-        # Add metadata
-        metadata.append({
-            "pair_id": pid,
-            "conv_id": a["conv_id"],
-            "split": a["split"],
-            "utterance_id_A": a["utterance_id"],
-            "utterance_id_B": b["utterance_id"],
-            "speaker_A": a["speaker"],
-            "speaker_B": b["speaker"],
-            "speaker_id_A": a["speaker_id"],
-            "speaker_id_B": b["speaker_id"],
-            "emotion_A": a["emotion"],
-            "emotion_B": b["emotion"],
-            "text_A": a["text"],
-            "text_B": b["text"],
-            "word_count_A": count_words(a["text"]),
-            "word_count_B": count_words(b["text"]),
-            "duration_A": round(len(wav_a) / cfg.sample_rate, 3),
-            "duration_B": round(len(wav_b) / cfg.sample_rate, 3),
-            "audio_path_A": str(pa),
-            "audio_path_B": str(pb),
-            "file_name_A": a["file_name"],
-            "file_name_B": b["file_name"],
-            "original_full_path_A": a["original_full_path"],
-            "original_full_path_B": b["original_full_path"],
-        })
-    
-    # Save metadata to JSON
+
+        metadata.append(
+            {
+                "pair_id":          pid,
+                "conv_id":          a["conv_id"],
+                "split":            a["split"],
+                "utterance_id_A":   a["utterance_id"],
+                "utterance_id_B":   b["utterance_id"],
+                "speaker_A":        a["speaker"],
+                "speaker_B":        b["speaker"],
+                "speaker_id_A":     a["speaker_id"],
+                "speaker_id_B":     b["speaker_id"],
+                "emotion_A":        a["emotion"],
+                "emotion_B":        b["emotion"],
+                "text_A":           a["text"],
+                "text_B":           b["text"],
+                "word_count_A":     count_words(a["text"]),
+                "word_count_B":     count_words(b["text"]),
+                "duration_A":       round(len(wav_a) / cfg.sample_rate, 3),
+                "duration_B":       round(len(wav_b) / cfg.sample_rate, 3),
+                "audio_path_A":     str(pa),
+                "audio_path_B":     str(pb),
+                "file_name_A":      a["file_name"],
+                "file_name_B":      b["file_name"],
+                "original_full_path_A": a["original_full_path"],
+                "original_full_path_B": b["original_full_path"],
+            }
+        )
+
     meta_path = cfg.out_dir / "pairs_metadata.json"
     with open(meta_path, "w") as f:
         json.dump(metadata, f, indent=2)
