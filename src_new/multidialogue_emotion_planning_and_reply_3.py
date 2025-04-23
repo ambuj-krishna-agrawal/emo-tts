@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-End‑to‑end pipeline (v3.0 – 2025‑04‑22)
+End-to-end pipeline (v3.0 – 2025-04-22)
 ======================================
 This revision refactors the pipeline to use the modular emotion_detection_and_response
 module for better code organization and reusability. The core functionality remains
@@ -12,16 +12,10 @@ Key changes vs v2.1
 2. **Import-based approach** – Using detect_emotion and generate_*_response functions
 3. **Same behavior** – Maintains all the functionality of v2.1 with cleaner structure
 4. **Better error handling** – More robust handling of errors in the model calls
-
-Run example
------------
-```bash
-python multidialog_emotion_planning_and_reply_3.py \
-    --length-ratio 0.9 \
-    --input path/to/pairs.json \
-    --output-dir results/run3
-``` 
+5. **Separated mapping from downsampling** – Added CLI flag to disable downsampling
+6. **Extensive logging** – Tracks loading, filtering, downsampling, and missing entries
 """
+
 from __future__ import annotations
 
 import argparse
@@ -35,7 +29,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 from tqdm.auto import tqdm
 
@@ -55,13 +49,14 @@ DEFAULT_MODEL = "llama_3_70b_q4"
 PAIRS_METADATA = Path(
     "/data/group_data/starlight/gpa/tts/multidialog_sds_pairs/pairs_metadata.json"
 )
-OUTPUT_DIR = Path(f"/data/group_data/starlight/gpa/tts/multidialog_emotion_planning/{DEFAULT_MODEL}")
+OUTPUT_DIR = Path(
+    f"/data/group_data/starlight/gpa/tts/multidialog_emotion_planning_1/{DEFAULT_MODEL}"
+)
 MAX_WORKERS = 4
 BATCH_SIZE = 8
 RANDOM_SEED = 42
 LENGTH_RATIO_DEFAULT = 0.9
 TEMPERATURE_GEN_DEFAULT = 0.7
-
 
 # ------------------- Data Classes --------------------
 
@@ -81,215 +76,229 @@ class EntryResult:
 # ------------------- Core pipeline --------------------
 
 def generate_responses_batch(
-    router, 
-    alias: str, 
-    entries: List[Dict[str, Any]], 
-    logger: logging.Logger, 
-    gen_temperature: float, 
+    router,
+    alias: str,
+    entries: List[Dict[str, Any]],
+    logger: logging.Logger,
+    gen_temperature: float,
     length_ratio: float
 ):
-    """
-    Generate emotion detection and responses for a batch of entries
-    
-    Args:
-        router: The inference client
-        alias: The model alias to use
-        entries: List of entries containing text_A and other fields
-        logger: Logger instance
-        gen_temperature: Temperature for generation
-        length_ratio: Ratio of response length to input length
-        
-    Returns:
-        List of result dictionaries
-    """
     logger.info(f"Processing batch of {len(entries)} entries")
     
-    # First, detect emotions for all entries
-    emotions = {}
-    logger.info(f"Detecting emotions for {len(entries)} pairs")
-    
+    # Detect emotions
+    emotions: Dict[str, str] = {}
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_pid = {}
-        for entry in entries:
-            pid = entry["pair_id"]
-            
-            # Create a future for each emotion detection task
-            future_to_pid[executor.submit(
-                detect_emotion, 
-                entry["text_A"],
-                alias
-            )] = pid
-        
-        # Process results as they complete
+        future_to_pid = {
+            executor.submit(detect_emotion, e["text_A"], alias): e["pair_id"]
+            for e in entries
+        }
         with tqdm(total=len(entries), desc="Classifying") as pbar:
-            for future in as_completed(future_to_pid):
-                pid = future_to_pid[future]
+            for f in as_completed(future_to_pid):
+                pid = future_to_pid[f]
                 try:
-                    emotions[pid] = future.result()
+                    emotions[pid] = f.result()
                 except Exception as e:
                     logger.error(f"Error detecting emotion for {pid}: {e}")
-                    emotions[pid] = "Neutral"  # Default to Neutral on error
+                    emotions[pid] = "Neutral"
                 pbar.update(1)
-    
-    # Generate emotional responses
-    steered_results = {}
-    logger.info(f"Generating {len(entries)} steered replies")
-    
+
+    # Generate steered replies
+    steered_results: Dict[str, str] = {}
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_pid = {}
-        for entry in entries:
-            pid = entry["pair_id"]
-            target_emotion = emotions.get(pid, "Neutral")
-            
-            # Create a future for each response generation task
-            future_to_pid[executor.submit(
+        future_to_pid = {
+            executor.submit(
                 generate_emotional_response,
-                entry["text_A"],
-                target_emotion,
+                e["text_A"],
+                emotions.get(e["pair_id"], "Neutral"),
                 length_ratio,
                 alias,
                 gen_temperature
-            )] = pid
-        
-        # Process results as they complete
+            ): e["pair_id"]
+            for e in entries
+        }
         with tqdm(total=len(entries), desc="Steered") as pbar:
-            for future in as_completed(future_to_pid):
-                pid = future_to_pid[future]
+            for f in as_completed(future_to_pid):
+                pid = future_to_pid[f]
                 try:
-                    steered_results[pid] = future.result()
+                    steered_results[pid] = f.result()
                 except Exception as e:
                     logger.error(f"Error generating steered response for {pid}: {e}")
                     steered_results[pid] = f"Error: {e}"
                 pbar.update(1)
-    
-    # Generate neutral responses
-    baseline_results = {}
-    logger.info(f"Generating {len(entries)} baseline replies")
-    
+
+    # Generate baseline replies
+    baseline_results: Dict[str, str] = {}
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_pid = {}
-        for entry in entries:
-            pid = entry["pair_id"]
-            
-            # Create a future for each neutral response generation task
-            future_to_pid[executor.submit(
+        future_to_pid = {
+            executor.submit(
                 generate_neutral_response,
-                entry["text_A"],
+                e["text_A"],
                 length_ratio,
                 alias,
                 gen_temperature
-            )] = pid
-        
-        # Process results as they complete
+            ): e["pair_id"]
+            for e in entries
+        }
         with tqdm(total=len(entries), desc="Baseline") as pbar:
-            for future in as_completed(future_to_pid):
-                pid = future_to_pid[future]
+            for f in as_completed(future_to_pid):
+                pid = future_to_pid[f]
                 try:
-                    baseline_results[pid] = future.result()
+                    baseline_results[pid] = f.result()
                 except Exception as e:
                     logger.error(f"Error generating baseline response for {pid}: {e}")
                     baseline_results[pid] = f"Error: {e}"
                 pbar.update(1)
-    
+
     # Compile results
-    results = []
-    for entry in entries:
-        pid = entry["pair_id"]
-        target = emotions.get(pid, "Neutral")
-        ref_emo = map_emotion(entry.get("emotion_B", ""))
-        std_ref = standardize_reference_emotion(entry.get("emotion_B", ""))
-        
+    results: List[Dict[str, Any]] = []
+    for e in entries:
+        pid = e["pair_id"]
+        ref_emo = map_emotion(e.get("emotion_B", ""))
+        std_ref = standardize_reference_emotion(e.get("emotion_B", ""))
         results.append(vars(EntryResult(
             pair_id=pid,
-            history=entry["text_A"],
-            speaker_name=entry["speaker_B"],
-            target_emotion=target,
+            history=e["text_A"],
+            speaker_name=e["speaker_B"],
+            target_emotion=emotions.get(pid, "Neutral"),
             emotion_steered_reply=steered_results.get(pid, "(no response)"),
             baseline_reply=baseline_results.get(pid, "(no response)"),
             reference_emotion=ref_emo,
             standardized_reference_emotion=std_ref,
-            reference_response=entry["text_B"],
+            reference_response=e["text_B"],
             timestamp=time.strftime("%Y-%m-%d %H:%M:%S"),
         )))
-    
     return results
 
 # ------------------- Dataset helpers --------------------
 
-def load_pairs(fp: Path):
-    """Load pairs from a JSON file"""
+def load_pairs(fp: Path) -> List[Dict[str, Any]]:
     try:
         return json.loads(fp.read_text())
     except Exception as exc:
         raise RuntimeError(f"Failed loading {fp}: {exc}")
 
-def remap_and_downsample(pairs):
-    """Remap emotions and downsample to balance the dataset"""
+def map_emotions(pairs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     for p in pairs:
         p["reference_emotion"] = map_emotion(p.get("emotion_B", ""))
         p["standardized_reference_emotion"] = standardize_reference_emotion(p.get("emotion_B", ""))
-    
-    freqs = Counter(p["standardized_reference_emotion"] for p in pairs)
-    excited_cnt = freqs.get("Excited", 0)
-    max_other = max(cnt for emo, cnt in freqs.items() if emo != "Excited") if freqs else 0
-    
-    if excited_cnt > max_other:
-        random.seed(RANDOM_SEED)
-        excited = [p for p in pairs if p["standardized_reference_emotion"] == "Excited"]
-        others = [p for p in pairs if p["standardized_reference_emotion"] != "Excited"]
-        pairs = others + random.sample(excited, max_other)
-        random.shuffle(pairs)
-    
     return pairs
 
-def filter_top_n_by_length(pairs, n: int):
-    """Filter and return the top n pairs by text_A length"""
+def downsample_excited(
+    pairs: List[Dict[str, Any]],
+    seed: int = RANDOM_SEED,
+    logger: logging.Logger = None
+) -> List[Dict[str, Any]]:
+    """
+    If Excited is over‐represented, sample it down by pair_id to match the largest other class.
+    Preserves original ordering of kept examples.
+    """
+    freqs = Counter(p["standardized_reference_emotion"] for p in pairs)
+    excited_cnt = freqs.get("Excited", 0)
+    max_other = max((cnt for emo, cnt in freqs.items() if emo != "Excited"), default=0)
+    if excited_cnt <= max_other:
+        if logger:
+            logger.info("No downsampling needed (Excited=%d, max_other=%d)", excited_cnt, max_other)
+        return pairs
+
+    # Separate excited vs others
+    excited = [p for p in pairs if p["standardized_reference_emotion"] == "Excited"]
+    others = [p for p in pairs if p["standardized_reference_emotion"] != "Excited"]
+
+    # Sample by pair_id
+    random.seed(seed)
+    excited_ids = [p["pair_id"] for p in excited]
+    sampled_ids = set(random.sample(excited_ids, max_other))
+    removed_ids = set(excited_ids) - sampled_ids
+
+    if logger:
+        logger.info(
+            "Downsampling Excited: total_excited=%d → keep=%d, remove=%d",
+            excited_cnt, len(sampled_ids), len(removed_ids)
+        )
+        logger.debug("Removed Excited IDs: %s", sorted(removed_ids))
+
+    # Reassemble in original order
+    new_pairs: List[Dict[str, Any]] = []
+    for p in pairs:
+        if p["standardized_reference_emotion"] != "Excited" or p["pair_id"] in sampled_ids:
+            new_pairs.append(p)
+    return new_pairs
+
+def filter_top_n_by_length(pairs: List[Dict[str, Any]], n: int) -> List[Dict[str, Any]]:
     return sorted(pairs, key=lambda p: len(p.get("text_A", "")), reverse=True)[:n]
 
 # ------------------- Main --------------------
 
 def main():
-    p = argparse.ArgumentParser(description="Emotion‑aware reply generator (modular version)")
-    p.add_argument("--input", "-i", default=str(PAIRS_METADATA))
-    p.add_argument("--output-dir", "-o", default=str(OUTPUT_DIR))
-    p.add_argument("--model", "-m", default=DEFAULT_MODEL)
-    p.add_argument("--workers", "-w", type=int, default=MAX_WORKERS)
-    p.add_argument("--batch-size", "-b", type=int, default=BATCH_SIZE)
-    p.add_argument("--filter-top", "-f", type=int, default=0)
-    p.add_argument("--gen-temperature", type=float, default=TEMPERATURE_GEN_DEFAULT)
-    p.add_argument("--length-ratio", type=float, default=LENGTH_RATIO_DEFAULT, help="Reply length = ratio × len(text_A) in words")
+    p = argparse.ArgumentParser(description="Emotion-aware reply generator (modular version)")
+    p.add_argument("--input", "-i", default=str(PAIRS_METADATA), help="Input JSON path")
+    p.add_argument("--output-dir", "-o", default=str(OUTPUT_DIR), help="Output directory")
+    p.add_argument("--model", "-m", default=DEFAULT_MODEL, help="Model alias")
+    p.add_argument("--workers", "-w", type=int, default=MAX_WORKERS, help="Threads per batch")
+    p.add_argument("--batch-size", "-b", type=int, default=BATCH_SIZE, help="Batch size")
+    p.add_argument("--filter-top", "-f", type=int, default=0, help="Top-N filter by length")
+    p.add_argument("--no-downsample", action="store_true", help="Skip downsampling")
+    p.add_argument("--gen-temperature", type=float, default=TEMPERATURE_GEN_DEFAULT, help="Generation temperature")
+    p.add_argument("--length-ratio", type=float, default=LENGTH_RATIO_DEFAULT, help="Reply length ratio")
     args = p.parse_args()
 
-    out_dir = Path(args.output_dir); out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = Path(args.output_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
     logger = setup_logging(out_dir / "emotion_reply.log")
     logger.info("Args: %s", vars(args))
 
+    # Load and log initial set of pair IDs
     pairs = load_pairs(Path(args.input))
+    initial_ids = {p["pair_id"] for p in pairs}
+    logger.info("Loaded %d pairs (sample IDs %s…)", len(initial_ids), list(initial_ids)[:5])
+
+    # Optional length-based filtering
     if args.filter_top > 0:
-        pairs = filter_top_n_by_length(pairs, args.filter_top)
-    pairs = remap_and_downsample(pairs)
+        logger.info("Filtering top-%d by length… before=%d", args.filter_top, len(pairs))
+        kept = filter_top_n_by_length(pairs, args.filter_top)
+        removed = {p["pair_id"] for p in pairs} - {p["pair_id"] for p in kept}
+        logger.info(" → kept=%d, removed=%d (sample removed IDs %s)", len(kept), len(removed), sorted(removed)[:5])
+        pairs = kept
+
+    # Map reference emotions
+    pairs = map_emotions(pairs)
+    logger.debug(
+        "After mapping emotions, sample of reference_emotion: %s",
+        [(p["pair_id"], p["reference_emotion"]) for p in pairs[:5]]
+    )
+
+    # Optional downsampling of "Excited"
+    if not args.no_downsample:
+        pairs = downsample_excited(pairs, seed=RANDOM_SEED, logger=logger)
+        logger.info("After downsampling: %d pairs remain", len(pairs))
+
     logger.info("Dataset after preprocessing: %d pairs", len(pairs))
 
+    # Create inference client
     client = create_inference_client()
     if not client:
         logger.error("Failed to create inference client")
         sys.exit(1)
-        
-    results, batch_size = [], args.batch_size
-    for i in range(0, len(pairs), batch_size):
-        batch = pairs[i:i + batch_size]
-        logger.info("Batch %d/%d", i // batch_size + 1, (len(pairs)+batch_size-1)//batch_size)
-        results.extend(generate_responses_batch(client, args.model, batch, logger, args.gen_temperature, args.length_ratio))
-        
-        # Save partial results every 5 batches
-        if (i // batch_size) % 5 == 0:
+
+    # Batchwise response generation
+    from math import ceil
+    total_batches = ceil(len(pairs) / args.batch_size)
+    results: List[Dict[str, Any]] = []
+    for i in tqdm(range(0, len(pairs), args.batch_size), total=total_batches, desc="Overall", unit="batch"):
+        batch = pairs[i : i + args.batch_size]
+        logger.info("Batch %d/%d", i // args.batch_size + 1, total_batches)
+        results.extend(
+            generate_responses_batch(
+                client, args.model, batch, logger, args.gen_temperature, args.length_ratio
+            )
+        )
+        # Periodic partial dumps
+        if (i // args.batch_size) % 5 == 0:
             tmp = out_dir / f"partial_{len(results)}.jsonl"
             tmp.write_text("\n".join(json.dumps(r) for r in results))
-    
-    # Save final results
-    (out_dir / "results.jsonl").write_text("\n".join(json.dumps(r) for r in results))
 
-    # Calculate and save statistics
+    # Final outputs
+    (out_dir / "results.jsonl").write_text("\n".join(json.dumps(r) for r in results))
     stats = {
         "total": len(results),
         "emotion_distribution": Counter(r["target_emotion"] for r in results),
@@ -297,18 +306,27 @@ def main():
         "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
     }
     stats["agreement_pct"] = 100 * stats["agreement"] / stats["total"] if stats["total"] else 0
-    
-    (out_dir / "stats.json").write_text(json.dumps({
-        k: dict(v) if isinstance(v, Counter) else v for k, v in stats.items()
-    }, indent=2))
-    
+    (out_dir / "stats.json").write_text(
+        json.dumps({k: (dict(v) if isinstance(v, Counter) else v) for k, v in stats.items()}, indent=2)
+    )
+
+    # Check for any missing IDs
+    processed_ids = {r["pair_id"] for r in results}
+    missing = initial_ids - processed_ids
+    if missing:
+        logger.warning(
+            "Some pair_ids were never processed (%d): %s",
+            len(missing), sorted(missing)[:10]
+        )
+
     logger.info("Done – processed %d pairs", len(results))
+
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
         sys.exit()
-    except Exception as e:
+    except Exception:
         traceback.print_exc()
         sys.exit(1)

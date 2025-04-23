@@ -26,3 +26,526 @@
 2025-04-22 13:00:22,613 - INFO - [results] Wrote 40 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/results/metadata.jsonl
 2025-04-22 13:00:22,614 - INFO - Total processing time: 0:01:11
 2025-04-22 13:00:22,614 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:08:05,524 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:08:05,529 - ERROR - Path not found: /data/group_data/starlight/gpa/tts/mistral_7b_q4/multidialog_emotion_planning (JSONL directory)
+2025-04-22 19:08:05,530 - ERROR - Path validation failed. Please check the paths and try again.
+2025-04-22 19:08:48,259 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:08:48,260 - INFO - Starting EmotiVoice batch processing at 2025-04-22 19:08:48
+2025-04-22 19:08:48,260 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 19:08:48,260 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:08:48,261 - INFO - Found 1 JSONL files to process
+2025-04-22 19:08:48,265 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 19:08:48,265 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 19:08:48,265 - INFO - Total records loaded: 715
+2025-04-22 19:08:48,267 - INFO - Loading lexicon and g2p models...
+2025-04-22 19:08:49,398 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 19:08:49,399 - INFO - Converting text to phonemes...
+2025-04-22 19:08:49,563 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 19:08:49,564 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 19:08:50,084 - DEBUG - Loading model cost 0.520 seconds.
+2025-04-22 19:08:50,084 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 19:08:51,692 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 19:08:51,696 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 19:08:51,696 - INFO - Preparing for inference...
+2025-04-22 19:08:51,699 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 19:08:51,699 - INFO - Starting inference process...
+2025-04-22 19:15:16,348 - INFO - Inference completed in 0:06:24
+2025-04-22 19:15:16,349 - INFO - Collecting and renaming WAV files...
+2025-04-22 19:15:16,428 - INFO - Found 1430 WAV files to process
+2025-04-22 19:15:20,217 - INFO - Completed Processing WAV files in 0:00:03
+2025-04-22 19:15:20,217 - INFO - Writing metadata files...
+2025-04-22 19:15:20,225 - INFO - [results] Wrote 1430 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/results/metadata.jsonl
+2025-04-22 19:15:20,225 - INFO - Total processing time: 0:06:31
+2025-04-22 19:15:20,226 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:40:54,811 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:40:54,813 - INFO - Starting EmotiVoice batch processing at 2025-04-22 19:40:54
+2025-04-22 19:40:54,813 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 19:40:54,813 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:40:54,819 - ERROR - No jsonl files found under /data/group_data/starlight/gpa/tts/multidialog_emotion_planning/llama_3_70b_q4
+2025-04-22 19:41:54,185 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:41:54,187 - INFO - Starting EmotiVoice batch processing at 2025-04-22 19:41:54
+2025-04-22 19:41:54,187 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 19:41:54,187 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:41:54,189 - INFO - Found 1 JSONL files to process
+2025-04-22 19:41:54,196 - INFO - Loaded 208 records from results.jsonl
+2025-04-22 19:41:54,197 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 19:41:54,197 - INFO - Total records loaded: 208
+2025-04-22 19:41:54,198 - INFO - Loading lexicon and g2p models...
+2025-04-22 19:41:56,207 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 19:41:56,208 - INFO - Converting text to phonemes...
+2025-04-22 19:41:56,360 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 19:41:56,360 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 19:41:56,840 - DEBUG - Loading model cost 0.480 seconds.
+2025-04-22 19:41:56,841 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 19:41:57,650 - INFO - Completed Converting text to phonemes in 0:00:01
+2025-04-22 19:41:57,654 - INFO - Wrote 416 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 19:41:57,654 - INFO - Preparing for inference...
+2025-04-22 19:41:57,657 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 19:41:57,657 - INFO - Starting inference process...
+2025-04-22 19:43:44,041 - INFO - Inference completed in 0:01:46
+2025-04-22 19:43:44,042 - INFO - Collecting and renaming WAV files...
+2025-04-22 19:43:44,054 - INFO - Found 416 WAV files to process
+2025-04-22 19:46:19,493 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:46:35,671 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:46:35,671 - INFO - Starting EmotiVoice batch processing at 2025-04-22 19:46:35
+2025-04-22 19:46:35,673 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 19:46:35,673 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:46:35,674 - INFO - Found 1 JSONL files to process
+2025-04-22 19:46:35,676 - INFO - Loaded 208 records from results.jsonl
+2025-04-22 19:46:35,677 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 19:46:35,677 - INFO - Total records loaded: 208
+2025-04-22 19:46:35,678 - INFO - Loading lexicon and g2p models...
+2025-04-22 19:46:36,772 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 19:46:36,773 - INFO - Converting text to phonemes...
+2025-04-22 19:46:36,979 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 19:46:36,980 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 19:46:37,457 - DEBUG - Loading model cost 0.478 seconds.
+2025-04-22 19:46:37,458 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 19:46:37,930 - INFO - Completed Converting text to phonemes in 0:00:01
+2025-04-22 19:46:37,932 - INFO - Wrote 416 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 19:46:37,933 - INFO - Preparing for inference...
+2025-04-22 19:46:37,934 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 19:46:37,934 - INFO - Starting inference process...
+2025-04-22 19:48:26,993 - INFO - Inference completed in 0:01:49
+2025-04-22 19:48:26,994 - INFO - Collecting and renaming WAV files...
+2025-04-22 19:48:26,998 - INFO - Found 416 WAV files to process
+2025-04-22 19:48:28,118 - INFO - Completed Processing WAV files in 0:00:01
+2025-04-22 19:48:28,118 - INFO - Writing metadata files...
+2025-04-22 19:48:28,119 - ERROR - Error writing metadata for results: [Errno 2] No such file or directory: '/data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/results/metadata.jsonl'
+2025-04-22 19:48:28,119 - INFO - Total processing time: 0:01:52
+2025-04-22 19:48:28,119 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:50:24,957 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 19:50:24,958 - INFO - Starting EmotiVoice batch processing at 2025-04-22 19:50:24
+2025-04-22 19:50:24,958 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 19:50:24,958 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 19:50:24,959 - INFO - Found 1 JSONL files to process
+2025-04-22 19:50:24,961 - INFO - Loaded 208 records from results.jsonl
+2025-04-22 19:50:24,962 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 19:50:24,962 - INFO - Total records loaded: 208
+2025-04-22 19:50:24,962 - INFO - Loading lexicon and g2p models...
+2025-04-22 19:50:26,115 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 19:50:26,115 - INFO - Converting text to phonemes...
+2025-04-22 19:50:26,233 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 19:50:26,234 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 19:50:26,715 - DEBUG - Loading model cost 0.481 seconds.
+2025-04-22 19:50:26,715 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 19:50:27,216 - INFO - Completed Converting text to phonemes in 0:00:01
+2025-04-22 19:50:27,218 - INFO - Wrote 416 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 19:50:27,219 - INFO - Preparing for inference...
+2025-04-22 19:50:27,221 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 19:50:27,221 - INFO - Starting inference process...
+2025-04-22 19:52:13,792 - INFO - Inference completed in 0:01:46
+2025-04-22 19:52:13,793 - INFO - Collecting and renaming WAV files...
+2025-04-22 19:52:13,798 - INFO - Found 416 WAV files to process
+2025-04-22 19:52:15,446 - INFO - Completed Processing WAV files in 0:00:01
+2025-04-22 19:52:15,446 - INFO - Writing metadata files...
+2025-04-22 19:52:15,449 - INFO - [results] Wrote 416 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/llama_3_70b_q4/metadata.jsonl
+2025-04-22 19:52:15,450 - INFO - Total processing time: 0:01:50
+2025-04-22 19:52:15,450 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:08:52,878 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:08:52,879 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:08:52
+2025-04-22 21:08:52,880 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:08:52,880 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:08:52,880 - INFO - Found 1 JSONL files to process
+2025-04-22 21:08:52,932 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:08:52,932 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:08:52,932 - INFO - Total records loaded: 715
+2025-04-22 21:08:52,933 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:08:54,050 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:08:54,050 - INFO - Converting text to phonemes...
+2025-04-22 21:08:54,167 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:08:54,168 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:08:54,682 - DEBUG - Loading model cost 0.513 seconds.
+2025-04-22 21:08:54,682 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:08:56,822 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 21:08:56,829 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:08:56,829 - INFO - Preparing for inference...
+2025-04-22 21:08:56,832 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:08:56,832 - INFO - Starting inference process...
+2025-04-22 21:09:57,198 - INFO - Inference completed in 0:01:00
+2025-04-22 21:09:57,199 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:09:57,203 - ERROR - Mismatch between WAV count (186) and metadata list (1430).
+2025-04-22 21:19:09,212 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:19:09,214 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:19:09
+2025-04-22 21:19:09,214 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:19:09,214 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:19:09,215 - INFO - Found 1 JSONL files to process
+2025-04-22 21:19:09,230 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:19:09,230 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:19:09,231 - INFO - Total records loaded: 715
+2025-04-22 21:19:09,232 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:19:11,318 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:19:11,319 - INFO - Converting text to phonemes...
+2025-04-22 21:19:11,437 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:19:11,437 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:19:11,926 - DEBUG - Loading model cost 0.489 seconds.
+2025-04-22 21:19:11,926 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:19:15,513 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 21:19:15,521 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:19:15,521 - INFO - Preparing for inference...
+2025-04-22 21:19:15,524 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:19:15,524 - INFO - Starting inference process...
+2025-04-22 21:19:19,905 - INFO - Inference completed in 0:00:04
+2025-04-22 21:19:19,906 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:21:40,700 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:21:40,702 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:21:40
+2025-04-22 21:21:40,702 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:21:40,702 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:21:40,703 - INFO - Found 1 JSONL files to process
+2025-04-22 21:21:40,718 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:21:40,719 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:21:40,719 - INFO - Total records loaded: 715
+2025-04-22 21:21:40,720 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:21:42,812 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:21:42,813 - INFO - Converting text to phonemes...
+2025-04-22 21:21:42,929 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:21:42,929 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:21:43,416 - DEBUG - Loading model cost 0.486 seconds.
+2025-04-22 21:21:43,416 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:21:47,089 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 21:21:47,097 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:21:47,097 - INFO - Preparing for inference...
+2025-04-22 21:21:47,099 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:21:47,100 - INFO - Starting inference process...
+2025-04-22 21:21:50,011 - INFO - Inference completed in 0:00:02
+2025-04-22 21:21:50,012 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:24:08,333 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:24:08,334 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:24:08
+2025-04-22 21:24:08,334 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:24:08,335 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:24:08,336 - INFO - Found 1 JSONL files to process
+2025-04-22 21:25:11,226 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:25:14,619 - INFO - Completed Loading JSONL files in 0:01:06
+2025-04-22 21:27:00,002 - INFO - Total records loaded: 715
+2025-04-22 21:27:00,005 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:27:02,042 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:27:02,043 - INFO - Converting text to phonemes...
+2025-04-22 21:27:02,151 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:27:02,152 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:27:02,640 - DEBUG - Loading model cost 0.488 seconds.
+2025-04-22 21:27:02,640 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:28:52,805 - INFO - Completed Converting text to phonemes in 0:01:50
+2025-04-22 21:28:52,814 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:28:52,814 - INFO - Preparing for inference...
+2025-04-22 21:29:50,139 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:29:50,140 - INFO - Starting inference process...
+2025-04-22 21:31:25,176 - INFO - Inference completed in 0:01:35
+2025-04-22 21:31:25,178 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:33:19,909 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:33:19,910 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:33:19
+2025-04-22 21:33:19,910 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:33:19,911 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:33:19,911 - INFO - Found 1 JSONL files to process
+2025-04-22 21:33:19,916 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:33:19,916 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:33:19,916 - INFO - Total records loaded: 715
+2025-04-22 21:33:19,917 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:33:21,025 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:33:21,025 - INFO - Converting text to phonemes...
+2025-04-22 21:33:21,153 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:33:21,154 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:33:21,654 - DEBUG - Loading model cost 0.500 seconds.
+2025-04-22 21:33:21,655 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:33:23,717 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 21:33:23,724 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:33:23,724 - INFO - Preparing for inference...
+2025-04-22 21:33:23,726 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:33:23,726 - INFO - Starting inference process...
+2025-04-22 21:34:22,585 - INFO - Inference completed in 0:00:58
+2025-04-22 21:34:22,586 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:34:22,602 - ERROR - Mismatch between WAV count (186) and metadata list (1430).
+2025-04-22 21:35:38,960 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:35:38,961 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:35:38
+2025-04-22 21:35:38,961 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:35:38,961 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:35:38,962 - INFO - Found 1 JSONL files to process
+2025-04-22 21:35:38,977 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:35:38,977 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:35:38,978 - INFO - Total records loaded: 715
+2025-04-22 21:35:38,979 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:35:41,018 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:35:41,019 - INFO - Converting text to phonemes...
+2025-04-22 21:35:41,155 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:35:41,155 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:35:41,641 - DEBUG - Loading model cost 0.486 seconds.
+2025-04-22 21:35:41,641 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:35:45,251 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 21:35:45,257 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:35:45,258 - INFO - Preparing for inference...
+2025-04-22 21:35:45,260 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:35:45,260 - INFO - Starting inference process...
+2025-04-22 21:36:52,107 - INFO - Inference completed in 0:01:06
+2025-04-22 21:36:52,109 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:37:52,775 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:37:52,777 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:37:52
+2025-04-22 21:37:52,777 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:37:52,777 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:37:52,779 - ERROR - No jsonl files found under /data/group_data/starlight/gpa/tts/multidialog_emotion_planning/llama_3_70b_q4
+2025-04-22 21:38:51,897 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:38:51,898 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:38:51
+2025-04-22 21:38:51,899 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:38:51,899 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:38:51,900 - INFO - Found 1 JSONL files to process
+2025-04-22 21:38:51,908 - INFO - Loaded 528 records from results.jsonl
+2025-04-22 21:38:51,909 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:38:51,909 - INFO - Total records loaded: 528
+2025-04-22 21:38:51,910 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:38:53,915 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:38:53,916 - INFO - Converting text to phonemes...
+2025-04-22 21:38:54,062 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:38:54,062 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:38:54,545 - DEBUG - Loading model cost 0.483 seconds.
+2025-04-22 21:38:54,546 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:38:56,580 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 21:38:56,584 - INFO - Wrote 1056 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:38:56,584 - INFO - Preparing for inference...
+2025-04-22 21:38:56,587 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:38:56,588 - INFO - Starting inference process...
+2025-04-22 21:43:05,232 - INFO - Inference completed in 0:04:08
+2025-04-22 21:43:05,233 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:43:05,324 - INFO - Found 1056 WAV files to process
+2025-04-22 21:43:09,151 - INFO - Completed Processing WAV files in 0:00:03
+2025-04-22 21:43:09,152 - INFO - Writing metadata files...
+2025-04-22 21:43:09,164 - INFO - [llama_3_70b_q4] Wrote 1056 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/llama_3_70b_q4/metadata.jsonl
+2025-04-22 21:43:09,165 - INFO - Total processing time: 0:04:17
+2025-04-22 21:43:09,165 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:43:53,406 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:43:53,408 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:43:53
+2025-04-22 21:43:53,408 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:43:53,408 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:43:53,409 - INFO - Found 1 JSONL files to process
+2025-04-22 21:43:53,418 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:43:53,419 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:43:53,419 - INFO - Total records loaded: 715
+2025-04-22 21:43:53,420 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:43:55,419 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:43:55,419 - INFO - Converting text to phonemes...
+2025-04-22 21:43:55,531 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:43:55,531 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:43:56,020 - DEBUG - Loading model cost 0.488 seconds.
+2025-04-22 21:43:56,020 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:43:59,601 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 21:43:59,608 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:43:59,608 - INFO - Preparing for inference...
+2025-04-22 21:43:59,610 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:43:59,611 - INFO - Starting inference process...
+2025-04-22 21:44:59,022 - INFO - Inference completed in 0:00:59
+2025-04-22 21:44:59,024 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:44:59,043 - ERROR - Mismatch between WAV count (186) and metadata list (1430).
+2025-04-22 21:50:26,963 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:50:26,965 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:50:26
+2025-04-22 21:50:26,965 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:50:26,965 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:50:26,966 - INFO - Found 1 JSONL files to process
+2025-04-22 21:50:26,975 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:50:26,976 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:50:26,976 - INFO - Total records loaded: 715
+2025-04-22 21:50:26,977 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:50:29,012 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:50:29,013 - INFO - Converting text to phonemes...
+2025-04-22 21:50:29,123 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:50:29,124 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:50:29,612 - DEBUG - Loading model cost 0.489 seconds.
+2025-04-22 21:50:29,613 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:50:33,107 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 21:50:33,115 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:50:33,115 - INFO - Preparing for inference...
+2025-04-22 21:50:33,117 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:50:33,117 - INFO - Starting inference process...
+2025-04-22 21:51:33,286 - INFO - Inference completed in 0:01:00
+2025-04-22 21:51:33,287 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:51:33,323 - ERROR - Mismatch between WAV count (186) and metadata list (1430).
+2025-04-22 21:56:36,009 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:56:36,010 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:56:36
+2025-04-22 21:56:36,011 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:56:36,011 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:56:36,012 - INFO - Found 1 JSONL files to process
+2025-04-22 21:56:36,021 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:56:36,022 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:56:36,022 - INFO - Total records loaded: 715
+2025-04-22 21:56:36,023 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:56:38,116 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:56:38,117 - INFO - Converting text to phonemes...
+2025-04-22 21:56:38,236 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:56:38,236 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:56:38,719 - DEBUG - Loading model cost 0.482 seconds.
+2025-04-22 21:56:38,719 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:56:43,265 - INFO - Completed Converting text to phonemes in 0:00:05
+2025-04-22 21:56:43,272 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:56:43,272 - INFO - Preparing for inference...
+2025-04-22 21:56:43,274 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:56:43,274 - INFO - Starting inference process...
+2025-04-22 21:56:51,412 - INFO - Inference completed in 0:00:08
+2025-04-22 21:56:51,413 - INFO - Collecting and renaming WAV files...
+2025-04-22 21:56:51,415 - ERROR - Mismatch between WAV count (0) and metadata list (1430).
+2025-04-22 21:59:53,684 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 21:59:53,685 - INFO - Starting EmotiVoice batch processing at 2025-04-22 21:59:53
+2025-04-22 21:59:53,686 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 21:59:53,686 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 21:59:53,687 - INFO - Found 1 JSONL files to process
+2025-04-22 21:59:53,696 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 21:59:53,697 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 21:59:53,697 - INFO - Total records loaded: 715
+2025-04-22 21:59:53,698 - INFO - Loading lexicon and g2p models...
+2025-04-22 21:59:55,734 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 21:59:55,735 - INFO - Converting text to phonemes...
+2025-04-22 21:59:55,846 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 21:59:55,846 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 21:59:56,333 - DEBUG - Loading model cost 0.487 seconds.
+2025-04-22 21:59:56,334 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 21:59:59,809 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 21:59:59,815 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 21:59:59,815 - INFO - Preparing for inference...
+2025-04-22 21:59:59,817 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 21:59:59,817 - INFO - Starting inference process...
+2025-04-22 22:00:58,985 - INFO - Inference completed in 0:00:59
+2025-04-22 22:00:58,986 - INFO - Collecting and renaming WAV files...
+2025-04-22 22:00:59,005 - ERROR - Mismatch between WAV count (186) and metadata list (1430).
+2025-04-22 22:11:57,594 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 22:11:57,595 - INFO - Starting EmotiVoice batch processing at 2025-04-22 22:11:57
+2025-04-22 22:11:57,596 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 22:11:57,596 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 22:11:57,597 - INFO - Found 1 JSONL files to process
+2025-04-22 22:11:57,606 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 22:11:57,607 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 22:11:57,607 - INFO - Total records loaded: 715
+2025-04-22 22:11:57,608 - INFO - Loading lexicon and g2p models...
+2025-04-22 22:11:59,817 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 22:11:59,817 - INFO - Converting text to phonemes...
+2025-04-22 22:11:59,926 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 22:11:59,926 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 22:12:00,401 - DEBUG - Loading model cost 0.475 seconds.
+2025-04-22 22:12:00,402 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 22:12:04,323 - INFO - Completed Converting text to phonemes in 0:00:04
+2025-04-22 22:12:04,330 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 22:12:04,330 - INFO - Preparing for inference...
+2025-04-22 22:12:04,332 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 22:12:04,332 - INFO - Starting inference process...
+2025-04-22 22:13:03,409 - INFO - Inference completed in 0:00:59
+2025-04-22 22:13:03,410 - INFO - Collecting and renaming WAV files...
+2025-04-22 22:13:03,428 - ERROR - Mismatch between WAV count (186) and metadata list (1430).
+2025-04-22 23:19:42,956 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 23:19:42,958 - INFO - Starting EmotiVoice batch processing at 2025-04-22 23:19:42
+2025-04-22 23:19:42,958 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 23:19:42,958 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 23:19:42,959 - INFO - Found 1 JSONL files to process
+2025-04-22 23:19:42,964 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 23:19:42,964 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 23:19:42,964 - INFO - Total records loaded: 715
+2025-04-22 23:19:42,965 - INFO - Loading lexicon and g2p models...
+2025-04-22 23:19:44,187 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 23:19:44,188 - INFO - Converting text to phonemes...
+2025-04-22 23:19:44,316 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 23:19:44,316 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 23:19:44,796 - DEBUG - Loading model cost 0.479 seconds.
+2025-04-22 23:19:44,796 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 23:19:47,165 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 23:19:47,172 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 23:19:47,172 - INFO - Preparing for inference...
+2025-04-22 23:19:47,174 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 23:19:47,174 - INFO - Starting inference process...
+2025-04-22 23:20:40,763 - INFO - Inference completed in 0:00:53
+2025-04-22 23:20:40,764 - INFO - Collecting and renaming WAV files...
+2025-04-22 23:20:40,778 - ERROR - Mismatch between WAV count (145) and metadata list (1430).
+2025-04-22 23:22:35,412 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 23:22:35,413 - INFO - Starting EmotiVoice batch processing at 2025-04-22 23:22:35
+2025-04-22 23:22:35,413 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 23:22:35,413 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 23:22:35,414 - INFO - Found 1 JSONL files to process
+2025-04-22 23:22:35,418 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 23:22:35,418 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 23:22:35,418 - INFO - Total records loaded: 715
+2025-04-22 23:22:35,419 - INFO - Loading lexicon and g2p models...
+2025-04-22 23:22:36,620 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 23:22:36,620 - INFO - Converting text to phonemes...
+2025-04-22 23:22:36,771 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 23:22:36,772 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 23:22:37,244 - DEBUG - Loading model cost 0.473 seconds.
+2025-04-22 23:22:37,244 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 23:22:38,944 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 23:22:38,948 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 23:22:38,948 - INFO - Preparing for inference...
+2025-04-22 23:22:38,953 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 23:22:38,954 - INFO - Starting inference process...
+2025-04-22 23:26:46,191 - INFO - Inference completed in 0:04:07
+2025-04-22 23:26:46,192 - INFO - Collecting and renaming WAV files...
+2025-04-22 23:26:46,281 - ERROR - Mismatch between WAV count (1048) and metadata list (1430).
+2025-04-22 23:36:09,845 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 23:36:09,846 - INFO - Starting EmotiVoice batch processing at 2025-04-22 23:36:09
+2025-04-22 23:36:09,846 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 23:36:09,846 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 23:36:09,847 - INFO - Found 1 JSONL files to process
+2025-04-22 23:36:09,851 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 23:36:09,851 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 23:36:09,851 - INFO - Total records loaded: 715
+2025-04-22 23:36:09,852 - INFO - Loading lexicon and g2p models...
+2025-04-22 23:36:11,012 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 23:36:11,012 - INFO - Converting text to phonemes...
+2025-04-22 23:36:11,168 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 23:36:11,168 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 23:36:11,644 - DEBUG - Loading model cost 0.476 seconds.
+2025-04-22 23:36:11,645 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 23:36:13,329 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 23:36:13,333 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 23:36:13,333 - INFO - Preparing for inference...
+2025-04-22 23:36:13,335 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 23:36:13,335 - INFO - Starting inference process...
+2025-04-22 23:36:20,646 - INFO - Inference completed in 0:00:07
+2025-04-22 23:36:20,647 - INFO - Collecting and renaming WAV files...
+2025-04-22 23:36:20,649 - ERROR - Mismatch between WAV count (0) and metadata list (1430).
+2025-04-22 23:39:06,221 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 23:39:06,221 - INFO - Starting EmotiVoice batch processing at 2025-04-22 23:39:06
+2025-04-22 23:39:06,222 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 23:39:06,224 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 23:39:06,225 - INFO - Found 1 JSONL files to process
+2025-04-22 23:39:06,230 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 23:39:06,230 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 23:39:06,230 - INFO - Total records loaded: 715
+2025-04-22 23:39:06,231 - INFO - Loading lexicon and g2p models...
+2025-04-22 23:39:07,422 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 23:39:07,422 - INFO - Converting text to phonemes...
+2025-04-22 23:39:07,576 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 23:39:07,576 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 23:39:08,051 - DEBUG - Loading model cost 0.475 seconds.
+2025-04-22 23:39:08,051 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 23:39:09,817 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 23:39:09,821 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 23:39:09,821 - INFO - Preparing for inference...
+2025-04-22 23:39:09,824 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 23:39:09,824 - INFO - Starting inference process...
+2025-04-22 23:44:48,383 - INFO - Inference completed in 0:05:38
+2025-04-22 23:44:48,384 - INFO - Collecting and renaming WAV files...
+2025-04-22 23:44:48,488 - INFO - Found 1430 WAV files to process
+2025-04-22 23:44:52,328 - INFO - Completed Processing WAV files in 0:00:03
+2025-04-22 23:44:52,328 - INFO - Writing metadata files...
+2025-04-22 23:44:52,337 - INFO - [mistral_7b_q4] Wrote 1430 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/mistral_7b_q4/metadata.jsonl
+2025-04-22 23:44:52,337 - INFO - Total processing time: 0:05:46
+2025-04-22 23:44:52,337 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 23:46:01,617 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-22 23:46:01,618 - INFO - Starting EmotiVoice batch processing at 2025-04-22 23:46:01
+2025-04-22 23:46:01,619 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-22 23:46:01,619 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-22 23:46:01,619 - INFO - Found 1 JSONL files to process
+2025-04-22 23:46:01,624 - INFO - Loaded 715 records from results.jsonl
+2025-04-22 23:46:01,624 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-22 23:46:01,624 - INFO - Total records loaded: 715
+2025-04-22 23:46:01,625 - INFO - Loading lexicon and g2p models...
+2025-04-22 23:46:02,790 - INFO - Lexicon and g2p models loaded successfully
+2025-04-22 23:46:02,791 - INFO - Converting text to phonemes...
+2025-04-22 23:46:02,921 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-22 23:46:02,921 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-22 23:46:03,400 - DEBUG - Loading model cost 0.479 seconds.
+2025-04-22 23:46:03,400 - DEBUG - Prefix dict has been built successfully.
+2025-04-22 23:46:05,789 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-22 23:46:05,795 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-22 23:46:05,795 - INFO - Preparing for inference...
+2025-04-22 23:46:05,797 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-22 23:46:05,797 - INFO - Starting inference process...
+2025-04-22 23:54:13,283 - INFO - Inference completed in 0:08:07
+2025-04-22 23:54:13,284 - INFO - Collecting and renaming WAV files...
+2025-04-22 23:54:13,410 - INFO - Found 1430 WAV files to process
+2025-04-22 23:54:21,633 - INFO - Completed Processing WAV files in 0:00:08
+2025-04-22 23:54:21,633 - INFO - Writing metadata files...
+2025-04-22 23:54:21,642 - INFO - [llama_3_3b_q4] Wrote 1430 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/llama_3_3b_q4/metadata.jsonl
+2025-04-22 23:54:21,643 - INFO - Total processing time: 0:08:20
+2025-04-22 23:54:21,643 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out

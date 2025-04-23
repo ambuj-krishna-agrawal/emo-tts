@@ -7,8 +7,8 @@ Generates up to `max_pairs` adjacent-utterance pairs with speaker, emotion, tran
 plus a metadata JSON for downstream ASR/TTS in ESPnet. Only pairs with different speakers and both
 audio segments at least `min_duration` seconds are kept.
 
-Pairs are filtered based on semantic relevance and emotion strength to identify high-quality pairs
-where speaker B shows strong emotional responses to speaker A's utterances.
+Pairs are filtered based on semantic relevance to identify high-quality pairs
+where speaker B shows responses to speaker A's utterances.
 """
 import os
 import argparse
@@ -56,15 +56,13 @@ DEFAULT_MIN_DURATION = 1.0
 DEFAULT_FILTER_DIFF_SPEAKER = True
 DEFAULT_GOLD_EMOTION_ONLY = False
 DEFAULT_GOLD_EMOTION_ACTORS = ["a", "b", "c", "e", "f", "g", "i", "j", "k"]
-DEFAULT_TOP_N_PAIRS = 20
-DEFAULT_MIN_WORD_COUNT = 100
+DEFAULT_TOP_N_PAIRS = 1000
+DEFAULT_MIN_WORD_COUNT = 15
 DEFAULT_SEMANTIC_SIMILARITY_THRESHOLD = 0.2  # Minimum semantic similarity between A and B
-DEFAULT_EMOTION_STRENGTH_THRESHOLD = 0.5   # Increased minimum emotion strength score
 DEFAULT_TARGET_EMOTIONS = [
     "Anger", "Fear", "Surprise", "Disgust", "Sadness", "Joy"
 ]  # Emotions to prioritize
-DEFAULT_NEUTRAL_RATIO = 0.1  # Reduced neutral ratio
-DEFAULT_MIN_A_EMOTION_STRENGTH = 0.3 # Minimum emotion strength for speaker A
+DEFAULT_NEUTRAL_RATIO = 0.05  # Reduced neutral ratio
 
 # ───────────────────────────── Config dataclass ─────────────────────────────
 @dataclass
@@ -81,8 +79,6 @@ class Config:
     top_n_pairs: int = DEFAULT_TOP_N_PAIRS
     min_word_count: int = DEFAULT_MIN_WORD_COUNT
     semantic_similarity_threshold: float = DEFAULT_SEMANTIC_SIMILARITY_THRESHOLD
-    emotion_strength_threshold: float = DEFAULT_EMOTION_STRENGTH_THRESHOLD
-    min_a_emotion_strength: float = DEFAULT_MIN_A_EMOTION_STRENGTH
     target_emotions: List[str] = field(default_factory=lambda: DEFAULT_TARGET_EMOTIONS.copy())
     neutral_ratio: float = DEFAULT_NEUTRAL_RATIO
 
@@ -151,89 +147,6 @@ def calculate_semantic_similarity(text_a: str, text_b: str) -> float:
     except:
         # If vectorization fails, return 0
         return 0.0
-
-def score_emotion_strength(text: str, emotion: str) -> float:
-    """
-    Score the emotional strength of a text based on sentiment analysis
-    and the stated emotion label - improved to better detect strong emotions
-    """
-    # Initialize sentiment analyzer
-    sia = SentimentIntensityAnalyzer()
-    
-    # Get sentiment scores
-    sentiment_scores = sia.polarity_scores(text)
-    
-    # Map emotions to expected sentiment patterns
-    emotional_intensity = 0.0
-    
-    # Use compound score for overall intensity - higher initial weight
-    base_intensity = abs(sentiment_scores['compound']) * 1.2
-    
-    # Boost intensity based on matching emotion label with sentiment
-    if emotion in ["Anger", "Disgust"] and sentiment_scores['neg'] > 0.2:
-        emotional_intensity = base_intensity * 2.0
-    elif emotion == "Joy" and sentiment_scores['pos'] > 0.2:
-        emotional_intensity = base_intensity * 2.0
-    elif emotion == "Sadness" and sentiment_scores['neg'] > 0.2:
-        emotional_intensity = base_intensity * 1.8
-    elif emotion == "Surprise" and (sentiment_scores['pos'] > 0.2 or sentiment_scores['neg'] > 0.2):
-        emotional_intensity = base_intensity * 1.8
-    elif emotion == "Fear" and sentiment_scores['neg'] > 0.2:
-        emotional_intensity = base_intensity * 2.0
-    elif emotion == "Neutral":
-        # Significantly lower score for neutral emotions
-        emotional_intensity = base_intensity * 0.3
-    else:
-        # Default case - still boosted slightly
-        emotional_intensity = base_intensity * 1.2
-    
-    # Add stronger bonus for emotional words and punctuation
-    emotional_markers = {
-        '!': 0.15,                   # Exclamation
-        '?!': 0.2,                   # Surprised question
-        '!!!': 0.25,                 # Multiple exclamations
-        'very': 0.15,                # Intensity words
-        'really': 0.15,
-        'extremely': 0.2,
-        'absolutely': 0.2,
-        'definitely': 0.15,
-        'furious': 0.25,             # Strong emotion words
-        'terrified': 0.25,
-        'ecstatic': 0.25,
-        'devastated': 0.25,
-        'thrilled': 0.2,
-        'hate': 0.2,
-        'love': 0.2,
-        'horrible': 0.2,
-        'amazing': 0.2,
-        'terrible': 0.2,
-        'awful': 0.2,
-        'incredible': 0.2,
-        'worst': 0.2,
-        'best': 0.2,
-    }
-    
-    for marker, bonus in emotional_markers.items():
-        if marker in text.lower():
-            emotional_intensity += bonus
-    
-    # Check for ALL CAPS words (indicating emphasis/shouting)
-    words = text.split()
-    for word in words:
-        if len(word) > 2 and word.isupper():
-            emotional_intensity += 0.25
-            break
-    
-    # Check for repeated punctuation
-    if '!!' in text or '??' in text:
-        emotional_intensity += 0.2
-    
-    # Longer texts get a slight bonus if they're already somewhat emotional
-    if len(text) > 50 and emotional_intensity > 0.4:
-        emotional_intensity += 0.1
-    
-    # Cap at 1.0
-    return min(emotional_intensity, 1.0)
 
 def debug_print_example(ex, prefix="Example"):
     """Print the structure of an example for debugging"""
@@ -365,7 +278,7 @@ def prepare_pairs(cfg: Config):
         # if cfg.require_different_speakers and a["speaker"] == b["speaker"]:
         #     continue
 
-        # NEW: skip pairs where B's emotion is Neutral
+        # Skip pairs where B's emotion is Neutral
         if b["emotion"] == "Neutral":
             continue
 
@@ -381,60 +294,59 @@ def prepare_pairs(cfg: Config):
 
     logging.info(f"Filtered down to {len(basic_filtered_pairs)} pairs by speaker, duration, word‑count, and non‑neutral B")
 
-    # ---------------------------- the remainder of your original logic -------------
-    # 6) Calculate semantic similarity & emotion strength
+    # 6) Calculate semantic similarity only
     scored_pairs = []
     for a, b in basic_filtered_pairs:
         semantic_similarity = calculate_semantic_similarity(a["text"], b["text"])
-        emotion_strength    = score_emotion_strength(b["text"], b["emotion"])
         scored_pairs.append(
             (
                 a,
                 b,
                 {
                     "semantic_similarity": semantic_similarity,
-                    "emotion_strength":    emotion_strength,
-                    "is_target_emotion":   b["emotion"] in cfg.target_emotions,
+                    "is_target_emotion": b["emotion"] in cfg.target_emotions,
                 },
             )
         )
-    logging.info(f"Calculated semantic similarity and emotion strength for {len(scored_pairs)} pairs")
+    logging.info(f"Calculated semantic similarity for {len(scored_pairs)} pairs")
 
-    # 7) Semantic‑similarity threshold ---------------------------------------------
+    # 7) Apply semantic similarity threshold filtering
     similarity_filtered = [
         (a, b, s) for a, b, s in scored_pairs if s["semantic_similarity"] >= cfg.semantic_similarity_threshold
     ]
     logging.info(f"{len(similarity_filtered)} pairs ≥ similarity {cfg.semantic_similarity_threshold}")
 
-    # 8) Speaker‑A min‑emotion strength + target‑emotion strength for B -------------
-    strong_emotion_pairs = []
-    for a, b, s in similarity_filtered:
-        a_strength = score_emotion_strength(a["text"], a["emotion"])
-        if a_strength < cfg.min_a_emotion_strength:
-            continue
-        if s["is_target_emotion"] and s["emotion_strength"] >= cfg.emotion_strength_threshold:
-            s["a_emotion_strength"] = a_strength
-            strong_emotion_pairs.append((a, b, s))
+    # 8) Keep target emotions only
+    target_emotion_pairs = [
+        (a, b, s) for a, b, s in similarity_filtered if s["is_target_emotion"]
+    ]
+    logging.info(f"{len(target_emotion_pairs)} pairs with target emotions")
 
-    logging.info(f"{len(strong_emotion_pairs)} pairs pass emotion‑strength filters")
+    # If we have no pairs with target emotions, use all pairs that passed similarity filter
+    if len(target_emotion_pairs) == 0:
+        logging.warning("No pairs with target emotions found, using all similarity-filtered pairs")
+        target_emotion_pairs = similarity_filtered
 
-    # 9) Rank, diversify, select top‑N (unchanged) ----------------------------------
-    strong_emotion_pairs.sort(
-        key=lambda x: x[2]["emotion_strength"] + x[2]["a_emotion_strength"], reverse=True
-    )
+    # 9) Rank by similarity, diversify by emotion, select top-N
+    # Sort by semantic similarity in descending order
+    target_emotion_pairs.sort(key=lambda x: x[2]["semantic_similarity"], reverse=True)
 
+    # Bucket pairs by emotion
     emotion_buckets: Dict[str, List[Tuple[dict, dict, dict]]] = {}
-    for p in strong_emotion_pairs:
+    for p in target_emotion_pairs:
         emotion_buckets.setdefault(p[1]["emotion"], []).append(p)
 
+    # Select pairs from each emotion bucket
     final_pairs: List[Tuple[dict, dict]] = []
     if emotion_buckets:
         per_emotion = max(2, cfg.top_n_pairs // len(emotion_buckets))
         for emo, bucket in emotion_buckets.items():
-            final_pairs.extend([ (a, b) for a, b, _ in bucket[:per_emotion] ])
+            final_pairs.extend([(a, b) for a, b, _ in bucket[:per_emotion]])
+            
+        # If we don't have enough pairs, add more from the sorted list
         if len(final_pairs) < cfg.top_n_pairs:
-            seen = { (a["conv_id"], a["utterance_id"], b["utterance_id"]) for a, b in final_pairs }
-            for a, b, _ in strong_emotion_pairs:
+            seen = {(a["conv_id"], a["utterance_id"], b["utterance_id"]) for a, b in final_pairs}
+            for a, b, _ in target_emotion_pairs:
                 key = (a["conv_id"], a["utterance_id"], b["utterance_id"])
                 if key not in seen and len(final_pairs) < cfg.top_n_pairs:
                     final_pairs.append((a, b))
@@ -503,7 +415,7 @@ def prepare_pairs(cfg: Config):
 # ────────────────────────────────── Argument parsing ────────────────────────────
 def parse_args() -> Config:
     parser = argparse.ArgumentParser(
-        description="Prepare SDS pairs from IVLLab/MultiDialog with semantic relevance and emotion filtering"
+        description="Prepare SDS pairs from IVLLab/MultiDialog with semantic relevance filtering"
     )
     parser.add_argument(
         "--dataset_name",
@@ -584,20 +496,6 @@ def parse_args() -> Config:
         help="Minimum semantic similarity between speaker A and B utterances",
     )
     parser.add_argument(
-        "--emotion_strength_threshold",
-        type=float,
-        default=DEFAULT_EMOTION_STRENGTH_THRESHOLD,
-        required=False,
-        help="Minimum emotion strength score for target emotions in speaker B",
-    )
-    parser.add_argument(
-        "--min_a_emotion_strength",
-        type=float,
-        default=DEFAULT_MIN_A_EMOTION_STRENGTH,
-        required=False,
-        help="Minimum emotion strength score for speaker A",
-    )
-    parser.add_argument(
         "--target_emotions",
         default=','.join(DEFAULT_TARGET_EMOTIONS),
         required=False,
@@ -626,8 +524,6 @@ def parse_args() -> Config:
         top_n_pairs=args.top_n_pairs,
         min_word_count=args.min_word_count,
         semantic_similarity_threshold=args.semantic_similarity_threshold,
-        emotion_strength_threshold=args.emotion_strength_threshold,
-        min_a_emotion_strength=args.min_a_emotion_strength,
         target_emotions=[s.strip() for s in args.target_emotions.split(',')],
         neutral_ratio=args.neutral_ratio,
     )

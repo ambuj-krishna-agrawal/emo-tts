@@ -442,3 +442,57 @@ def process_text(text, llm_model=DEFAULT_MODEL):
             "emotional_response": f"Error: {e}",
             "neutral_response": f"Error: {e}",
         }
+
+
+def analyze_embedding_similarity(gt_audio_path: str, gen_audio_path: str):
+    """
+    Compare the emotion embeddings of a ground-truth audio vs. a generated audio.
+    Returns a dict with:
+      - gt_embedding: list of floats
+      - gen_embedding: list of floats
+      - cosine_similarity: float in [–1,1]
+    """
+    try:
+        from funasr import AutoModel
+        import torch
+        import torch.nn.functional as F
+    except ImportError as exc:
+        logger.error(f"FunASR not installed for embedding-based eval: {exc}")
+        return {"gt_embedding": None, "gen_embedding": None, "cosine_similarity": None}
+
+    # load the same emotion2vec model (or fallback)
+    try:
+        embed_model = AutoModel(model="iic/emotion2vec_plus_large")
+    except Exception:
+        logger.info("Falling back to base_finetuned emotion2vec for embeddings")
+        embed_model = AutoModel(model="iic/emotion2vec_base_finetuned")
+
+    # helper to pull out a single utterance embedding
+    def _get_embedding(path):
+        rec = embed_model.generate(
+            str(path),
+            granularity="utterance",
+            extract_embedding=True
+        )
+        # Some versions return a list of dicts; grab the first
+        if isinstance(rec, list) and rec:
+            rec = rec[0]
+        feats = rec.get("feats") or rec.get("embedding")
+        if feats is None:
+            raise RuntimeError(f"No embedding found in model output for {path}")
+        return torch.from_numpy(feats)
+
+    try:
+        gt_emb = _get_embedding(gt_audio_path)
+        gen_emb = _get_embedding(gen_audio_path)
+        # cosine over the vector dims → single score
+        cos = F.cosine_similarity(gt_emb, gen_emb, dim=0).mean().item()
+    except Exception as e:
+        logger.error(f"Error computing embeddings for {gt_audio_path} vs. {gen_audio_path}: {e}")
+        return {"gt_embedding": None, "gen_embedding": None, "cosine_similarity": None}
+
+    return {
+        "gt_embedding": gt_emb.numpy().tolist(),
+        "gen_embedding": gen_emb.numpy().tolist(),
+        "cosine_similarity": cos
+    }

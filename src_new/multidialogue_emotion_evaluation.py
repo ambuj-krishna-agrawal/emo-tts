@@ -35,10 +35,12 @@ PAIRS_METADATA_PATH = DATA_DIR / "multidialog_sds_pairs/pairs_metadata.json"
 
 # Dictionary of model directories to evaluate
 MODEL_DIRS = {
-    "llama_3_70b": DATA_DIR / "multidialogue_emotivoice_out/llama_3_70b_q4"
+    "llama_3_70b_q4": DATA_DIR / "multidialogue_emotivoice_out/llama_3_70b_q4",
+    "mistral_7b_q4": DATA_DIR / "multidialogue_emotivoice_out/mistral_7b_q4",
+    "llama_3_3b_q4": DATA_DIR / "multidialogue_emotivoice_out/llama_3_3b_q4"
 }
 
-EMOTION_PLANNING_DIR = DATA_DIR / "multidialog_emotion_planning/llama_3_70b_q4"
+EMOTION_PLANNING_DIR = DATA_DIR / "multidialog_emotion_planning/llama_3_3b_q4"
 OUTPUT_DIR = DATA_DIR / "multidialogue_evaluation_results"
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 

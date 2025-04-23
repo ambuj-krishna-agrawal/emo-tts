@@ -46,6 +46,25 @@ EMOTIVOICE_MODELS_PATH = Path("/data/group_data/starlight/gpa/tts/EmotiVoice_mod
 # Add EmotiVoice to the path
 sys.path.insert(0, str(EMOTIVOICE_PATH))
 
+from transformers import AutoTokenizer
+
+TOKENIZER = AutoTokenizer.from_pretrained("bert-base-uncased")
+MAX_BERT_TOKENS = TOKENIZER.model_max_length 
+
+def _truncate_for_bert(text: str, max_tokens: int = MAX_BERT_TOKENS) -> str:
+    """
+    Encode without special tokens, truncate to max_tokens, and decode back.
+    """
+    toks = TOKENIZER.encode(text, add_special_tokens=False)
+    if len(toks) > max_tokens:
+        toks = toks[:max_tokens]
+        text = TOKENIZER.decode(
+            toks,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=True
+        )
+    return text
+
 def generate_emotivoice_audio(
     text: str,
     target_emotion: str,
@@ -239,10 +258,11 @@ except ImportError as e:
     sys.exit(1)
 
 # ------------------------- Paths & constants --------------------------------
-DEFAULT_MODEL = "llama_3_70b_q4"
+# DEFAULT_MODEL = "llama_3_70b_q4"
+DEFAULT_MODEL = "llama_3_3b_q4"
 BASE_DIR     = Path("/home/ambuja/emo-tts")  # Your working directory
-DATA_DIR = Path(f"/data/group_data/starlight/gpa/tts/{DEFAULT_MODEL}")
-JSONL_DIR    = DATA_DIR / "multidialog_emotion_planning/"
+DATA_DIR = Path(f"/data/group_data/starlight/gpa/tts")
+JSONL_DIR    = DATA_DIR / f"multidialog_emotion_planning/{DEFAULT_MODEL}"
 OUT_ROOT     = DATA_DIR / "multidialogue_emotivoice_out"
 TMP_DIR      = BASE_DIR / "_ev_tmp"
 TMP_DIR.mkdir(exist_ok=True)
@@ -309,7 +329,7 @@ def main():
     load_timer = ProcessTimer(len(jsonl_paths), "Loading JSONL files")
     
     for p in jsonl_paths:
-        planning_model = p.stem
+        planning_model = DEFAULT_MODEL
         try:
             with p.open() as f:
                 file_records = [json.loads(line) for line in f if line.strip()]
@@ -355,6 +375,8 @@ def main():
         try:
             # baseline (neutral)
             text_b = rec["baseline_reply"].strip()
+            text_b = text_b[:2000] 
+            text_b = _truncate_for_bert(text_b)
             ph_b   = to_phoneme(text_b)
             lines.append(f"{SPEAKER_ID}|{EMO_NEUTRAL}|{ph_b}|{text_b}")
             index2meta.append((pid, model, "neutral"))
@@ -364,6 +386,8 @@ def main():
             # emotion‑steered
             emo    = rec["target_emotion"].capitalize()
             text_s = rec["emotion_steered_reply"].strip()
+            text_s = text_s[:2000]
+            text_s = _truncate_for_bert(text_s)
             ph_s   = to_phoneme(text_s)
             lines.append(f"{SPEAKER_ID}|{emo}|{ph_s}|{text_s}")
             index2meta.append((pid, model, "steered"))
@@ -496,7 +520,7 @@ echo "End time: $(date)"
     wav_dir = root_path / "test_audio" / "audio" / CHECKPOINT
     
     try:
-        wavs = sorted(wav_dir.glob("*.wav"), key=lambda p: int(p.stem))
+        wavs = sorted(wav_dir.glob("*.wav"), key=lambda p: p.stat().st_mtime)
     except Exception as e:
         logger.error(f"Failed to collect WAV files: {e}")
         sys.exit(1)
@@ -512,7 +536,7 @@ echo "End time: $(date)"
     
     for i, (wav_path, (pid, model, tag)) in enumerate(zip(wavs, index2meta)):
         try:
-            tgt_dir = OUT_ROOT / model
+            tgt_dir = OUT_ROOT / DEFAULT_MODEL
             tgt_dir.mkdir(parents=True, exist_ok=True)
             tgt_file = tgt_dir / f"{pid}_{tag}.wav"
             shutil.copy2(wav_path, tgt_file)
@@ -541,7 +565,7 @@ echo "End time: $(date)"
     
     for i, (model, entries) in enumerate(meta_per_model.items()):
         try:
-            meta_p = OUT_ROOT / model / "metadata.jsonl"
+            meta_p = OUT_ROOT / DEFAULT_MODEL / "metadata.jsonl"
             with meta_p.open("w") as f:
                 for m in entries:
                     f.write(json.dumps(m, ensure_ascii=False) + "\n")

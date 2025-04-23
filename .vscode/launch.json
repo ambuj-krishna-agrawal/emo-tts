@@ -45,6 +45,14 @@
             "cwd": "${workspaceFolder}",
             "module": "src_new.gradio_interface",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "tts",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "module": "src_new.multidialogue_tts_batch_synth_emotivoice_2",
+            "console": "integratedTerminal"
         }
     ]
 }
