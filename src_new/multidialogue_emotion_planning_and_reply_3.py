@@ -50,7 +50,7 @@ PAIRS_METADATA = Path(
     "/data/group_data/starlight/gpa/tts/multidialog_sds_pairs/pairs_metadata.json"
 )
 OUTPUT_DIR = Path(
-    f"/data/group_data/starlight/gpa/tts/multidialog_emotion_planning_1/{DEFAULT_MODEL}"
+    f"/data/group_data/starlight/gpa/tts/multidialog_emotion_planning/{DEFAULT_MODEL}"
 )
 MAX_WORKERS = 4
 BATCH_SIZE = 8

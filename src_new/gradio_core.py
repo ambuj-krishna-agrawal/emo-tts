@@ -47,7 +47,7 @@ logger.info(f"Using device: {DEVICE}")
 # Constants
 MODEL_SR = 16000
 EMOTIONS = list(ALLOWED_EMOTIONS)
-DEFAULT_MODEL = "llama_3_3b_q4"  # Use smaller model for faster responses in demo
+DEFAULT_MODEL = "mistral_7b_q4"  # Use smaller model for faster responses in demo
 
 # Emotion mapping for emotion2vec
 EMOTION_MAPPING = {
@@ -261,7 +261,6 @@ def process_audio(audio_path, tts_model="EmotiVoice", llm_model=DEFAULT_MODEL):
         return {
             "transcript": "No audio provided",
             "asr_metrics": "",
-            "detected_emotion": "",
             "emotional_response": "",
             "neutral_response": "",
             "target_emotion": "",
@@ -283,7 +282,6 @@ def process_audio(audio_path, tts_model="EmotiVoice", llm_model=DEFAULT_MODEL):
         return {
             "transcript": f"Error loading audio: {e}",
             "asr_metrics": "",
-            "detected_emotion": "",
             "emotional_response": "",
             "neutral_response": "",
             "target_emotion": "",
@@ -306,7 +304,6 @@ def process_audio(audio_path, tts_model="EmotiVoice", llm_model=DEFAULT_MODEL):
         return {
             "transcript": f"Transcription error: {e}",
             "asr_metrics": "",
-            "detected_emotion": "",
             "emotional_response": "",
             "neutral_response": "",
             "target_emotion": "",
@@ -399,7 +396,6 @@ def process_audio(audio_path, tts_model="EmotiVoice", llm_model=DEFAULT_MODEL):
     return {
         "transcript": transcript,
         "asr_metrics": asr_metrics,
-        "detected_emotion": target_emotion,
         "emotional_response": emotional_response,
         "neutral_response": neutral_response,
         "target_emotion": target_emotion,
@@ -417,7 +413,6 @@ def process_text(text, llm_model=DEFAULT_MODEL):
     """Process text input directly without audio"""
     if not text:
         return {
-            "detected_emotion": "",
             "emotional_response": "",
             "neutral_response": "",
         }
@@ -431,14 +426,12 @@ def process_text(text, llm_model=DEFAULT_MODEL):
         neutral_response = generate_neutral_response(text, 0.9, llm_model)
         
         return {
-            "detected_emotion": target_emotion,
             "emotional_response": emotional_response,
             "neutral_response": neutral_response,
         }
     except Exception as e:
         logger.error(f"Error processing text: {e}")
         return {
-            "detected_emotion": "Error",
             "emotional_response": f"Error: {e}",
             "neutral_response": f"Error: {e}",
         }
@@ -477,7 +470,7 @@ def analyze_embedding_similarity(gt_audio_path: str, gen_audio_path: str):
         # Some versions return a list of dicts; grab the first
         if isinstance(rec, list) and rec:
             rec = rec[0]
-        feats = rec.get("feats") or rec.get("embedding")
+        feats = rec.get("feats")
         if feats is None:
             raise RuntimeError(f"No embedding found in model output for {path}")
         return torch.from_numpy(feats)

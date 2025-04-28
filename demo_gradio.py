@@ -13,7 +13,6 @@ demo = gr.Interface(
     outputs=gr.Textbox(),
     title="Tiny test"
 )
-
 demo.launch(
     share=True,           # open a public *.gradio.live URL
     server_name="0.0.0.0",

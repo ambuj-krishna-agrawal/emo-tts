@@ -68,7 +68,7 @@ def _truncate_for_bert(text: str, max_tokens: int = MAX_BERT_TOKENS) -> str:
 def generate_emotivoice_audio(
     text: str,
     target_emotion: str,
-    speaker_id: str = "8051",
+    speaker_id: str = "92",
     output_dir: Optional[Path] = None,
     emotivoice_env: str = "EmotiVoice",  # conda env name *or* absolute python path
 ) -> Path:
@@ -79,7 +79,7 @@ def generate_emotivoice_audio(
     Args:
         text:            The text to synthesize.
         target_emotion:  Emotion name (any case → capitalized).
-        speaker_id:      EmotiVoice speaker ID (default: "8051").
+        speaker_id:      EmotiVoice speaker ID (default: "92").
         output_dir:      Where to write WAV (temp dir if None).
         emotivoice_env:  Either the *name* of the conda env that holds
                          EmotiVoice (default "EmotiVoice") **or**
@@ -258,8 +258,8 @@ except ImportError as e:
     sys.exit(1)
 
 # ------------------------- Paths & constants --------------------------------
-# DEFAULT_MODEL = "llama_3_70b_q4"
-DEFAULT_MODEL = "llama_3_3b_q4"
+DEFAULT_MODEL = "llama_3_70b_q4"
+# DEFAULT_MODEL = "llama_3_3b_q4"
 BASE_DIR     = Path("/home/ambuja/emo-tts")  # Your working directory
 DATA_DIR = Path(f"/data/group_data/starlight/gpa/tts")
 JSONL_DIR    = DATA_DIR / f"multidialog_emotion_planning/{DEFAULT_MODEL}"
@@ -268,7 +268,7 @@ TMP_DIR      = BASE_DIR / "_ev_tmp"
 TMP_DIR.mkdir(exist_ok=True)
 
 TEST_FILE    = TMP_DIR / "batch_for_tts.txt"      # input for inference script
-SPEAKER_ID   = os.getenv("EMOTIVOICE_SPK", "8051")  # any ID in speaker2id.txt
+SPEAKER_ID   = os.getenv("EMOTIVOICE_SPK", "92")  # any ID in speaker2id.txt
 CHECKPOINT   = "g_00140000"                       # change if you like
 LOGDIR       = "prompt_tts_open_source_joint"     # official default
 CONFIG_DIR   = "config/joint"  # Use relative path for EmotiVoice script

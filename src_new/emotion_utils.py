@@ -371,7 +371,7 @@ def build_baseline_prompt(history: str, target_words: int = 100) -> List[Dict[st
 def get_model_configs():
     """Get model configurations"""
     return {
-        "llama_3_70b_q4": {"model_id": "ibnzterrell/Meta-Llama-3.3-70B-Instruct-AWQ-INT4", "base_url": "http://babel-0-23:8081/v1", "is_chat": False, "template_builder": None},
+        "llama_3_70b_q4": {"model_id": "ibnzterrell/Meta-Llama-3.3-70B-Instruct-AWQ-INT4", "base_url": "http://babel-7-25:8081/v1", "is_chat": False, "template_builder": None},
         "llama_3_3b_q4": {"model_id": "AMead10/Llama-3.2-3B-Instruct-AWQ", "base_url": "http://babel-0-35:8083/v1", "is_chat": False, "template_builder": None},
         "mistral_7b_q4": {"model_id": "TheBloke/Mistral-7B-Instruct-v0.2-AWQ", "base_url": "http://babel-7-17:8082/v1", "is_chat": False, "template_builder": None},
     }

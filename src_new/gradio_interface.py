@@ -79,7 +79,6 @@ def gradio_audio_wrapper(audio, tts_model_choice, llm_model_choice):
     return (
         result["transcript"],              # 1
         result["asr_metrics"],             # 2
-        result["detected_emotion"],        # 3
         result["emotional_response"],      # 4
         result["neutral_response"],        # 5
         result["target_emotion"],          # 6
@@ -102,10 +101,9 @@ def gradio_audio_wrapper(audio, tts_model_choice, llm_model_choice):
 def gradio_text_wrapper(text, llm_model_choice):
     """Handle pure text input."""
     if not text:
-        return "", "", ""
+        return "", ""
     result = process_text(text, llm_model_choice)
     return (
-        result["detected_emotion"],
         result["emotional_response"],
         result["neutral_response"],
     )
@@ -141,7 +139,7 @@ def run_gradio():
                         audio_input = gr.Audio(label="Speak here", type="numpy")
                         with gr.Row():
                             tts_model_choice = gr.Radio(
-                                ["EmotiVoice", "ChatGPT"],
+                                ["EmotiVoice"],
                                 label="Select TTS Model",
                                 value="EmotiVoice",
                             )
@@ -161,7 +159,6 @@ def run_gradio():
                             gr.Markdown("#### ASR Results")
                             transcript_output = gr.Textbox(label="Transcript")
                             asr_metrics_output = gr.Textbox(label="ASR Metrics")
-                            detected_emotion_output = gr.Textbox(label="Detected Emotion")
 
                         # Generated responses
                         with gr.Group():
@@ -231,7 +228,6 @@ def run_gradio():
                         )
                         submit_text_btn = gr.Button("Process Text", variant="primary")
                     with gr.Column(scale=1):
-                        text_emotion_output = gr.Textbox(label="Detected Emotion")
                         with gr.Group():
                             gr.Markdown("#### Generated Responses")
                             text_emotional_response = gr.Textbox(
@@ -248,7 +244,6 @@ def run_gradio():
             outputs=[
                 transcript_output,
                 asr_metrics_output,
-                detected_emotion_output,
                 emotional_response_output,
                 neutral_response_output,
                 target_emotion_output,
@@ -270,7 +265,7 @@ def run_gradio():
         submit_text_btn.click(
             fn=gradio_text_wrapper,
             inputs=[text_input, llm_model_choice_text],
-            outputs=[text_emotion_output, text_emotional_response, text_neutral_response],
+            outputs=[text_emotional_response, text_neutral_response],
         )
 
     logger.info("Launching Gradio interface…")

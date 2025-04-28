@@ -549,3 +549,31 @@
 2025-04-22 23:54:21,642 - INFO - [llama_3_3b_q4] Wrote 1430 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/llama_3_3b_q4/metadata.jsonl
 2025-04-22 23:54:21,643 - INFO - Total processing time: 0:08:20
 2025-04-22 23:54:21,643 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-24 08:38:14,929 - INFO - Successfully imported EmotiVoice frontend modules
+2025-04-24 08:38:14,931 - INFO - Starting EmotiVoice batch processing at 2025-04-24 08:38:14
+2025-04-24 08:38:14,931 - INFO - Working directory: /home/ambuja/emo-tts
+2025-04-24 08:38:14,931 - INFO - Output directory: /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out
+2025-04-24 08:38:14,932 - INFO - Found 1 JSONL files to process
+2025-04-24 08:38:14,938 - INFO - Loaded 715 records from results.jsonl
+2025-04-24 08:38:14,938 - INFO - Completed Loading JSONL files in 0:00:00
+2025-04-24 08:38:14,938 - INFO - Total records loaded: 715
+2025-04-24 08:38:14,940 - INFO - Loading lexicon and g2p models...
+2025-04-24 08:38:16,200 - INFO - Lexicon and g2p models loaded successfully
+2025-04-24 08:38:16,201 - INFO - Converting text to phonemes...
+2025-04-24 08:38:16,390 - DEBUG - Building prefix dict from the default dictionary ...
+2025-04-24 08:38:16,390 - DEBUG - Loading model from cache /tmp/jieba.cache
+2025-04-24 08:38:16,864 - DEBUG - Loading model cost 0.474 seconds.
+2025-04-24 08:38:16,864 - DEBUG - Prefix dict has been built successfully.
+2025-04-24 08:38:18,787 - INFO - Completed Converting text to phonemes in 0:00:02
+2025-04-24 08:38:18,799 - INFO - Wrote 1430 lines to /home/ambuja/emo-tts/_ev_tmp/batch_for_tts.txt
+2025-04-24 08:38:18,800 - INFO - Preparing for inference...
+2025-04-24 08:38:18,801 - INFO - Created inference script at /home/ambuja/emo-tts/_ev_tmp/run_inference.sh
+2025-04-24 08:38:18,802 - INFO - Starting inference process...
+2025-04-24 08:45:06,421 - INFO - Inference completed in 0:06:47
+2025-04-24 08:45:06,423 - INFO - Collecting and renaming WAV files...
+2025-04-24 08:45:06,526 - INFO - Found 1430 WAV files to process
+2025-04-24 08:45:32,025 - INFO - Completed Processing WAV files in 0:00:25
+2025-04-24 08:45:32,025 - INFO - Writing metadata files...
+2025-04-24 08:45:32,045 - INFO - [llama_3_70b_q4] Wrote 1430 entries to /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out/llama_3_70b_q4/metadata.jsonl
+2025-04-24 08:45:32,046 - INFO - Total processing time: 0:07:17
+2025-04-24 08:45:32,046 - INFO - All audio & metadata are under /data/group_data/starlight/gpa/tts/multidialogue_emotivoice_out

@@ -40,7 +40,7 @@ MODEL_DIRS = {
     "llama_3_3b_q4": DATA_DIR / "multidialogue_emotivoice_out/llama_3_3b_q4"
 }
 
-EMOTION_PLANNING_DIR = DATA_DIR / "multidialog_emotion_planning/llama_3_3b_q4"
+EMOTION_PLANNING_DIR = DATA_DIR / "multidialog_emotion_planning"
 OUTPUT_DIR = DATA_DIR / "multidialogue_evaluation_results"
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
@@ -318,8 +318,7 @@ def main():
 
     for model_name, model_dir in MODEL_DIRS.items():
         lg.info("--- %s ---", model_name)
-
-        plan_file = EMOTION_PLANNING_DIR / "results.jsonl"
+        plan_file = EMOTION_PLANNING_DIR / model_name / "results.jsonl"
         tts_meta = model_dir / "metadata.jsonl"
         if not plan_file.exists() or not tts_meta.exists():
             lg.error("Missing planning or metadata for %s – skipping", model_name)

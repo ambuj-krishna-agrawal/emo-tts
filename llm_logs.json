@@ -1,29 +1,7 @@
 [
   {
-    "id": "c6eeb4ff-7649-4c3c-9d5b-42a4cad71866",
-    "timestamp": "2025-04-23T01:00:51.615460",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: I was surprised to learn that the NFL has chips in their uniforms and the ball. I wonder what they use the data for. \n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Surprise\nThe best answer is Surprise.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 2156.77
-  },
-  {
-    "id": "c357a6ba-e032-492b-a5d5-ceea43aba300",
-    "timestamp": "2025-04-23T01:00:55.057862",
+    "id": "4dac8c6f-2424-4e2b-8050-d7f9a03e672a",
+    "timestamp": "2025-04-25T03:23:53.408244",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
@@ -41,19 +19,19 @@
       },
       {
         "role": "user",
-        "content": "INPUT: Yes, i know a little. I know that there was some game that people played. i never played it.\nEMOTION=Neutral"
+        "content": "INPUT: I figure the best way to watch the game is to look at highlights. Did you know that the average lifetime earnings of an engineer are higher than the average lifetime earnings of an NFL player?\nEMOTION=Neutral"
       }
     ],
-    "response": "You mentioned a game that people played. What was the game called?",
+    "response": "Regarding the earnings comparison, that's an interesting point about engineers and NFL players. What specific factors contribute to this difference in lifetime earnings?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 3262.3
+    "duration_ms": 5172.02
   },
   {
-    "id": "a19da050-df82-4d86-a52f-fa8562737b64",
-    "timestamp": "2025-04-23T01:00:57.749348",
+    "id": "20fdd6a3-cbcf-4fe6-b9dd-292827361f39",
+    "timestamp": "2025-04-25T03:23:53.580557",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
@@ -71,19 +49,19 @@
       },
       {
         "role": "user",
-        "content": "INPUT: The played pretty well this past season, it was a bummer they didn't make it far in the playoffs. But I guess it wouldn't be a Super Bowl without the Patriots involved somehow.\nEMOTION=Neutral"
+        "content": "INPUT: That's very interesting, sounds like Cumberland suffered a huge loss. Anyways, it was nice talking to you!\nEMOTION=Neutral"
       }
     ],
-    "response": "They did have some impressive games, their defense was particularly strong. What was it about their strategy that you think helped them this season?",
+    "response": "Cumberland indeed had a significant loss. It's always insightful to discuss historical events. Did you find anything else noteworthy about that time period?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 5876.01
+    "duration_ms": 5309.3
   },
   {
-    "id": "989695bb-b049-478e-bcc8-1c58037b0c05",
-    "timestamp": "2025-04-23T01:00:57.939584",
+    "id": "290b677b-2f7f-4dfc-b416-57f8eb826fb9",
+    "timestamp": "2025-04-25T03:23:58.418386",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
@@ -101,19 +79,19 @@
       },
       {
         "role": "user",
-        "content": "INPUT: lol  My first thought was that they could program the chips in the footballs to go to the other chips in the shoulder pads.  \nEMOTION=Neutral"
+        "content": "INPUT: I prefer to watch the games. It's difficult when they're talking about players numbers and position on the field to envision it all at once.\nEMOTION=Neutral"
       }
     ],
-    "response": "That's an interesting idea about the chips in the footballs and shoulder pads. What kind of technology would be needed to make that work?",
+    "response": "You mentioned players' numbers and positions being hard to envision. Are you saying that visuals would help you better understand the game?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 6097.29
+    "duration_ms": 4791.88
   },
   {
-    "id": "75cef110-3d0b-4169-812d-ff9f59832cf6",
-    "timestamp": "2025-04-23T01:00:58.345331",
+    "id": "d729c9d8-8991-4f3a-9a73-bc1ae3d39994",
+    "timestamp": "2025-04-25T03:24:07.055557",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
@@ -131,19 +109,19 @@
       },
       {
         "role": "user",
-        "content": "INPUT: She also wrote other mysteries that won Edgar Awards from the Mystery Writers of America\nEMOTION=Neutral"
+        "content": "INPUT: I did enjoy spiderman but some of the avengers are getting difficult to keep up with! I can't believe that Disney owns the rights to produce the movies but can't use it in there parks. I know Universal Theme Park has the spiderman ride.\nEMOTION=Neutral"
       }
     ],
-    "response": "She also wrote other mysteries that won Edgar Awards from the Mystery Writers of America. That's a notable achievement. What other notable awards did she receive?",
+    "response": "I see what you mean about keeping up with the Avengers. Regarding the rights issue, that's interesting about Disney not being able to use certain characters in their parks. Do you think this affects the overall experience for visitors at Disney parks?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 6476.41
+    "duration_ms": 8591.86
   },
   {
-    "id": "ee292f23-4af1-4186-b6f1-0eb1af7c38ef",
-    "timestamp": "2025-04-23T01:01:00.818615",
+    "id": "6df81182-f553-489d-8286-48ef10851a5d",
+    "timestamp": "2025-04-25T03:24:11.725607",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
@@ -161,109 +139,79 @@
       },
       {
         "role": "user",
-        "content": "INPUT: Yeah. And if that is the rule, it should eb whoever got there first gets to stay. \nEMOTION=Neutral"
+        "content": "INPUT: I'm not sure.  I'm more of a football fan - my alma maters.   I played in HS and we used circular huddles.  I didn't know that originated for a deaf QB.\nEMOTION=Neutral"
       }
     ],
-    "response": "Regarding the rule about whoever got there first, that's an interesting point. What specific situations do you think that rule should apply to?",
+    "response": "You mentioned your high school football experience and the use of circular huddles. What position did you play back then?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 5698.32
+    "duration_ms": 4623.78
   },
   {
-    "id": "d717770b-157a-441c-be3e-3749fc587a75",
-    "timestamp": "2025-04-23T01:01:02.707009",
+    "id": "9d77b9a7-d647-4352-acf6-3dd90b4d8f52",
+    "timestamp": "2025-04-25T03:24:29.377354",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
       {
         "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
+        "content": "You are Speaker B. Target emotion = **Excited**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
       },
       {
         "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
+        "content": "We can finally travel next month!\nEMOTION=Excited"
       },
       {
         "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
+        "content": "Yes! I've been day dreaming about this trip for ages. Imagining us strolling new streets gives me butterflies. Which city are you most pumped about?"
       },
       {
         "role": "user",
-        "content": "INPUT: The Patriots are playing against The Rams, Tom Brady is the QB of the Patriots,\nEMOTION=Neutral"
+        "content": "INPUT: Buffett!?!?! So much fun! My daughter is 5 and I so want her to experience the parking lot before it's too late...\nEMOTION=Excited"
       }
     ],
-    "response": "Tom Brady is indeed the Patriots' quarterback. What's your take on their chances against The Rams?",
+    "response": "Aww, that's amazing! I'm sure she'll love the experience! The parking lot is going to be epic! What's the plan to make it an unforgettable day for her?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 4300.84
+    "duration_ms": 68479.17
   },
   {
-    "id": "b541d203-c778-49de-97dc-2569b7c7763f",
-    "timestamp": "2025-04-23T01:01:03.611630",
+    "id": "353afc0e-518a-408a-bce8-a0004f8a1fdf",
+    "timestamp": "2025-04-25T03:24:33.777963",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
       {
         "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
+        "content": "You are Speaker B. Target emotion = **Angry**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
       },
       {
         "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
+        "content": "You broke my phone.\nEMOTION=Angry"
       },
       {
         "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
+        "content": "Seriously? My phone was brand new. Now I'm stuck without my main lifeline, and it's a real cost. What do you suggest we do to make this right?"
       },
       {
         "role": "user",
-        "content": "INPUT: Not sure, I guess they're just very strict with their rabbits LOL. What do you like about fantasy stuff by the way? Have you ever done fantasy football\nEMOTION=Neutral"
+        "content": "INPUT: Right and who wants that. I guess the cheerleaders could also go out for the team, since there is no ban of female players! Then they wouldn't have to leave and they wouldn't get head injuries very often either!\nEMOTION=Angry"
       }
     ],
-    "response": "You mentioned fantasy football, so I assume that's an area of interest for you. What draws you to that particular aspect of fantasy?",
+    "response": "Are you kidding me?! You think the solution to the problem is to just have the cheerleaders play instead of the girls who actually want to be on the team?! How does that even address the issue of girls being excluded from playing on the actual team?! What's your real reason for not wanting girls on the team?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 5610.91
+    "duration_ms": 68527.55
   },
   {
-    "id": "66ac6d9b-7d19-4d2f-8731-65d24a5fcc50",
-    "timestamp": "2025-04-23T01:02:07.301167",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Surprise**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I didn't expect you to come!\nEMOTION=Surprise"
-      },
-      {
-        "role": "assistant",
-        "content": "Whoa, I didn't see that coming! It's such a treat to bump into you. Days like this remind me how fun surprises are. Care to grab a coffee and tell me what sparked this visit?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: I was surprised to learn that the NFL has chips in their uniforms and the ball. I wonder what they use the data for. \nEMOTION=Surprise"
-      }
-    ],
-    "response": "That's astonishing! Chips in the uniforms and ball? I've never heard of that before! What kind of data do you think they collect with those chips, and how does it influence the game?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 69486.83
-  },
-  {
-    "id": "42942fb4-033e-439c-bfa1-04aceb5a7326",
-    "timestamp": "2025-04-23T01:03:20.986563",
+    "id": "abe77270-6a9d-4ee0-8c8c-c58070b3cd9a",
+    "timestamp": "2025-04-25T03:24:55.246510",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
@@ -289,462 +237,44 @@
       },
       {
         "role": "user",
-        "content": "INPUT: She also wrote other mysteries that won Edgar Awards from the Mystery Writers of America\nEMOTION=Neutral"
+        "content": "INPUT: That's very interesting, sounds like Cumberland suffered a huge loss. Anyways, it was nice talking to you!\nEMOTION=Neutral"
       }
     ],
-    "response": "That's impressive, winning an Edgar Award is a notable achievement in the literary world. What inspired her to write mystery novels, or was it a genre she always been drawn to?",
+    "response": "Thanks for sharing about Cumberland. If you're ready to move on, what's been the highlight of your week so far?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 73537.05
+    "duration_ms": 21209.44
   },
   {
-    "id": "57b8a887-ffa2-4172-9d7d-e120edcd64f3",
-    "timestamp": "2025-04-23T01:03:21.177544",
+    "id": "a6c4643d-892c-48df-9ff4-16a747b7f671",
+    "timestamp": "2025-04-25T03:24:57.928198",
     "call_type": "inference",
     "model": "llama_3_70b_q4",
     "prompt": [
       {
         "role": "system",
-        "content": "Reply in under 100 words in a Neutral tone regardless of the emotional content of the input. Be polite, factual, and keep the conversation moving with a simple follow-up question at the end. Maintain a neutral tone even if the input suggests sadness, excitement, anger, or other emotions. Generate ONLY ONE response to the input marked as 'INPUT:' below."
+        "content": "You are Speaker B. Target emotion = **Excited**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
       },
       {
         "role": "user",
-        "content": "INPUT: The meeting starts at nine."
+        "content": "We can finally travel next month!\nEMOTION=Excited"
       },
       {
         "role": "assistant",
-        "content": "Got it, thanks for the heads up. I'll log in a few minutes early to ensure the slides load properly. Sound good?"
+        "content": "Yes! I've been day dreaming about this trip for ages. Imagining us strolling new streets gives me butterflies. Which city are you most pumped about?"
       },
       {
         "role": "user",
-        "content": "INPUT: I'm so devastated. My dog just died after 12 years together."
-      },
-      {
-        "role": "assistant",
-        "content": "I understand this is a significant loss. Many people find comfort in creating a small memorial or sharing favorite memories during this time. Would it help to talk about some special moments you shared together?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: lol  My first thought was that they could program the chips in the footballs to go to the other chips in the shoulder pads.  \nEMOTION=Neutral"
+        "content": "INPUT: Buffett!?!?! So much fun! My daughter is 5 and I so want her to experience the parking lot before it's too late...\nEMOTION=Excited"
       }
     ],
-    "response": "That's an interesting idea about using technology to enhance the game. Have you considered how this concept might apply to other sports as well?",
+    "response": "Oh my, the parking lot party is going to be a blast for your little one! Can you even imagine her face when she sees the tailgating fun? What's the plan for her first concert experience?",
     "parameters": {
       "max_tokens": 400,
       "temperature": 0.7
     },
-    "duration_ms": 73629.45
-  },
-  {
-    "id": "66a7900c-4187-4d90-8b1a-569860c665b5",
-    "timestamp": "2025-04-23T01:04:36.936434",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "Reply in under 100 words in a Neutral tone regardless of the emotional content of the input. Be polite, factual, and keep the conversation moving with a simple follow-up question at the end. Maintain a neutral tone even if the input suggests sadness, excitement, anger, or other emotions. Generate ONLY ONE response to the input marked as 'INPUT:' below."
-      },
-      {
-        "role": "user",
-        "content": "INPUT: The meeting starts at nine."
-      },
-      {
-        "role": "assistant",
-        "content": "Got it, thanks for the heads up. I'll log in a few minutes early to ensure the slides load properly. Sound good?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: I'm so devastated. My dog just died after 12 years together."
-      },
-      {
-        "role": "assistant",
-        "content": "I understand this is a significant loss. Many people find comfort in creating a small memorial or sharing favorite memories during this time. Would it help to talk about some special moments you shared together?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: Yeah. And if that is the rule, it should eb whoever got there first gets to stay. \nEMOTION=Neutral"
-      }
-    ],
-    "response": "That's an interesting perspective on the rule. Can you elaborate on what led you to that conclusion about first-come, first-served?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 75889.09
-  },
-  {
-    "id": "2fa82d9a-cdaf-4e5d-9452-fd613c9d9fa6",
-    "timestamp": "2025-04-23T01:04:37.127532",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "Reply in under 100 words in a Neutral tone regardless of the emotional content of the input. Be polite, factual, and keep the conversation moving with a simple follow-up question at the end. Maintain a neutral tone even if the input suggests sadness, excitement, anger, or other emotions. Generate ONLY ONE response to the input marked as 'INPUT:' below."
-      },
-      {
-        "role": "user",
-        "content": "INPUT: The meeting starts at nine."
-      },
-      {
-        "role": "assistant",
-        "content": "Got it, thanks for the heads up. I'll log in a few minutes early to ensure the slides load properly. Sound good?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: I'm so devastated. My dog just died after 12 years together."
-      },
-      {
-        "role": "assistant",
-        "content": "I understand this is a significant loss. Many people find comfort in creating a small memorial or sharing favorite memories during this time. Would it help to talk about some special moments you shared together?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: The Patriots are playing against The Rams, Tom Brady is the QB of the Patriots,\nEMOTION=Neutral"
-      }
-    ],
-    "response": ": \nThe Patriots and Rams game is a significant matchup. What do you think about Tom Brady's chances of leading the Patriots to victory in this game?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 75767.58
-  },
-  {
-    "id": "9babbe5e-b215-4ea8-91d7-bdf7700e66c3",
-    "timestamp": "2025-04-23T01:04:38.471452",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: I am not as much into baseball as I am the other sports, but it makes the game a lot more fun to follow.  You have the same number of offensive players I think, and then like 6 spots for pitching. \n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Neutral.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 1195.7
-  },
-  {
-    "id": "ad6b65c3-eebb-486c-abc4-ab2ab086ad13",
-    "timestamp": "2025-04-23T01:04:38.658420",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: He seems to be more of a deep thinker these days, he says he wants to know the \"why's\" in life. I think we would all like to know those answers.\n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Neutral.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 1292.37
-  },
-  {
-    "id": "2dd2e491-2347-4b05-b8c6-716b25e1822b",
-    "timestamp": "2025-04-23T01:04:38.865026",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: Yea, it be pretty cool if there were dinosaurs that glowed in the dark like Canada's dinosaur coin\n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Excited.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 1539.31
-  },
-  {
-    "id": "ff2d13d0-60e5-4c4a-b676-a62f5984dcd2",
-    "timestamp": "2025-04-23T01:04:39.530721",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: I bet it is tough. That's why you need geniuses to play the position like Alex Smith who entered college as a junior. He even received his bachelor's in two years. That's fascinating! Well it was great chatting with you as well! I hope you have a great evening, friend!\n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Neutral.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 997.27
-  },
-  {
-    "id": "40b9f3bf-4ee6-474d-b5e2-3087c63d5d3e",
-    "timestamp": "2025-04-23T01:04:39.719665",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: Wow. That would be fun to watch in IMAX theater. I was interested to find that Disney does not own the rights to some marvel characters like spiderman.\n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Neutral.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 998.92
-  },
-  {
-    "id": "fa405d76-9bd0-4bae-80c3-adef84db67a6",
-    "timestamp": "2025-04-23T01:04:39.963821",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: Every vote counts!  That is why it is sad to here that in Alabama 34% of the black male population can no longer vote.\n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Sad\n# Explanation\nThe statement made by",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 2592.93
-  },
-  {
-    "id": "fcdb4e89-07d4-4fc2-b309-385f8d36d9d0",
-    "timestamp": "2025-04-23T01:04:40.476263",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are an emotion classification system. Based on Speaker A's text, predict the most natural emotional response for Speaker B. Choose from: Happy, Sad, Angry, Neutral, Surprise, Disgust, Fear, Excited."
-      },
-      {
-        "role": "user",
-        "content": "Speaker A: I typically only watch a handful of playoff games and the Super Bowl. What's cool is how they use embedded chips in the shoulder pads and footballs to track speed and all that. It makes sense\n\nWhat emotion would be the most natural for Speaker B to express in response? Answer with a single word."
-      }
-    ],
-    "response": "Neutral.",
-    "parameters": {
-      "max_tokens": 10,
-      "temperature": 0.0
-    },
-    "duration_ms": 883.32
-  },
-  {
-    "id": "ddbbe7c3-18c1-4981-b5c9-ed2c55395959",
-    "timestamp": "2025-04-23T01:04:44.787772",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
-      },
-      {
-        "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: I am not as much into baseball as I am the other sports, but it makes the game a lot more fun to follow.  You have the same number of offensive players I think, and then like 6 spots for pitching. \nEMOTION=Neutral"
-      }
-    ],
-    "response": "You mentioned having the same number of offensive players, can you clarify the positions for me?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 4067.79
-  },
-  {
-    "id": "40f11430-3a99-4485-a849-24b0b7ebe61e",
-    "timestamp": "2025-04-23T01:04:49.175167",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
-      },
-      {
-        "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: He seems to be more of a deep thinker these days, he says he wants to know the \"why's\" in life. I think we would all like to know those answers.\nEMOTION=Neutral"
-      }
-    ],
-    "response": "Regarding his curiosity about life's \"why's\", I've noticed that too. He's been asking more questions lately. What do you think sparked this new interest in exploring the deeper meaning of things?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 8452.62
-  },
-  {
-    "id": "acf4751b-acff-4c23-965f-d23d7a6b9691",
-    "timestamp": "2025-04-23T01:04:50.113416",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
-      },
-      {
-        "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: I bet it is tough. That's why you need geniuses to play the position like Alex Smith who entered college as a junior. He even received his bachelor's in two years. That's fascinating! Well it was great chatting with you as well! I hope you have a great evening, friend!\nEMOTION=Neutral"
-      }
-    ],
-    "response": "That's an interesting fact about Alex Smith. What do you think makes him stand out as a player beyond his academic achievements?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 5263.15
-  },
-  {
-    "id": "a8592f4d-58c7-435e-9b49-bd9d225783f6",
-    "timestamp": "2025-04-23T01:04:53.437782",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
-      },
-      {
-        "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: They said to make the name redundant. So weird. I thought Stan Lee was an amazing human, did you like him?\nEMOTION=Neutral"
-      }
-    ],
-    "response": "His legacy is still celebrated. What did you think about his writing style?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 3262.02
-  },
-  {
-    "id": "56a1f8fd-5047-42aa-be40-c5247992f15f",
-    "timestamp": "2025-04-23T01:04:56.564855",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
-      },
-      {
-        "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: Wow. That would be fun to watch in IMAX theater. I was interested to find that Disney does not own the rights to some marvel characters like spiderman.\nEMOTION=Neutral"
-      }
-    ],
-    "response": "That's an interesting point about Disney and Marvel. I hadn't realized Spiderman wasn't part of their portfolio. Will you be watching the next Marvel movie in an IMAX theater?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 7232.75
-  },
-  {
-    "id": "ef9859b0-7c8a-4f24-ba8c-955fbb1b1115",
-    "timestamp": "2025-04-23T01:04:58.767201",
-    "call_type": "inference",
-    "model": "llama_3_70b_q4",
-    "prompt": [
-      {
-        "role": "system",
-        "content": "You are Speaker B. Target emotion = **Neutral**. You are Speaker B. Respond with the target EMOTION in 100 words or less. Make the emotion obvious. Force yourself to reply in specified emotion ONLY. Refer to something specific the speaker just said. End with a gentle follow-up question. Generate ONLY ONE response to this input."
-      },
-      {
-        "role": "user",
-        "content": "I'll call you later about the plan.\nEMOTION=Neutral"
-      },
-      {
-        "role": "assistant",
-        "content": "Sounds good I'll keep my phone handy. Once we connect we can walk through the timeline step by step. Talk soon; let me know if anything changes?"
-      },
-      {
-        "role": "user",
-        "content": "INPUT: I typically only watch a handful of playoff games and the Super Bowl. What's cool is how they use embedded chips in the shoulder pads and footballs to track speed and all that. It makes sense\nEMOTION=Neutral"
-      }
-    ],
-    "response": "Regarding the embedded chips, it seems to enhance the viewing experience. How do you think this technology will evolve in the next season?",
-    "parameters": {
-      "max_tokens": 400,
-      "temperature": 0.7
-    },
-    "duration_ms": 5267.44
+    "duration_ms": 69691.05
   }
 ]
